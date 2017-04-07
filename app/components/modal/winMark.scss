@@ -1,0 +1,18 @@
+.virtual-mark{
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    position: fixed;
+    left:0;
+    top: 3.2rem;
+    right: 0;
+    bottom: 0;
+
+    height: calc(100% - 3.2rem);
+    z-index: 999;
+    background-color: rgba(0,0,0,.8);
+}
