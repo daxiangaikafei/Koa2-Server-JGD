@@ -134,7 +134,7 @@ class OpenTip extends React.Component {
     }
 }
 
-OpenTip.PropTypes = {
+OpenTip.propTypes = {
     packages: PropTypes.arrayOf(PropTypes.shape({
         pkgId: PropTypes.number.isRequired,
         amount: PropTypes.string.isRequired,
