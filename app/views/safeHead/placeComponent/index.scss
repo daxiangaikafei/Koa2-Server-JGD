@@ -1,0 +1,80 @@
+#safety-place-item-view{
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .place-title{
+    color: #90909b;
+    font-size: 0.7rem;
+    text-align: center;
+    width: 100%;
+    height: 1.75rem;
+    line-height: 1.75rem;
+    background: #f1f1f6;
+  }
+
+  .place-scroll{
+    width: 100%;
+    height: calc(100% - 2.4rem);
+    overflow-y: auto;
+    position: relative;
+  }
+
+  .place-canvas{
+    position: absolute;
+    width: 90%;
+    height: 13rem;
+    left: 5%;
+  }
+
+  .place-list{
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+
+    .place-item{
+      width: 100%;
+      border-radius: 0.5rem;
+      border: 0.05rem solid #dde9fd;
+      background-color: #f7faff;
+      font-size: 0.6rem;
+      color: #2f2f2f;
+      padding: 0.5rem 0;
+      margin-bottom: 0.5rem;
+
+      .num{
+        width: 10%;
+        font-size: 1.2rem;
+        color: #96c2fd;
+        padding:  0 0.5rem;
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      .right-div{
+        padding-left: 0.5rem;
+        width: 90%;
+        display: table-cell;
+
+        .place-txt{
+          font-size: 0.75rem;
+          color: #35353f;
+          word-break: break-all;
+        }
+
+        .times-txt{
+          margin-top: 0.5rem;
+          font-size: 0.6rem;
+          color: #90909b;
+        }
+      }
+
+      .icon{
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 0.5rem;
+        display: inline-block;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+#safety-card-item-view{
+  width: 100%;
+  height: 100%;
+  background-color: #f1f1f6;
+
+  .safety-card-container{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+
+    .card-title{
+      color: #808080;
+      font-size: 0.7rem;
+      text-align: center;
+      width: 100%;
+      height: 1.75rem;
+      line-height: 1.75rem;
+    }
+
+    .title-div{
+      width: 100%;
+      padding:0 0.75rem;
+      height: 1.75rem;
+      line-height: 1.75rem;
+      background-color: #ffffff;
+
+      .title{
+        font-size: 0.7rem;
+        color: #35353f;
+      }
+
+      .tip{
+        font-size: 0.6rem;
+        color: #808080;
+      }
+    }
+
+    .list{
+      width: 100%;
+      padding: 0 0.75rem;
+      border-top: 0.05rem solid #e6e6e6;
+      background-color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .bank-list{
+      border-top: 0 !important;
+    }
+
+    .blank-item{
+      width: 100%;
+      height: 3.75rem;
+      border-radius: 0.5rem;
+      border: 0.05rem solid #dde9fd;
+      background-color: #f7faff;
+      padding-left: 0.5rem;
+      padding-top: 0.35rem;
+      line-height: 1rem;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+      position: relative;
+
+      span{
+        display: block;
+        font-size: 0.75rem;
+        color: #35353f;
+      }
+
+      .blank-card-name{
+        font-size: 0.7rem;
+      }
+
+      .blank-card-date{
+        font-size: 0.6rem;
+        color: #90909b;
+      }
+
+      .blank-card-status{
+        width: 1.8rem;
+        height: 100%;
+        position:  absolute;
+        top: 0;
+        right: 0;
+      }
+
+      .blank-card-status.use{
+        background: url("../images/safetyHead/card-use-icon.png") no-repeat top right;
+        background-size: 100% auto;
+      }
+
+      .blank-card-status.lock{
+        background: url("../images/safetyHead/card-lock-icon.png") no-repeat top right;
+        background-size: 100% auto;
+      }
+    }
+
+    .list-item{
+      width: 100%;
+      height: 3rem;
+      border-bottom: 0.05rem solid #e6e6e6;
+      font-size: 0.6rem;
+      color: #808080;
+      padding-top: 0.75rem;
+
+      .info-txt{
+        font-size: 0.75rem;
+        color: #35353f;
+      }
+
+      span{
+        display: block;
+        height: 0.8rem;
+        line-height: 0.8rem;
+      }
+    }
+
+    .list-item:last-child{
+      border-bottom: 0;
+    }
+  }
+}

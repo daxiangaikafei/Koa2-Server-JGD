@@ -20,3 +20,6 @@ export safetyGrade from '../views/safetyGrade/reducer/reducer'
 
 /**我的足迹 */
 export myFooterReducer from '../views/myFooter/reducer/reducer'
+
+/**安全画像 */
+export safeHeadReducer from '../views/safeHead/reducer/reducer'
