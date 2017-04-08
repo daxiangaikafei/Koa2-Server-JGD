@@ -33,3 +33,6 @@ export const INIT_OPENTIP = "INIT_OPENTIP"
 
 
 export const SAFE_DATA = "SAFE_DATA"
+
+/**我的足迹 */
+export const INIT_MYFOOTER = "INIT_MYFOOTER"

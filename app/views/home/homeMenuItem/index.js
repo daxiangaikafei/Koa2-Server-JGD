@@ -20,7 +20,7 @@ class HomeMenuItem extends React.Component{
     }
 }
 
-HomeMenuItem.PropTypes = {
+HomeMenuItem.propTypes = {
     descRealStr: PropTypes.string,
     menuData: PropTypes.shape({
         id: PropTypes.string.isRequired,

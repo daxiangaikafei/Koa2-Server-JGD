@@ -4,29 +4,36 @@
 
 import React, { PropTypes } from 'react'
 
-import CommonConst from '../../constants'
-import classNames from 'classnames'
+import MyFooterRecordItem from '../myFooterRecordItem'
+
+
 import './index.scss'
 
 
 class MyFooterDateItem extends React.Component {
 
     render(){
-        let recordItems, title
+        let { data, onClickHandler, key } = this.props
+        let recordItems = data.map((obj, index)=><MyFooterRecordItem key={index} data={obj} onClickHandler={()=>onClickHandler(key+"_"+index)} />)
+
         return(
-            <div class="my-footer-date-list">
-                <div class="date-list-title-div">
-                    <div class="title-icon"></div><span class="title-txt">{title}</span>
+            <div className="my-footer-date-list">
+                <div className="date-list-title-div">
+                    <div className="title-icon"></div><span className="title-txt">{data.length>0 ? data[0].title : ""}</span>
                 </div>
-                <div class="my-footer-item-list">{recordItems}</div>
+                <div className="my-footer-item-list">{recordItems}</div>
             </div>
         )
     }
 }
 
-MyFooterDateItem.PropTypes = {
-    title: PropTypes.string.isRequired,
-    data: PropTypes.shape().isRequired
+MyFooterDateItem.propTypes = {
+    data: PropTypes.arrayOf(
+        PropTypes.shape({
+            title: PropTypes.string.isRequired,
+        })
+    ).isRequired,
+    onClickHandler: PropTypes.func.isRequired
 }
 
 export default MyFooterDateItem

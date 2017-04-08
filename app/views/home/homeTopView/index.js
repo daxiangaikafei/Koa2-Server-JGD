@@ -82,7 +82,7 @@ class HomeTopView extends React.Component{
     }
 }
 
-HomeTopView.PropTypes = {
+HomeTopView.propTypes = {
     securityGrade: PropTypes.number.isRequired,
     animationGrade: PropTypes.number.isRequired,
     isOpen: PropTypes.number.isRequired,

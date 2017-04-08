@@ -23,7 +23,7 @@ class RiskMessageSelectList extends React.Component {
     }
 }
 
-RiskMessageSelectList.PropTypes = {
+RiskMessageSelectList.propTypes = {
     title: PropTypes.string.isRequired
 }
 
