@@ -17,3 +17,6 @@ export openTipReducer from '../views/openTip/reducer/reducer'
 
 //会员等级
 export safetyGrade from '../views/safetyGrade/reducer/reducer'
+
+/**我的足迹 */
+export myFooterReducer from '../views/myFooter/reducer/reducer'

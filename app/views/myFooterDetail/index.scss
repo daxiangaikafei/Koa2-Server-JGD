@@ -1,0 +1,71 @@
+#my-footer-detail-view{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #ffffff;
+}
+
+.my-footer-detail-container{
+  width: 100%;
+  height: 100%;
+  border-top: 0.05rem solid #e6e6e6;
+  
+  .detail-top-div{
+    width: 100%;
+    height: 2.75rem;
+    line-height: 2.75rem;
+    text-align: center;
+
+    div{
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .topIcon{
+      width: 2.2rem;
+      background: url(../../static/images/common/map-icon.png) no-repeat center;
+      background-size: 1rem;
+      
+    }
+
+    .topTxt{
+      font-size: 0.75rem;
+      color: #35353f;
+    }
+  }
+
+  .detail-content{
+    padding: 0 0.75rem;
+    font-size: 0.75rem;
+    color: #35353f;
+    border-top: 0.05rem solid #e6e6e6;
+    border-bottom: 0.05rem solid #e6e6e6;
+  }
+
+  .detail-content > div{
+    height: 2.5rem;
+    border-bottom: 0.05rem solid #e6e6e6;
+    line-height: 2.5rem;
+  }
+
+  .detail-content > div:last-child{
+    border-bottom: 0;
+  }
+
+  .device-div >div{
+    width: 50%;
+    float: left;
+  }
+
+  .btn-help-blue {
+      width: 1.5rem;
+      height: 100%;
+      background: url(../../static/images/common/white-help-icon.png) no-repeat center;
+      background-size: 1.4rem;
+      float: right;
+  }
+
+}

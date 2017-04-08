@@ -8,6 +8,7 @@ import { Router, Route, IndexRoute } from 'react-router'
 const App = cb => require.ensure([], require => { cb(null, require('../views/main').default)}, "App")
 const Home = cb => require.ensure([], require => { cb(null, require('../views/home').default)}, "Home")
 const MyFooter = cb => require.ensure([], require => { cb(null, require('../views/myFooter').default)}, "myFooter")
+const MyFooterDetail = cb => require.ensure([], require => { cb(null, require('../views/myFooterDetail').default)}, "myFooterDetail")
 const OpenTip = cb => require.ensure([], require => { cb(null, require('../views/openTip').default)}, "openTip")
 const RiskCenter = cb => require.ensure([], require => { cb(null, require('../views/riskCenter').default)}, "riskCenter")
 const SafetyGrade = cb => require.ensure([], require => { cb(null, require('../views/safetyGrade').default)}, "safetyGrade")
@@ -22,6 +23,10 @@ const Routers = {
 		{
 			path: 'myFooter',
 			getComponent(nextState, cb){ MyFooter(cb) }
+		},
+		{
+			path: 'myFooterDetail',
+			getComponent(nextState, cb){ MyFooterDetail(cb) }
 		},
 		{
 			path: 'openTip',

@@ -36,3 +36,4 @@ export const SAFE_DATA = "SAFE_DATA"
 
 /**我的足迹 */
 export const INIT_MYFOOTER = "INIT_MYFOOTER"
+export const INIT_MYFOOTER_DETAIL = "INIT_MYFOOTER_DETAIL"
