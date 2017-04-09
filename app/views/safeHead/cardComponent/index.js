@@ -4,9 +4,6 @@
 
 import React, { PropTypes } from 'react'
 
-import Page from '../../components/page'
-import Header from '../../components/header'
-
 import './index.scss'
 
 /**安全画像 */

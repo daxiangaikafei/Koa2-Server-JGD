@@ -7,6 +7,15 @@ import React, { PropTypes } from 'react'
 import Page from '../../components/page'
 import Header from '../../components/header'
 
+
+import TabSelect from './tabSelectComponent'
+import CardComponent from './cardComponent'
+import DeviceComponent from './deviceComponent'
+import PassComponent from './passComponent'
+import PlaceComponent from './placeComponent'
+
+import safeHeadConst from './reducer/const'
+
 import './index.scss'
 
 /**安全画像 */
@@ -14,42 +23,39 @@ class SafeHead extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            tabSelectIsShow: false,
+            showType: safeHeadConst.SAFE_HEAD_DEVICE_LBS
+        }
     }
 
     componentDidMount(){
     }
 
-    render(){
+    onShowTabSelect(){
+        this.setState({tabSelectIsShow: true})
+    }
 
+
+    onTabSelectChangeHandler(type){
+        this.setState({
+            tabSelectIsShow: false,
+            showType: type
+        })
+    }
+
+    render(){
+        let { tabSelectIsShow, showType } = this.state
         return(
             <Page id="safetyHead-view">
                 <Header title="安全画像"></Header>
                 <div className="safetyHead-container">
-                    <div className="safetyHead-tab-div">
+                    <div className="safetyHead-tab-div" onTouchTap={()=>this.onShowTabSelect()}>
                         <div className="tab-select-title">登录位置</div><div className="tab-select-arror-icon"></div>
                     </div>
                     <div className="content-region"></div>
-                    <div className="tab-select-container">
-                        <div className="tab-select-list">
-                            <div className="tab-select-item selected" data-type="device-lbs">
-                                <div className="title">登录位置</div><div className="icon"></div>
-                            </div>
-                            <div className="tab-select-item" data-type="device-info">
-                                <div className="title">登录设备</div><div className="icon"></div>
-                            </div>
-                            <div className="tab-select-item" data-type="place">
-                                <div className="title">收货地址</div><div className="icon"></div>
-                            </div>
-                            <div className="tab-select-item" data-type="card">
-                                <div className="title">换绑次数</div><div className="icon"></div>
-                            </div>
-                            <div className="tab-select-item" data-type="pass">
-                                <div className="title">修改密码次数</div><div className="icon"></div>
-                            </div>
-                        </div>
-
-                        <div className="tab-select-container-mask"></div>
-                    </div>
+                    <TabSelect isShow={tabSelectIsShow} selectType={showType} onClickHandler={(type)=>this.onTabSelectChangeHandler(type)}/>
                 </div>
             </Page>
         )

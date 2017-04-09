@@ -12,6 +12,7 @@ const MyFooterDetail = cb => require.ensure([], require => { cb(null, require('.
 const OpenTip = cb => require.ensure([], require => { cb(null, require('../views/openTip').default)}, "openTip")
 const RiskCenter = cb => require.ensure([], require => { cb(null, require('../views/riskCenter').default)}, "riskCenter")
 const SafetyGrade = cb => require.ensure([], require => { cb(null, require('../views/safetyGrade').default)}, "safetyGrade")
+const SafeHead = cb => require.ensure([], require => { cb(null, require('../views/safeHead').default)}, "safeHead")
 
 const Routers = {
 	path: '/',
@@ -27,6 +28,10 @@ const Routers = {
 		{
 			path: 'myFooterDetail',
 			getComponent(nextState, cb){ MyFooterDetail(cb) }
+		},
+		{
+			path: 'safeHead',
+			getComponent(nextState, cb){ SafeHead(cb) }
 		},
 		{
 			path: 'openTip',
