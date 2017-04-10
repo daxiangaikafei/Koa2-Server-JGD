@@ -63,7 +63,7 @@ class ModalChargePackageSkin extends React.Component {
             endDate = selectPkgData ? selectPkgData.endDate : ""
 
         return (
-            <div className="alert-charge-package-skin popup-container">
+            <div className="alert-charge-package-skin">
                 <div className="alert-common-container">
                     <div className="alert-title">支付会员费</div>
                     <div className="alert-content">

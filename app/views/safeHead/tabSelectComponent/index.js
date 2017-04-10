@@ -45,21 +45,16 @@ class TabSelectContainer extends React.Component {
         return(
             <div className="tab-select-container" style={containerStyle}>
                 <div className="tab-select-list" style={listStyle}>
-                    <div className={"tab-select-item " + (selectType==SafeHeadConst.SAFE_HEAD_DEVICE_LBS ? "selected" : "")} onTouchTap={()=>this.onItemClickHandler(SafeHeadConst.SAFE_HEAD_DEVICE_LBS)}>
-                        <div className="title">登录位置</div><div className="icon"></div>
-                    </div>
-                    <div className={"tab-select-item " + (selectType==SafeHeadConst.SAFE_HEAD_DEVICE_INFO ? "selected" : "")} onTouchTap={()=>this.onItemClickHandler(SafeHeadConst.SAFE_HEAD_DEVICE_INFO)}>
-                        <div className="title">登录设备</div><div className="icon"></div>
-                    </div>
-                    <div className={"tab-select-item " + (selectType==SafeHeadConst.SAFE_HEAD_PASS ? "selected" : "")} onTouchTap={()=>this.onItemClickHandler(SafeHeadConst.SAFE_HEAD_PASS)}>
-                        <div className="title">收货地址</div><div className="icon"></div>
-                    </div>
-                    <div className={"tab-select-item " + (selectType==SafeHeadConst.SAFE_HEAD_CARD ? "selected" : "")} onTouchTap={()=>this.onItemClickHandler(SafeHeadConst.SAFE_HEAD_CARD)}>
-                        <div className="title">换绑次数</div><div className="icon"></div>
-                    </div>
-                    <div className={"tab-select-item " + (selectType==SafeHeadConst.SAFE_HEAD_PASS ? "selected" : "")} onTouchTap={()=>this.onItemClickHandler(SafeHeadConst.SAFE_HEAD_PASS)}>
-                        <div className="title">修改密码次数</div><div className="icon"></div>
-                    </div>
+                    {
+                        Object.keys(SafeHeadConst.SAFE_HEAD_SELECT_TAB_LIST).map((type, index)=>{
+                            let val = SafeHeadConst.SAFE_HEAD_SELECT_TAB_LIST[type]
+                            return (
+                                <div key={index} className={"tab-select-item " + (selectType==type ? "selected" : "")} onTouchTap={()=>this.onItemClickHandler(type)}>
+                                    <div className="title">{val}</div><div className="icon"></div>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
 
                 <div className="tab-select-container-mask"></div>

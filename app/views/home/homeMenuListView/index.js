@@ -46,7 +46,7 @@ class HomeMenuListView extends React.Component{
 HomeMenuListView.propTypes = {
     data : PropTypes.shape({
         lbs: PropTypes.string.isRequired,
-        isOpen: PropTypes.string.isRequired
+        isOpen: PropTypes.number.isRequired
     }).isRequired
 }
 

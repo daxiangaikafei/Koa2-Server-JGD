@@ -7,9 +7,9 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import Page from '../../components/page'
-import Header from '../../components/page'
 
-import MyFooterConst from '../myFooter/reducer/const'
+import BottomCloseAlert from '../../components/ui/bottomCloseAlert'
+import * as MyFooterConst from '../myFooter/reducer/const'
 
 import './index.scss'
 
@@ -18,12 +18,12 @@ class MyFooterDetail extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isShowAlert: flase
+            isShowAlert: false
         }
     }
 
     componentDidMount(){
-        this.setState({isShowAlert: flase})
+        this.setState({isShowAlert: false})
     }
 
     onShowAlertHandler(){
@@ -31,17 +31,19 @@ class MyFooterDetail extends React.Component {
     }
 
     onHideAlertHandler(){
-        this.setState({isShowAlert: flase})
+        this.setState({isShowAlert: false})
     }
 
     render(){
         let {isShowAlert} = this.state
         let { detailData } = this.props
-        let { trueIp, location, os } = detailData
+        let trueIp = detailData ? detailData.trueIp : ""
+        let location = detailData ? detailData.location : ""
+        let os = detailData ? detailData.os : ""
+        let dateFormat = detailData ? detailData.dateFormat : ""
 
         return(
             <Page id="my-footer-detail-view">
-                <Header title="足迹详情" />
                 <div className="my-footer-detail-container">
                     <div className="detail-top-div">
                         <div className="topIcon"></div><div className="topTxt">{os + " " + location}</div>
@@ -67,7 +69,7 @@ MyFooterDetail.propTypes = {
         os: PropTypes.string.isRequired,
         trueIp: PropTypes.string.isRequired,
         dateFormat: PropTypes.string.isRequired,
-    }).isRequired
+    })
 }
 
 let mapStateToProps = state => ({

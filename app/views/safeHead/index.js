@@ -5,8 +5,6 @@
 import React, { PropTypes } from 'react'
 
 import Page from '../../components/page'
-import Header from '../../components/header'
-
 
 import TabSelect from './tabSelectComponent'
 import CardComponent from './cardComponent'
@@ -14,9 +12,10 @@ import DeviceComponent from './deviceComponent'
 import PassComponent from './passComponent'
 import PlaceComponent from './placeComponent'
 
-import safeHeadConst from './reducer/const'
+import * as SafeHeadConst from './reducer/const'
 
 import './index.scss'
+
 
 /**安全画像 */
 class SafeHead extends React.Component {
@@ -26,7 +25,7 @@ class SafeHead extends React.Component {
 
         this.state = {
             tabSelectIsShow: false,
-            showType: safeHeadConst.SAFE_HEAD_DEVICE_LBS
+            showType: SafeHeadConst.SAFE_HEAD_DEVICE_LBS
         }
     }
 
@@ -45,25 +44,36 @@ class SafeHead extends React.Component {
         })
     }
 
+    getComponentByType(type){
+        switch(type){
+            case SafeHeadConst.SAFE_HEAD_DEVICE_LBS:
+            case SafeHeadConst.SAFE_HEAD_DEVICE_INFO:
+                return <DeviceComponent showType={type} />
+            case SafeHeadConst.SAFE_HEAD_PLACE:
+                return <PlaceComponent />
+            case SafeHeadConst.SAFE_HEAD_PASS:
+                return <PassComponent />
+            case SafeHeadConst.SAFE_HEAD_CARD:
+                return <CardComponent />
+        }
+    }
+
     render(){
         let { tabSelectIsShow, showType } = this.state
+        let component = this.getComponentByType(showType)
+
         return(
             <Page id="safetyHead-view">
-                <Header title="安全画像"></Header>
                 <div className="safetyHead-container">
                     <div className="safetyHead-tab-div" onTouchTap={()=>this.onShowTabSelect()}>
-                        <div className="tab-select-title">登录位置</div><div className="tab-select-arror-icon"></div>
+                        <div className="tab-select-title">{SafeHeadConst.SAFE_HEAD_SELECT_TAB_LIST[showType]}</div><div className="tab-select-arror-icon"></div>
                     </div>
-                    <div className="content-region"></div>
+                    <div className="content-region">{component}</div>
                     <TabSelect isShow={tabSelectIsShow} selectType={showType} onClickHandler={(type)=>this.onTabSelectChangeHandler(type)}/>
                 </div>
             </Page>
         )
     }
 }
-
-SafeHead.propTypes = {
-}
-
 
 export default SafeHead

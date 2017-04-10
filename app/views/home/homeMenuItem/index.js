@@ -27,8 +27,8 @@ HomeMenuItem.propTypes = {
         link: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         desc: PropTypes.string.isRequired,
-        iconStatus: PropTypes.bool.isRequired
     }).isRequired,
+    iconStatus: PropTypes.bool.isRequired,
     clickHandler : PropTypes.func.isRequired,
 }
 

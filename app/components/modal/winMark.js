@@ -11,8 +11,9 @@ class WinMark extends React.Component {
     }
     render() {
         let {children,show,onClick} = this.props;
+        console.log("showshowshowshow", show)
         return (
-            <div onClick={onClick} className={"virtual-mark "+(show===true?"":"hide")} >
+            <div onClick={onClick} className={"virtual-mark "+(show===true?"show":"hide")} >
                 {children}
             </div>
         )

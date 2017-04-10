@@ -48,7 +48,8 @@
     }
 
     .wrapper{
-      overflow: hidden;
+      overflow-x: auto;
+      transition: all .5s;
     }
 
     .device-list{

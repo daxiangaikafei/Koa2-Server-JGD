@@ -7,10 +7,10 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import Page from '../../components/page'
-import Header from '../../components/page'
 import TabItemArrow from '../../components/ui/tabItemArrow'
 import MyFooterDateItem from './MyFooterDateItem'
 import BottomCloseAlert from '../../components/ui/bottomCloseAlert'
+import { getMyFooterData, onSaveItemData } from './reducer/actions'
 import * as MyFooterConst from './reducer/const'
 
 import navigate from '../../router/navigate'
@@ -22,13 +22,13 @@ class MyFooter extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isShowAlert: flase
+            isShowAlert: false
         }
     }
 
     componentDidMount(){
         this.props.getMyFooterData()
-        this.setState({isShowAlert: flase})
+        this.setState({isShowAlert: false})
     }
 
     onItemHandler(obj){
@@ -41,11 +41,11 @@ class MyFooter extends React.Component {
     }
 
     onSafeHeadHandler(){
-        navigate.push('/safetyHead')
+        navigate.push('/safeHead')
     }
 
     onAlertCloseHandler(){
-        this.setState({isShowAlert: flase})
+        this.setState({isShowAlert: false})
     }
 
     render(){
@@ -55,7 +55,6 @@ class MyFooter extends React.Component {
 
         return(
             <Page id="my-footer-view">
-                <Header title="我的足迹" />
                 <div className="my-footer-container">
                     <TabItemArrow title='安全画像' onClickHandler={()=>this.onSafeHeadHandler()} />
 

@@ -13,15 +13,14 @@ class BottomCloseAlert extends React.Component {
     }
 
     render(){
-        let { detailData } = this.props
-        let { trueIp, location, os } = detailData
+        let { title, msg,  onCloseHandler} = this.props
 
         return(
-            <div className="alert-bottom-close-skin container-height">
+            <div className="alert-bottom-close-skin">
                 <div className="alert-bottom-close-container">
                     <div className="alert-msg-container">
                         <div className="alert-title">{title}</div>
-                        <div className="alert-msg">{msg}</div>
+                        <div className="alert-msg" dangerouslySetInnerHTML={{__html:msg}}></div>
                     </div>
                     <button className="alert-btn-close" onTouchTap={onCloseHandler}></button>
                 </div>
@@ -33,7 +32,7 @@ class BottomCloseAlert extends React.Component {
 BottomCloseAlert.propTypes = {
     title: PropTypes.string.isRequired,
     msg: PropTypes.string.isRequired,
-    onCloseHandler: PropTypes.string.isRequired,
+    onCloseHandler: PropTypes.func.isRequired,
 }
 
 

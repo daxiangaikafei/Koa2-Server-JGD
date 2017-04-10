@@ -10,7 +10,7 @@ const receiveData = data => ({
 })
 
 
-addTitleProps = data => {
+let addTitleProps = data => {
     return data.map((tempArr)=>tempArr.map((obj)=>{
         return {
             ...obj,
