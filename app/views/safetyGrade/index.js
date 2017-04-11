@@ -33,7 +33,7 @@ class SafeGrade extends React.Component {
                     </div>
                     <span className="safetyGrade-list-title">您的扣分项为：</span>
                     <div className="safetyGrade-list">
-                        {content!=undefined&&content.map((e, i) =><div className="safetyGrade-item" key={"id_" + i}>{e.name}</div> )}
+                        {content&&content.map((e, i) =><div className="safetyGrade-item" key={"id_" + i}>{e.name}</div> )}
                       
                     </div>
                 </div>

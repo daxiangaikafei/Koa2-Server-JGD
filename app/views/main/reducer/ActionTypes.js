@@ -30,8 +30,17 @@ export const HIDE_MODAL = "HIDE_MODAL"
 /**成为会员opentip */
 export const INIT_OPENTIP = "INIT_OPENTIP"
 
-
+// 安全等级
 export const SAFE_DATA = "SAFE_DATA"
+
+// 自助解纷
+export const DE_STEP_ONE = "DE_STEP_ONE"
+export const DE_STEP_Two = "DE_STEP_Two"
+export const DE_STEP_TWO_GETMSG  = "DE_STEP_TWO_GETMSG "
+export const DE_STEP_TWO_COMFIRM = "DE_STEP_TWO_COMFIRM"
+
+//确认支付
+export const PAY_MONEY = "PAY_MONEY"
 
 /**我的足迹 */
 export const INIT_MYFOOTER = "INIT_MYFOOTER"

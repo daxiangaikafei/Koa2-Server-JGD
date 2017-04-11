@@ -1,0 +1,80 @@
+#deblocking-step1-view{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.step1-container{
+  overflow: auto;
+
+  .step1-main{
+
+    .pay-div{
+      .desc{
+          font-size: 0.6rem;
+          color: #5c5c5c;
+          padding: 0 1rem;
+          line-height: 1rem;
+          text-indent: 1rem;
+      }
+
+      .current-yj{
+        font-size: 0.6rem;
+        color: #5c5c5c;
+        text-align: center;
+        margin-top: 0.6rem;
+      }
+
+      .input-div{
+        padding: 0 1rem;
+        margin-top: 1.5rem;
+
+        span{
+          height: 1.5rem;
+          line-height: 1.5rem;
+        }
+
+        .btn-pay{
+          height: 1.5rem;
+          border-radius: 0.2rem;
+          border: 0.05rem solid #00b7ee;
+          padding: 0 0.2rem;
+          color: #00b7ee;
+          float:right;
+        }
+
+        .btn-pay:disabled{
+          color: #d2d2d2;
+          border: 0.05rem solid #d2d2d2;
+        }
+
+        .password-input{
+          width: calc(100% - 8.3rem);
+          height: 1.5rem;
+          border-radius: 0.2rem;
+          border: 0.05rem solid #d2d2d2;
+        }
+
+      }
+    }
+
+    .pay-result-div{
+      display: none;      
+      .desc{
+          font-size: 0.6rem;
+          color: #5c5c5c;
+          padding: 0 1rem;
+          line-height: 1rem;
+          text-align: center;
+
+          a{
+            color: #ff0000;
+            text-decoration: underline;
+          }
+      }
+    }
+    
+  }
+}
