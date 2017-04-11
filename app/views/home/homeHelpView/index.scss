@@ -1,5 +1,10 @@
 .home-help-container{
-  background: rgba(0,0,0,0.8);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,0.5);
   z-index: 999;
 
   .home-help-div{

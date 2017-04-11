@@ -25,3 +25,8 @@ export safetyGrade from '../views/safetyGrade/reducer/reducer'
 // export deblockStepFour from '../views/deblockStep/stepFour/reducer/reducer'
 // export deblockStepFive from '../views/deblockStep/stepFive/reducer/reducer'
 // export deblockStepSix from '../views/deblockStep/stepSix/reducer/reducer'
+/**我的足迹 */
+export myFooterReducer from '../views/myFooter/reducer/reducer'
+
+/**安全画像 */
+export safeHeadReducer from '../views/safeHead/reducer/reducer'

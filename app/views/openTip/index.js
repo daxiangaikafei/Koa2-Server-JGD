@@ -7,7 +7,6 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import Page from '../../components/page'
-import Header from '../../components/header'
 import UserClause from '../../components/ui/userClause'
 import ChargePackage from '../../components/ui/chargePackage'
 
@@ -109,7 +108,6 @@ class OpenTip extends React.Component {
 
         return (
             <Page id="open-tip-view">
-                <Header title="成为会员" />
                 <div className="opent-tip-content">
                     <div className="open-tip-title">尊敬的女士/先生：</div>
                     <div className="open-tip-txt">

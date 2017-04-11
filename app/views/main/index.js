@@ -8,13 +8,12 @@ import PageCSSTransition from '../../components/animate/PageCSSTransition'
 
 import './index.scss'
 
-const App = React.createClass({
-
+class App extends React.Component {
     componentWillMount(){
-    },
+    }
 
     componentWillUpdate(){
-    },
+    }
     
     render(){
         return (
@@ -23,7 +22,7 @@ const App = React.createClass({
             </PageCSSTransition>
         );
     }
-})
+}
 
 export default App
 

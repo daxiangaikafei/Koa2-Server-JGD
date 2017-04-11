@@ -9,7 +9,6 @@ import { connect } from 'react-redux'
 import { getHomeData } from './reducer/actions'
 
 import Page from '../../components/page'
-import Header from '../../components/header'
 
 import HomeTopView from './homeTopView'
 import HomeMenuListView from './homeMenuListView'
@@ -31,7 +30,6 @@ class Home extends React.Component {
         }
         return (
             <Page id="home-page">
-                <Header title="首页"></Header>
                 <div className="home-container">
                     <HomeTopView />
                     <HomeMenuListView data={MenuListData} />

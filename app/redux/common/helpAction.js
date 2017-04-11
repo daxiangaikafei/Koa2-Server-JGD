@@ -78,20 +78,31 @@ export function fetchClean(key) {
   }
 }
 
+export function fetchPosts(key, url, param, type = "GET",headers={}, repType="json"){
+    return (dispatch, getState) => {
+        return new Promise(function(resolve, reject){
+            dispatch(posts(key, url, param, type = "GET",headers={}, repType="json")).then(result=>{
+                if(result.resultCode > 0){
+                    console.log("1111111111111", result)
+                    resolve&&resolve(result.data)
+                }else{
+                    console.log("222222222", result)
+                    // reject&&reject(result)
+                }
+            })
+        }
+    )}
+}
+
 
 //body: type.toLocaleUpperCase()==="GET"?"":JSON.stringify(param)
 /*对外公布请求参数*/
-export function fetchPosts(key, url, param, type = "GET",headers={}, repType="json") {
+export function posts(key, url, param, type = "GET",headers={}, repType="json") {
     return (dispatch, getState) => {
         url = "api/"+url;
         if(type.toLocaleUpperCase()==="GET"&&size(param)>0){
            url +="?"+toExcString(param)
         }
-        // headers = headers?headers:{
-        //             'Accept': 'application/json',
-        //             'Content-Type': 'application/json',
-        //             "Access-Control-Allow-Methods":"PUT,POST,GET,DELETE,OPTIONS"
-        //         };
         console.log("---------------start1----------------",headers);
         //cookie
         headers = assignIn({},{
@@ -99,7 +110,6 @@ export function fetchPosts(key, url, param, type = "GET",headers={}, repType="js
                     'Content-Type': 'application/json',
                     "Access-Control-Allow-Methods":"PUT,POST,GET,DELETE,OPTIONS"
                 }); //headers,getState().cookie
-         console.log("------------- end ------------------",headers);
 
         dispatch(fetchRequest(key));
         return fetch(url, {
@@ -114,24 +124,8 @@ export function fetchPosts(key, url, param, type = "GET",headers={}, repType="js
                 return res.json();
             })
             .then((data) => {
-                console.log('收到data', data);
-                if(data.resultCode > 0){
-                    dispatch(fetchSuccess(key, data));
-                    return data.data;
-                }else{
-                    dispatch(errorSave(key, data));
-                }
-                
-                // if(data&&(data.code===0||data.resultCode==="0"||data.resultCode===0||data.code==="0")){
-                //     dispatch(errorClear("common,login"));
-                // }else{
-                //     console.info("你的请求 内部出错了",data);
-                //     dispatch(errorSave("common",data));
-                //     if(data&&(data.code==="200"||data.code===200||data.resultCode=="200"||data.resultCode==200)){
-                //         dispatch(errorSave("login",data));
-                //     }
-                // }
-                return null;
+                dispatch(fetchSuccess(key, data));
+                return data;
             })
            /* .catch((e) => {
                 //console.error(e.message);

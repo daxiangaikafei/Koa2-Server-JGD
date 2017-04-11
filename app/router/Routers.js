@@ -8,18 +8,18 @@ import { Router, Route, IndexRoute } from 'react-router'
 const App = cb => require.ensure([], require => { cb(null, require('../views/main').default)}, "App")
 const Home = cb => require.ensure([], require => { cb(null, require('../views/home').default)}, "Home")
 const MyFooter = cb => require.ensure([], require => { cb(null, require('../views/myFooter').default)}, "myFooter")
+const MyFooterDetail = cb => require.ensure([], require => { cb(null, require('../views/myFooterDetail').default)}, "myFooterDetail")
 const OpenTip = cb => require.ensure([], require => { cb(null, require('../views/openTip').default)}, "openTip")
 const RiskCenter = cb => require.ensure([], require => { cb(null, require('../views/riskCenter').default)}, "riskCenter")
 const SafetyGrade = cb => require.ensure([], require => { cb(null, require('../views/safetyGrade').default)}, "safetyGrade")
+const SafeHead = cb => require.ensure([], require => { cb(null, require('../views/safeHead').default)}, "safeHead")
+
 const StepOne = cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepOne').default)}, "stepOne")
 const StepTwo = cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepTwo').default)}, "stepTwo")
 const StepThree = cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepThree').default)}, "stepThree")
 const StepFour = cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepFour').default)}, "stepFour")
 const StepFive= cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepFive').default)}, "stepFive")
 const StepSix= cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepSix').default)}, "stepSix")
-
-
-
 
 const Routers = {
 	path: '/',
@@ -31,6 +31,14 @@ const Routers = {
 		{
 			path: 'myFooter',
 			getComponent(nextState, cb){ MyFooter(cb) }
+		},
+		{
+			path: 'myFooterDetail',
+			getComponent(nextState, cb){ MyFooterDetail(cb) }
+		},
+		{
+			path: 'safeHead',
+			getComponent(nextState, cb){ SafeHead(cb) }
 		},
 		{
 			path: 'openTip',
