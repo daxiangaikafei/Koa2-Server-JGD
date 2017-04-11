@@ -24,7 +24,9 @@ class DeviceComponent extends React.Component {
     }
 
     componentWillReceiveProps(nextProps){
-        this.sendData(nextProps.showType)
+        if(this.props.showType != nextProps.showType){
+            this.sendData(nextProps.showType)
+        }
     }
 
     sendData(type){

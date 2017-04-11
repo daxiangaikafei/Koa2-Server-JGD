@@ -44,7 +44,7 @@ RiskMessageItem.propTypes = {
     data: PropTypes.shape({
         label: PropTypes.string.isRequired,
         code: PropTypes.string.isRequired,
-        defaultVal: PropTypes.string.isRequired,
+        defaultVal: PropTypes.string,
         status: PropTypes.number.isRequired,
         inputArr: PropTypes.array,
     }).isRequired,

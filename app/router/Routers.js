@@ -13,6 +13,9 @@ const OpenTip = cb => require.ensure([], require => { cb(null, require('../views
 const RiskCenter = cb => require.ensure([], require => { cb(null, require('../views/riskCenter').default)}, "riskCenter")
 const SafetyGrade = cb => require.ensure([], require => { cb(null, require('../views/safetyGrade').default)}, "safetyGrade")
 const SafeHead = cb => require.ensure([], require => { cb(null, require('../views/safeHead').default)}, "safeHead")
+const TrustedDevice = cb => require.ensure([], require => { cb(null, require('../views/trustedDevice').default)}, "trustedDevice")
+const AddTrustedDevice = cb => require.ensure([], require => { cb(null, require('../views/addTrustedDevice').default)}, "addTrustedDevice")
+const TrustedDeciveInfo = cb => require.ensure([], require => { cb(null, require('../views/trustedDeciveInfo').default)}, "trustedDeciveInfo")
 
 const Routers = {
 	path: '/',
@@ -44,6 +47,18 @@ const Routers = {
 		{
 			path: 'safetyGrade',
 			getComponent(nextState, cb){ SafetyGrade(cb) }
+		},
+		{
+			path: 'trustedDevice',
+			getComponent(nextState, cb){ TrustedDevice(cb) }
+		},
+		{
+			path: 'addTrustedDevice',
+			getComponent(nextState, cb){ AddTrustedDevice(cb) }
+		},
+		{
+			path: 'trustedDeciveInfo/:devId',
+			getComponent(nextState, cb){ TrustedDeciveInfo(cb) }
 		},
 	]
 }

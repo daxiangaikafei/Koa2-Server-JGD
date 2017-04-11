@@ -74,8 +74,8 @@ CardComponent.propTypes = {
         PropTypes.shape({
             blank_date: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
-            card_num: PropTypes.number.isRequired,
-            lock: PropTypes.bool.isRequired
+            card_num: PropTypes.string.isRequired,
+            lock: PropTypes.number.isRequired
         })
     ).isRequired,
     mobileTotal: PropTypes.number.isRequired,
@@ -83,7 +83,7 @@ CardComponent.propTypes = {
         PropTypes.shape({
             mobile_date: PropTypes.string.isRequired,
             old_mobile: PropTypes.string.isRequired,
-            new_mobile: PropTypes.number.isRequired
+            new_mobile: PropTypes.string.isRequired
         })
     ).isRequired,
 

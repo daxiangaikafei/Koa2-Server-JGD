@@ -108,7 +108,7 @@ RiskMessageContainer.propTypes = {
         PropTypes.shape({
             code: PropTypes.string.isRequired,
             label: PropTypes.string.isRequired,
-            labelSon: PropTypes.string.isRequired,
+            labelSon: PropTypes.string,
             status: PropTypes.number.isRequired,
             inputArr: PropTypes.arrayOf(
                 PropTypes.shape({

@@ -23,3 +23,6 @@ export myFooterReducer from '../views/myFooter/reducer/reducer'
 
 /**安全画像 */
 export safeHeadReducer from '../views/safeHead/reducer/reducer'
+
+/**可信设备列表 */
+export trustedDeviceReducer from '../views/trustedDevice/reducer/reducer'

@@ -23,12 +23,12 @@ export default function update (state = initialState, action){
         case ActionTypes.RECEIVE_DEVICE_LBS:
             return {
                 ...state,
-                deviceLBS: action.data
+                deviceData: action.data
             }
         case ActionTypes.RECEIVE_DEVICE_INFO:
             return {
                 ...state,
-                deviceInfo: action.data
+                deviceData: action.data
             }
         case ActionTypes.RECEIVE_CARD_DATA:
             return {

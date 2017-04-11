@@ -69,7 +69,7 @@ class MessageCode extends React.Component {
                             </div>
                             <div className="code-div">
                                 <input ref="codeInput" className="code-input" type="text" placeholder="请输入验证码" />
-                                <button className="btn-send" disabled={bnDisabled} onTouchTap={()=>this.onSendHandler()}>{bnSendStr}</button>
+                                <button className="btn-send" type="button" disabled={bnDisabled} onTouchTap={()=>this.onSendHandler()}>{bnSendStr}</button>
                                 <div className="clear"></div>
                             </div>
                         </div>

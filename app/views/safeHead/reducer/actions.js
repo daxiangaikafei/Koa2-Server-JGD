@@ -76,7 +76,12 @@ let receiveCard = (data) => {
         type: ActionTypes.RECEIVE_CARD_DATA,
         data: {
             ...data,
-            blank_date: helpAction.formatTime(data.create_time.replace(/-/g, "/"), "yyyy年MM月dd日 HH:mm")
+            list: data.list.map(obj=>{
+                return { 
+                    ...obj, 
+                    blank_date: helpAction.formatTime(obj.create_time.replace(/-/g, "/"), "yyyy年MM月dd日 HH:mm")
+                }
+            })
         }
     }
 }
@@ -86,7 +91,12 @@ let receiveMobile = data => {
         type: ActionTypes.RECEIVE_MOBILE_DATA,
         data: {
             ...data,
-            mobile_date: helpAction.formatTime(data.create_time.replace(/-/g, "/"), "yyyy年MM月dd日 HH:mm")
+            list: data.list.map(obj=>{
+                return { 
+                    ...obj, 
+                    mobile_date: helpAction.formatTime(obj.create_time.replace(/-/g, "/"), "yyyy年MM月dd日 HH:mm")
+                }
+            })
         }
     }
 }

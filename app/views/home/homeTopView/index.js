@@ -17,11 +17,16 @@ import * as HomeConst from '../reducer/const'
 import './index.scss'
 
 class HomeTopView extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            securityGrade: 1
+        }
+    }
 
     //提高等级按钮事件
     onBnUpgradeHandler(){
         let {securityGrade} = this.props
-        console.log(securityGrade,lev.MaxLevel)
         if(securityGrade <lev.MaxLevel){
             navigate.push('/safetyGrade')
         }
@@ -37,8 +42,17 @@ class HomeTopView extends React.Component{
         console.log("onBnCloseHandler")
     }
 
+    componentDidMount(){
+        this.setState({securityGrade: 1})
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.setState({securityGrade: nextProps.securityGrade})
+    }
+
     render(){
-        let { animationGrade, securityGrade, isOpen, bgRadialGradient, fontColor, bnColor, addAnimationGrade, onOpenHelpHandler} = this.props
+        let { securityGrade } = this.state
+        let { animationGrade, isOpen, bgRadialGradient, fontColor, bnColor, addAnimationGrade, onOpenHelpHandler} = this.props
         let marks, index, list=[];
         for(index=1; index<=7; index++){
             list.push(index);
