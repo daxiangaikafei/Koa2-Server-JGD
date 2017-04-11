@@ -1,0 +1,53 @@
+.deblocking-btnNext{
+  display: block;
+  width: 80%;
+  height: 1.5rem;
+  background-color: #00b7ee;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+  border-radius: 0.2rem;
+  color: #ffffff;
+  font-size: 0.75rem;
+}
+
+.deblocking-btnNext:disabled{
+  background-color: #d2d2d2;
+}
+
+.step-container{
+  width: 100%;
+  height: 100%;
+  background: #f2f2f2;
+
+  .step-region{
+    height: 33.2%;
+  }
+
+  .step-main{
+    margin: 0 1rem;
+    margin-top: 0.75rem;
+    background-color: #ffffff;
+    padding: 1rem 0;
+    border-radius: 0.2rem;
+    margin-bottom: 1rem
+  }
+}
+
+.stepone-bg{
+    background: url(./stepOne/images/step_1.png) center 40% / 90% no-repeat #fff;
+}
+.steptwo-bg{
+    background: url(./stepTwo/images/step_2.png) center 40% / 90% no-repeat #fff;
+}
+.stepthree-bg{
+    background: url(./stepThree/images/step_3.png) center 40% / 90% no-repeat #fff;
+}
+.stepfour-bg{
+    background: url(./stepFour/images/step_4.png) center 40% / 90% no-repeat #fff;
+}
+.stepfive-bg{
+    background: url(./stepFive/images/step_5.png) center 40% / 90% no-repeat #fff;
+}
+.stepsix-bg{
+    background: url(./stepSix/images/step_6.png) center 40% / 90% no-repeat #fff;
+}

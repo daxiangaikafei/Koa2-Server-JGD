@@ -83,11 +83,10 @@ export function fetchClean(key) {
 /*对外公布请求参数*/
 export function fetchPosts(key, url, param, type = "GET",headers={}, repType="json") {
     return (dispatch, getState) => {
-        url = "api/"+url
+        url = "api/"+url;
         if(type.toLocaleUpperCase()==="GET"&&size(param)>0){
            url +="?"+toExcString(param)
         }
-
         // headers = headers?headers:{
         //             'Accept': 'application/json',
         //             'Content-Type': 'application/json',
