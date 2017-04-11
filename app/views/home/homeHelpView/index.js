@@ -35,7 +35,7 @@ class HomeHelpView extends React.Component{
     }
 }
 
-HomeHelpView.PropTypes = {
+HomeHelpView.propTypes = {
     onCloseHelpHandler: PropTypes.func.isRequired
 }
 

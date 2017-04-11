@@ -18,7 +18,7 @@ class RiskMessageCityItem extends React.Component {
     }
 }
 
-RiskMessageCityItem.PropTypes = {
+RiskMessageCityItem.propTypes = {
     data: PropTypes.shape({
         defaultVal: PropTypes.string.isRequired
     }).isRequired

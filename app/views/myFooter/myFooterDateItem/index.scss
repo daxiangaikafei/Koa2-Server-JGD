@@ -1,0 +1,34 @@
+  .my-footer-date-list{
+
+    .date-list-title-div{
+      font-size: 0.75rem;
+      color: #35353f;
+
+      .title-icon{
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 0.5rem;
+        background-color: #7ab1fb;
+        margin-right: 0.5rem;
+        display: inline-block;
+      }
+    }
+
+    .my-footer-item-list{
+      margin-left: 0.2rem;
+      border-left: 0.05rem solid #d2d2d2;
+      padding: 0.6rem 0 0.5rem 0.8rem;
+
+
+    }
+  }
+
+  .my-footer-date-list:first-child{
+    margin-top: 0;
+  }
+
+  .my-footer-date-list:last-child {
+    .my-footer-item-list{
+      border-left: 0;
+    }
+  }

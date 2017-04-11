@@ -34,6 +34,7 @@ export const INIT_OPENTIP = "INIT_OPENTIP"
 // 安全等级
 export const SAFE_DATA = "SAFE_DATA"
 
+<<<<<<< HEAD
 // 自助解纷
 export const DE_STEP_ONE = "DE_STEP_ONE"
 export const DE_STEP_Two = "DE_STEP_Two"
@@ -42,3 +43,9 @@ export const DE_STEP_TWO_COMFIRM = "DE_STEP_TWO_COMFIRM"
 
 //确认支付
 export const PAY_MONEY = "PAY_MONEY"
+=======
+export const SAFE_DATA = "SAFE_DATA"
+
+/**我的足迹 */
+export const INIT_MYFOOTER = "INIT_MYFOOTER"
+>>>>>>> 2713b6579589563aa65c438ef41bb4f6db0ed611

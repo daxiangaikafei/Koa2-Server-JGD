@@ -103,7 +103,7 @@ class RiskMessageContainer extends React.Component {
     }
 }
 
-RiskMessageContainer.PropTypes = {
+RiskMessageContainer.propTypes = {
     risks: PropTypes.arrayOf(
         PropTypes.shape({
             code: PropTypes.string.isRequired,

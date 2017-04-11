@@ -20,7 +20,7 @@ class RiskMessageSelectItem extends React.Component {
     }
 }
 
-RiskMessageSelectItem.PropTypes = {
+RiskMessageSelectItem.propTypes = {
     data: PropTypes.shape({
         defaultVal: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
