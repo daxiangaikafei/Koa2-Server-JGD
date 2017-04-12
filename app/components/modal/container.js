@@ -74,6 +74,8 @@ class HelpModal extends React.Component {
                 return <ModalSuccessAlertSkin {...modal} />
             case ModalConst.MODAL_AUTO_CLOSE_SKIN:
                 return <ModalAutoCloseSkin {...modal} />
+            case ModalConst.MODAL_ALERT_SKIN:
+                return <ModalAlertSkin {...modal} />
             default:
                 return <Alert {...modal} />
         }

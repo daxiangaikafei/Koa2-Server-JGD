@@ -4,18 +4,20 @@
 import * as ActionTypes from '../../../main/reducer/ActionTypes'
 
 const initialState = {
-    safetyTip: "",
-    openStatus:"close",
-    content:[]
+    phoneTxt: ""
 }
 
 
 export default function update (state = initialState, action){
     switch(action.type){
-        case ActionTypes.SAFE_DATA:
+        case ActionTypes.GET_MSG:
             return {
-                ...state,
-                content:""||action.data
+                ...state
+            }
+        case ActionTypes.COMFIRM_CODE:
+            navigator.push('/stepThree')
+            return {
+                ...state
             }
         default:
             return state

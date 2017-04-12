@@ -13,7 +13,6 @@ const receiveData = data => ({
 export const getSafetyGradeData = () => dispatch => {
     let url = "gradeInfo"
     dispatch(helpAction.fetchPosts(url, url, {})).then((data)=>{
-        console.log(data)
             dispatch(receiveData(data));
     })
 }

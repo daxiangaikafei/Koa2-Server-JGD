@@ -24,6 +24,9 @@ const StepFour = cb => require.ensure([], require => { cb(null, require('../view
 const StepFive= cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepFive').default)}, "stepFive")
 const StepSix= cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepSix').default)}, "stepSix")
 
+
+const BroadCast= cb => require.ensure([], require => { cb(null, require('../views/broadcastList').default)}, "broadcast")
+
 const Routers = {
 	path: '/',
 	getComponent(nextState, cb){ App(cb) },
@@ -90,6 +93,10 @@ const Routers = {
 		{
 			path: 'stepSix',
 			getComponent(nextState, cb){ StepSix(cb) }
+		},
+		{
+			path: 'broadcast',
+			getComponent(nextState, cb){ BroadCast(cb) }
 		},
 	]
 }
