@@ -18,6 +18,13 @@ const AddTrustedDevice = cb => require.ensure([], require => { cb(null, require(
 const TrustedDeciveInfo = cb => require.ensure([], require => { cb(null, require('../views/trustedDeciveInfo').default)}, "trustedDeciveInfo")
 const MyShield = cb => require.ensure([], require => { cb(null, require('../views/myShield').default)}, "myShield")
 
+const StepOne = cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepOne').default)}, "stepOne")
+const StepTwo = cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepTwo').default)}, "stepTwo")
+const StepThree = cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepThree').default)}, "stepThree")
+const StepFour = cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepFour').default)}, "stepFour")
+const StepFive= cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepFive').default)}, "stepFive")
+const StepSix= cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepSix').default)}, "stepSix")
+
 const Routers = {
 	path: '/',
 	getComponent(nextState, cb){ App(cb) },
@@ -65,7 +72,31 @@ const Routers = {
 			path: 'myShield',
 			getComponent(nextState, cb){ MyShield(cb) }
 		},
+		{
+			path: 'stepOne',
+			getComponent(nextState, cb){ StepOne(cb) }
+		},
+		{
+			path: 'stepTwo',
+			getComponent(nextState, cb){ StepTwo(cb) }
+		},
+		{
+			path: 'stepThree',
+			getComponent(nextState, cb){ StepThree(cb) }
+		},
+		{
+			path: 'stepFour',
+			getComponent(nextState, cb){ StepFour(cb) }
+		},
+		{
+			path: 'stepFive',
+			getComponent(nextState, cb){ StepFive(cb) }
+		},
+		{
+			path: 'stepSix',
+			getComponent(nextState, cb){ StepSix(cb) }
+		},
 	]
 }
 
-export default Routers;
+export default Routers

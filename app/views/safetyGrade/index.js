@@ -23,8 +23,7 @@ class SafeGrade extends React.Component {
         let {openStatus,content,safetyLevel} = this.props;
         return (
             <Page id="safety-grade-view">
-                <Header title="安全等级" />
-                <div className="safetyGrade-container container-height">
+                <div className="safetyGrade-container ">
                     <div className={"safetyGrade-top-div "  +(openStatus==1? "close" : " open")}>
                         <div className="safetyGrade-bg"></div>
                         <div className="safetyGrade-title">安全等级为：{safetyLevel}
@@ -34,7 +33,7 @@ class SafeGrade extends React.Component {
                     </div>
                     <span className="safetyGrade-list-title">您的扣分项为：</span>
                     <div className="safetyGrade-list">
-                        {content!=undefined&&content.map((e, i) =><div className="safetyGrade-item" key={"id_" + i}>{e.name}</div> )}
+                        {content&&content.map((e, i) =><div className="safetyGrade-item" key={"id_" + i}>{e.name}</div> )}
                       
                     </div>
                 </div>

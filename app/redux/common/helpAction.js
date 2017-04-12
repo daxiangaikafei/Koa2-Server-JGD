@@ -100,11 +100,10 @@ export function fetchPosts(key, url, param, type = "GET",headers={}, repType="js
 /*对外公布请求参数*/
 export function posts(key, url, param, type = "GET",headers={}, repType="json") {
     return (dispatch, getState) => {
-        url = "api/"+url
+        url = "api/"+url;
         if(type.toLocaleUpperCase()==="GET"&&size(param)>0){
            url +="?"+toExcString(param)
         }
-
         console.log("---------------start1----------------",headers);
         //cookie
         headers = assignIn({},{
