@@ -16,6 +16,7 @@ const SafeHead = cb => require.ensure([], require => { cb(null, require('../view
 const TrustedDevice = cb => require.ensure([], require => { cb(null, require('../views/trustedDevice').default)}, "trustedDevice")
 const AddTrustedDevice = cb => require.ensure([], require => { cb(null, require('../views/addTrustedDevice').default)}, "addTrustedDevice")
 const TrustedDeciveInfo = cb => require.ensure([], require => { cb(null, require('../views/trustedDeciveInfo').default)}, "trustedDeciveInfo")
+const MyShield = cb => require.ensure([], require => { cb(null, require('../views/myShield').default)}, "myShield")
 
 const StepOne = cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepOne').default)}, "stepOne")
 const StepTwo = cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepTwo').default)}, "stepTwo")
@@ -69,6 +70,10 @@ const Routers = {
 		{
 			path: 'trustedDeciveInfo/:devId',
 			getComponent(nextState, cb){ TrustedDeciveInfo(cb) }
+		},
+		{
+			path: 'myShield',
+			getComponent(nextState, cb){ MyShield(cb) }
 		},
 		{
 			path: 'stepOne',

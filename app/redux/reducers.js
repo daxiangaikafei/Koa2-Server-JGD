@@ -37,3 +37,6 @@ export trustedDeviceReducer from '../views/trustedDevice/reducer/reducer'
 
 /**安全播报*/
 export broadcastList from '../views/broadcastList/reducer/reducer'
+
+/**我的安全中心 */
+export myShieldReducer from '../views/myShield/reducer/reducer'
