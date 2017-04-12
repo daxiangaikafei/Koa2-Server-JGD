@@ -32,6 +32,7 @@ class HelpModal extends React.Component {
     clear(){
         this.setState({
             showModal: false,
+            showMask: false
         })
     }
     
@@ -39,11 +40,14 @@ class HelpModal extends React.Component {
         return new Promise((resolve, reject)=>{
             this.setState({
                 showModal: false,
+                showMask: false,
+                modal:{}
             })
 
             setTimeout(()=>{
                 this.setState({
                     showModal:false,
+                    showMask: false,
                     modal:{}
                 })
                 resolve()
@@ -61,7 +65,7 @@ class HelpModal extends React.Component {
             let isFind = [ModalConst.MODAL_AUTO_CLOSE_SKIN].find((name)=>{return name==skinName})
             this.setState({
                 showModal:true,
-                showMask: isFind ? false: false,
+                showMask: isFind ? false : true,
                 modal,
                 skinName
             })

@@ -26,3 +26,6 @@ export safeHeadReducer from '../views/safeHead/reducer/reducer'
 
 /**可信设备列表 */
 export trustedDeviceReducer from '../views/trustedDevice/reducer/reducer'
+
+/**我的安全中心 */
+export myShieldReducer from '../views/myShield/reducer/reducer'

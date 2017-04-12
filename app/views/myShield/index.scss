@@ -1,0 +1,263 @@
+#my-shield-view{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  overflow: auto;
+}
+
+.my-shield-head-div{
+  width: 100%;
+  background: -webkit-linear-gradient(45deg, #18b5ff, #365ceb);
+  padding: 1rem 0;
+
+  .my-shield-name-div{
+    padding-bottom: 0.5rem;
+
+    .name-left-head-div{
+      float: left;
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 0.2rem solid #ffffff;
+      border-radius: 100%;
+      margin-top: 1.25rem;
+      margin-left: 0.75rem;
+      position: relative;
+      
+      div{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 100%;
+      }
+
+      .default-head{
+        background: url(./images/default-head-icon.png) no-repeat center;
+        background-size: 100%;
+      }
+    }
+
+    .name-left-div{
+      float: left;
+      padding-top: 1.25rem;
+      padding-left: 0.75rem;
+      width: calc(100% - 8rem);
+      span{
+        display: block;
+        color: #ffffff;
+      }
+
+      .my-shield-nickname{
+        font-size: 0.9rem;
+        color: #ffffff;
+        white-space:nowrap;
+        text-overflow:ellipsis;
+        overflow:hidden;
+        -webkit-text-overflow:ellipsis;
+        width: 100%;
+      }
+
+      .my-shield-id{
+        font-size: 0.7rem;
+        color: #ffffff;
+        margin-top: 0.5rem;
+      }
+    }
+
+    .name-right-div{
+      float: right;
+      width: 4.75rem;
+      text-align: center;
+
+      span{
+        display: block;
+        color: #ffffff;
+      }
+
+      .grade-title{
+        font-size: 0.5rem;
+      }
+
+      .grade-txt{
+        font-size: 2.8rem;
+      }
+    }
+
+    .my-shield-title{
+      font-size: 0.7rem;
+      color: #b8e8ff;
+    }
+  }
+
+  .shielf-name-line{
+    margin: 0 auto;
+    width: calc(100% - 1.5rem);
+    border-top: 0.05rem solid #d2d2d2;
+  }
+
+  .shield-open-info-div{
+    padding: 1.2rem 1rem;
+    font-size: 0.7rem;
+    color: #ffffff;
+
+    .info-left-div{
+      float: left;
+      color: #ffffff;
+      
+      .view-clasuse{
+        margin-top: 3.25rem;
+        font-size: 0.6rem;
+
+        .btn-user-clause{
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .info-right-div{
+      float: right;
+      background: url(./images/safeguard-icon.png) no-repeat center;
+      background-size: 100%;
+      width: 4.65rem;
+      height: 4.65rem;
+      // -webkit-animation: spin 5s linear infinite;
+    }
+
+  }
+}
+
+.shield-tab-div{
+  width: 100%;
+  height: 2.25rem;
+  line-height: 2.25rem;
+  border-bottom: 0.05rem solid #dedede;
+  padding: 0 0.75rem;
+
+  .shield-tab-item{
+    width: 25%;
+    height: 100%;
+    color: #35353f;
+    font-size: 0.75rem;
+    float: left;
+    text-align: center;
+
+    span{
+      display: inline-block;
+      width: 90%;
+      height: 100%;
+    }
+  }
+
+  .shield-tab-item.selected{
+    color: #427cf3;
+    span{
+      border-bottom: 0.15rem solid #427cf3;
+    }
+  }
+}
+
+.shield-renew-div, .shield-indemnify-div, .shield-question-div, .shield-feedback-div{
+  padding: 0 0.75rem;
+}
+
+.shield-renew-div, .shield-indemnify-div, .shield-question-div, .shield-feedback-div{
+  .item-content{
+    font-size: 0.7rem;
+    color: #35353f;
+    line-height: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .renew-title{
+    width: 100%;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    color: #000000;
+    font-size: 0.75rem;
+    border-bottom: 0.05rem solid #dedede;
+
+    .name{
+      float: left;
+    }
+
+    .status{
+      float: right;
+      color: #00b7ee;
+    }
+  }
+
+  .renew-tip, .renew-desc{
+    padding-top: 1rem;
+  }
+
+  .renew-tip{
+    color: #ffa200;
+  }
+
+  .indemnify-title{
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+
+  .indemnify-desc{
+    font-size: 0.7rem;
+    color: #35353f;
+  }
+
+  .indemnify-tip{
+    margin-top: 1rem;
+    font-size: 0.7rem;
+    color: #ffa200;
+  }
+
+  .question-txt{
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+
+  .answer-txt{
+    font-size: 0.7rem;
+    color: #35353f;
+    line-height: 0.9rem;
+  }
+
+  .feedback-textarea{
+    width: 100%;
+    height: 5rem;
+    color: #35353f;
+    font-size: 0.75rem;
+    margin-top: 1rem;
+    border: .05rem solid #dedede;
+    padding: 0.25rem;
+    outline: 0;
+    resize: none;
+  }
+
+  .btn-div{
+    width: 100%;
+    text-align: right;
+    padding-top: 0.5rem;
+  }
+
+  .feedback-tip{
+    float: left;
+    line-height: 1.25rem;
+  }
+
+  .btn-feedback{
+    width: 4rem;
+    height: 1.25rem;
+    border-radius: 1.25rem;
+    color: #ffffff;
+    background-color: #365ceb;
+    font-size: 0.75rem;
+  }
+
+  .btn-feedback:disabled{
+    background-color: #dedede;
+  }
+}

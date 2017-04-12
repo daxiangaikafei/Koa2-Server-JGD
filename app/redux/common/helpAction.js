@@ -82,6 +82,7 @@ export function fetchPosts(key, url, param, type = "GET",headers={}, repType="js
     return (dispatch, getState) => {
         return new Promise(function(resolve, reject){
             dispatch(posts(key, url, param, type = "GET",headers={}, repType="json")).then(result=>{
+                console.log(result)
                 if(result.resultCode > 0){
                     console.log("1111111111111", result)
                     resolve&&resolve(result.data)
@@ -121,7 +122,7 @@ export function posts(key, url, param, type = "GET",headers={}, repType="json") 
                 body: type.toLocaleUpperCase()==="GET"?undefined:(repType=="json"?JSON.stringify(param):param)
             })
             .then((res) => {
-                console.log(res.status);
+                console.log(res);
                 return res.json();
             })
             .then((data) => {
@@ -222,4 +223,14 @@ export function formatTime(time, format){
                 break;
         }
     })
+}
+
+export function filteremoji(str){
+    let ranges = [
+        '\ud83c[\udf00-\udfff]', 
+        '\ud83d[\udc00-\ude4f]', 
+        '\ud83d[\ude80-\udeff]'
+    ];
+    str = str.replace(new RegExp(ranges.join('|'), 'g'), '');
+    return str;
 }
