@@ -1,0 +1,91 @@
+#frozen-account-result-view{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #ffffff;
+
+    .frozen-result-container{
+        border-top: 0.05rem solid #ededed;
+        padding: 2.25rem 0.75rem;
+
+        .frozen-result-icon{
+            width: 100%;
+            height: 4.5rem;
+        }
+
+        .frozen-result-div{
+            width: 100%;
+            text-align: center;
+            font-size: 0.85rem;
+            padding-top: 2rem;
+
+            span{
+                height: 1rem;
+                display: inline-block;
+                vertical-align: middle;
+                line-height: 1rem;
+            }
+
+            .icon{
+                width: 1rem;
+            }
+        }
+
+        .frozen-result-tip{
+            padding: 2rem 0.75rem;
+            font-size: 0.7rem;
+            color: #35353f;
+            line-height: 1rem;
+        }
+
+        .btn-div{
+            width: 100%;
+            text-align: center;
+            margin-top: 1rem;
+            button{
+                width: 66.6%;
+                height: 2.25rem;
+                border-radius: 2.25rem;
+                background-color: #3692fd;
+                color: #ffffff;
+                font-size: 0.8rem;
+            }
+        }
+    }
+
+    .frozen-result-container.success{
+        .frozen-result-icon{
+            height: 4.5rem;
+            background: url(../images/ice.png) no-repeat center;
+            background-size: auto 100%;
+        }
+
+        .frozen-result-div{
+            color: #4eaa23;
+
+            .icon{
+                background: url(../../../static/images/common/circle-checkbox-selected.png) no-repeat center;
+                background-size: 100%;
+            }
+        }
+    }
+
+    .frozen-result-container.fail{
+        .frozen-result-icon{
+            height: 3.625rem;
+            background: url(../../../static/images/common/no-data-icon.png) no-repeat center;
+            background-size: auto 100%;
+        }
+
+        .frozen-result-div{
+            color: #fd472b;
+
+            .icon{
+                background: url(../../../static/images/common/fail-icon.png) no-repeat center;
+                background-size: 100%;
+            }
+        }
+    }
+}

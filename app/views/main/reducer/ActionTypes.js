@@ -70,3 +70,10 @@ export const INIT_DEVICE_INFO = "INIT_DEVICE_INFO"
 export const BROAD_LIST = "BROAD_LIST"
 /**我的安全中心 */
 export const INIT_MYSHIELD = "INIT_MYSHIELD"
+
+/**交易维权 */
+export const INIT_FROZEN_MOBILE = "INIT_FROZEN_MOBILE"
+
+/**违规罚金 */
+export const INIT_PAY_FINE = "INIT_PAY_FINE"
+export const CHANGE_BREAK_TYPE = "CHANGE_BREAK_TYPE"

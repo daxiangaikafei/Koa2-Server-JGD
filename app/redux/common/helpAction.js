@@ -5,6 +5,8 @@ import size from "lodash/size";
 import each from "lodash/each";
 import assignIn from "lodash/assignIn";
 
+import Modal from '../../components/modal'
+
 export const DATA_SAVE = 'DATA_SAVE';
 export const FETCH_REQUEST = 'FETCH_REQUEST';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
@@ -87,7 +89,15 @@ export function fetchPosts(key, url, param, type = "GET",headers={}, repType="js
                     console.log("1111111111111", result)
                     resolve&&resolve(result.data)
                 }else{
-                    console.log("222222222", result)
+                    if(result.resultCode == -1001){
+                        appLogin()
+                    }else if(result.resultCode == -2){
+                        reject(result)
+                    }else if(result.resultCode == -1005){
+                        Modal.alert({message: result.message}).then(()=>goBackAppLogin())
+                    }else{
+                        Modal.alert({message: result.message})
+                    }
                     // reject&&reject(result)
                 }
             })
@@ -105,11 +115,10 @@ export function posts(key, url, param, type = "GET",headers={}, repType="json") 
         }else{
             url = "/json/"+url+".json";
         }
-        
         if(type.toLocaleUpperCase()==="GET"&&size(param)>0){
            url +="?"+toExcString(param)
         }
-        console.log("---------------start1----------------",headers);
+        console.log("---------------start1----------------",url);
         //cookie
         headers = assignIn({},{
                     'Accept': 'application/json',
@@ -158,6 +167,53 @@ export function errorClear(key,data){
     }
 }
  */
+
+let goBackAppLogin = () => {
+    if(isIOS()){
+        if(window.rootBack){
+            window.rootBack();
+        }
+    }else{
+        if(window.QBaoJSBridge){
+            window.QBaoJSBridge.goBackAndroidActivity("com.qianwang.qianbao.im.ui.login.LoginActivity", 0);
+        }
+    }
+}
+
+let getBrowseInfo = () => {
+    if(window.browser) return 
+    window.browser = {
+        versions: function() {
+            let u = navigator.userAgent,
+                app = navigator.appVersion;
+            return { //移动终端浏览器版本信息
+                trident: u.indexOf('Trident') > -1, //IE内核
+                presto: u.indexOf('Presto') > -1, //opera内核
+                webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/), //是否为移动终端
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
+                iPad: u.indexOf('iPad') > -1, //是否iPad
+                webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+            };
+        }(),
+        language: (navigator.browserLanguage || navigator.language).toLowerCase()
+    };
+};
+
+let isIOS = ()=>{
+    getBrowseInfo()
+    return window.browser.versions.ios
+}
+
+//调用app登录
+let appLogin = ()=>{
+    if(window.QBaoJSBridge){
+        window.QBaoJSBridge.login(window.location.host, "function(){window.location.reload();}");
+    }
+};
 
 
 var toExcString = function(array,type={":":"=",",":"&"}){
@@ -236,4 +292,12 @@ export function filteremoji(str){
     ];
     str = str.replace(new RegExp(ranges.join('|'), 'g'), '');
     return str;
+}
+
+export const fenToYuan = (fen) => {
+    let str = (fen/100).toFixed(2) + ''
+    let intSum = str.substring(0,str.indexOf(".")).replace( /\B(?=(?:\d{3})+$)/g, ',' );//取到整数部分
+    let dot = str.substring(str.length,str.indexOf("."))//取到小数部分
+    let ret = intSum + dot;
+    return ret;
 }

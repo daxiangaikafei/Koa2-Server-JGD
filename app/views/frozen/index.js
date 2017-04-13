@@ -7,7 +7,9 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import Page from '../../components/page'
-import navigate from '../../router/navigate'
+import Modal from '../../components/modal'
+
+import { checkFrozenAccount } from './reducer/actions'
 
 import './index.scss'
 
@@ -15,15 +17,38 @@ class FrozenAccount extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            bnDisabled: true
+            bnDisabled: true,
+            accountName: ""
         }
     }
     
     componentDidMount(){
+        this.setState({
+            bnDisabled: true,
+            accountName: ""
+        })
+    }
+
+    onChangeHandler(e){
+        let value = e.currentTarget.value
+        let bnDisabled = value ? false : true
+        this.setState({
+            bnDisabled: bnDisabled,
+            accountName: value
+        })
+    }
+
+    onBnNextHandler(){
+        let { accountName } = this.state
+        if(accountName){
+            this.props.checkFrozenAccount(accountName)
+        }else{
+            Modal.alert({message: "请输入钱宝账号！"})
+        }
     }
 
     render() {
-        let {bnDisabled} = this.state
+        let { accountName, bnDisabled} = this.state
         return (
             <Page id="frozen-account-view">
                <div className="frozenAccount-container">
@@ -31,10 +56,14 @@ class FrozenAccount extends React.Component {
                     <div className="frozen-tip">发现账号被盗，您可以立即冻结钱宝账号，以防不法分子窃取您账号资产或者损害您其他利益。</div>
                     <div className="frozen-accoutn-div">
                         <span>输入钱宝账号</span>
-                        <input className="account-input" type="text" placeholder="手机号码/用户名/邮箱" />
+                        <input className="account-input" 
+                                type="text"
+                                defaultValue={accountName}
+                                onChange={(e)=>this.onChangeHandler(e)}
+                                placeholder="手机号码/用户名/邮箱" />
                     </div>
                     <div className="btn-div">
-                        <button className="btnNext" disabled={bnDisabled}>下一步</button>
+                        <button className="btnNext" disabled={bnDisabled} onTouchTap={()=>this.onBnNextHandler()}>下一步</button>
                     </div>
                 </div>
             </Page>
@@ -43,13 +72,14 @@ class FrozenAccount extends React.Component {
 }
 
 FrozenAccount.propTypes = {
+    checkFrozenAccount: PropTypes.func.isRequired
 }
 
 let mapStateToProps = state => ({
 })
 
 let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({} , dispatch)
+    return bindActionCreators({ checkFrozenAccount } , dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FrozenAccount)

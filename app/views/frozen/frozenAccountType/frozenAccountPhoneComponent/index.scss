@@ -1,0 +1,76 @@
+#frozen-account-phone-view{
+    width: 100%;
+    height: 100%;
+
+    .frozen-phone-content{
+        width: 100%;
+        height: 100%;
+
+        .top-div{
+            width: 100%;
+            height: 5rem;
+            background-color: #3696fd;
+            color: #ffffff;
+            text-align: center;
+            padding: 1.25rem;
+
+            .title{
+                font-size: 0.75rem;
+            }
+
+            .phone-txt{
+                font-size: 1.5rem;
+            }
+        }
+
+        .code-div{
+            width: 100%;
+            height: 2.5rem;
+            line-height: 2.5rem;
+            border-bottom: 0.05rem solid #ededed;
+            font-size: 0.75rem;
+            color: #35353f;
+            padding-left: 0.75rem;
+
+            .code-title{
+                display: inline-block;
+            }
+
+            input{
+                width: calc(100% - 8rem);
+                border: 0;
+                font-size: 0.75rem;
+                color: #000000;
+            }
+
+            button{
+                width: 5rem;
+                color: #ffffff;
+                height: 100%;
+                background-color: #7bcf54;
+                float: right;
+                font-size: 0.75rem;
+            }
+
+            button:disabled{
+                background-color: #ededed;
+            }
+        }
+
+        .btn-div{
+            margin-top: 4rem;
+            width: 100%;
+            height: 2.25rem;
+            text-align: center;
+            
+            button{
+                width: 66.6%;
+                height: 100%;
+                border-radius: 2.25rem;
+                background-color: #3696fd;
+                color: #ffffff;
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
