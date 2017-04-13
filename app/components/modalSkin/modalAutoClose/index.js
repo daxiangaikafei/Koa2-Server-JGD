@@ -1,8 +1,6 @@
 'use strict'
 import * as React from 'react';
 
-import * as ModalConst from '../../modal/modalConst'
-import * as helpAction from '../../../redux/common/helpAction'
 import './index.scss'
 import '../../../static/scss/common.scss'
 

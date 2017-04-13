@@ -7,7 +7,10 @@ import * as homeConst from './const'
 
 const receiveData = data => ({
     type : ActionTypes.HOME_UPDATE,
-    data : data
+    data : {
+        ...data,
+        ...setColorByLevel(data.securityGrade)
+    }
 })
 
 
@@ -19,15 +22,7 @@ let setColorByLevel = level => {
 //获取首页用户数据
 export const getHomeData = () => dispatch => {
     let url = "secIndex"
-    dispatch(helpAction.fetchPosts("secIndex", url, {})).then(
-        data=>{
-            var res = setColorByLevel(data.securityGrade)
-            dispatch(receiveData({
-                ...data,
-                ...res
-            }))
-        }
-    )
+    dispatch(helpAction.fetchPosts("secIndex", url, {})).then(data=>dispatch(receiveData(data)))
 }
 
 //首页动画

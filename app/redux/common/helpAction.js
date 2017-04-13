@@ -100,7 +100,12 @@ export function fetchPosts(key, url, param, type = "GET",headers={}, repType="js
 /*对外公布请求参数*/
 export function posts(key, url, param, type = "GET",headers={}, repType="json") {
     return (dispatch, getState) => {
-        url = "api/"+url;
+        if(process.env.NODE_ENV == "production"){
+            url = "api/"+url;
+        }else{
+            url = "/json/"+url+".json";
+        }
+        
         if(type.toLocaleUpperCase()==="GET"&&size(param)>0){
            url +="?"+toExcString(param)
         }
@@ -121,7 +126,7 @@ export function posts(key, url, param, type = "GET",headers={}, repType="json") 
                 body: type.toLocaleUpperCase()==="GET"?undefined:(repType=="json"?JSON.stringify(param):param)
             })
             .then((res) => {
-                console.log(res);
+                console.log(res.status);
                 return res.json();
             })
             .then((data) => {
@@ -153,7 +158,6 @@ export function errorClear(key,data){
     }
 }
  */
-
 
 
 var toExcString = function(array,type={":":"=",",":"&"}){

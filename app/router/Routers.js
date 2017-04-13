@@ -25,6 +25,10 @@ const StepFour = cb => require.ensure([], require => { cb(null, require('../view
 const StepFive= cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepFive').default)}, "stepFive")
 const StepSix= cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepSix').default)}, "stepSix")
 
+const TradeRights = cb => require.ensure([], require => { cb(null, require('../views/tradeRights').default)}, "tradeRights")
+const FrozenAccount = cb => require.ensure([], require => { cb(null, require('../views/frozen').default)}, "frozenAccount")
+const PayFine = cb => require.ensure([], require => { cb(null, require('../views/PayFine').default)}, "payFine")
+
 const Routers = {
 	path: '/',
 	getComponent(nextState, cb){ App(cb) },
@@ -95,6 +99,18 @@ const Routers = {
 		{
 			path: 'stepSix',
 			getComponent(nextState, cb){ StepSix(cb) }
+		},
+		{
+			path: 'tradeRights',
+			getComponent(nextState, cb){ TradeRights(cb) }
+		},
+		{
+			path: 'rights/frozenAccount',
+			getComponent(nextState, cb){ FrozenAccount(cb) }
+		},
+		{
+			path: 'rights/payFine',
+			getComponent(nextState, cb){ PayFine(cb) }
 		},
 	]
 }

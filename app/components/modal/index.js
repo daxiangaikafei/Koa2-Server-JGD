@@ -13,7 +13,7 @@ const Help =  ReactDOM.render(<HelpModal/>, div);
 
 const Modal = function(){};
 Modal.alert = Help.alert;
-Modal.confirm = Help.confirm;
+Modal.ask = Help.ask;
 Modal.clear = Help.clear;
 
 module.exports = Modal;

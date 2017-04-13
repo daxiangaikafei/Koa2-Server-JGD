@@ -3,3 +3,4 @@
 
 export ModalSuccessAlertSkin from './modalSuccessAlert'
 export ModalAutoCloseSkin from './modalAutoClose'
+export ModalMsgAlertSkin from './modalMsgAlert'

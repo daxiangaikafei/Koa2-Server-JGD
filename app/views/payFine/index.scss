@@ -1,0 +1,112 @@
+#pay-fine-view{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+
+    .pay-fine-container{
+        width: 100%;
+        height: 100%;
+        border-top: 0.05rem solid #dedede;
+        font-size: 0.75rem;
+        color: #35353f;
+
+        .select-div{
+            width: 100%;
+            height: 2.25rem;
+            line-height: 2.25rem;
+            padding: 0 0.75rem;
+
+            select{
+                height: 100%;
+                font-size: 0.75rem;
+                color: #35353f;
+                border: 0;
+                outline:none;
+                background: transparent;
+                -webkit-appearance:none;
+                background: url(../../static/images/common/down-arrow.png) no-repeat right center transparent;
+                background-size: 0.6rem 0.35rem;
+                padding-right: 1rem;
+            }
+        }
+
+        .desc-div{
+            width: 100%;
+            padding: 0.75rem;
+            line-height: 1rem;
+            background-color: #dedede;
+
+            .pay-content{
+                margin-top: 1rem;
+
+                >div{
+                    display: inline-block;
+                    vertical-align: top;
+                }
+            }
+        }
+
+        .password-div{
+            width: 100%;
+            padding: 0 0.75rem;
+            height: 2.25rem;
+            line-height: 2.25rem;
+            border-bottom: 0.05rem solid #dedede;
+
+            input{
+                width: 50%;
+                border: 0;
+                font-size: 0.75rem;
+                color: #000000;
+            }
+
+            input::-webkit-input-placeholder{
+                color: #90909b;
+            }
+        }
+
+        .btn-div{
+            margin-top: 2rem;
+            width: 100%;
+            text-align: center;
+            
+            button{
+                width: 66%;
+                height: 2.25rem;
+                font-size: 0.8rem;
+                color: #FFFFFF;
+                border-radius: 2.25rem;
+                background-color: #3692fd;
+            }
+
+            button:disabled{
+                background-color: #dedede;
+            }
+        }
+    }
+
+    .notPay-container{
+        width: 100%;
+        height: 100%;
+        border-top: 0.05rem solid #dedede;
+        font-size: 0.75rem;
+        color: #35353f;
+        padding-top: 4rem;
+
+        .sucess-icon{
+            width: 4.2rem;
+            height: 3.325rem;
+            background: url(../../static/images/common/alert-success-icon.png) no-repeat center;
+            background-size: 100%;
+            margin: 0 auto;
+        }
+
+        .desc{
+            width: 100%;
+            text-align: center;
+            padding-top: 1rem;
+        }
+    }
+}

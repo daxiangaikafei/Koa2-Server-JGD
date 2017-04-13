@@ -1,3 +1,4 @@
+export const OK = "OK"
 export const YES = "YES"
 export const NO = "NO"
 

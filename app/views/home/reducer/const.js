@@ -27,7 +27,7 @@ export const MenuList = [
     },
     {
         id: "trade-icon",
-        link: "rights/tradeRights",
+        link: "tradeRights",
         name: "交易维权",
         desc: "一键举报、申诉、查看进度",
         isOpen: true,

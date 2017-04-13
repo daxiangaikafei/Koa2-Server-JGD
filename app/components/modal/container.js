@@ -4,8 +4,8 @@ import * as React from 'react';
 import WinMark from "./winMark.js";
 
 //modal skin
-import Alert from "./alert.js";
-import { ModalSuccessAlertSkin, ModalAutoCloseSkin } from '../modalSkin'
+// import Alert from "./alert.js";
+import { ModalSuccessAlertSkin, ModalAutoCloseSkin, ModalMsgAlertSkin } from '../modalSkin'
 import * as ModalConst from './modalConst'
 
 class HelpModal extends React.Component {
@@ -19,6 +19,7 @@ class HelpModal extends React.Component {
         }
 
         this.alert = this.alert.bind(this);
+        this.ask = this.ask.bind(this);
 
         this.show = this.show.bind(this);
         this.close = this.close.bind(this);
@@ -26,7 +27,11 @@ class HelpModal extends React.Component {
     }
 
     alert(data, skinName){
-        return this.show(data, skinName);
+        return this.show({...data, buttonType: ModalConst.OK}, skinName);
+    }
+
+    ask(data, skinName){
+        return this.show({...data, buttonType: ModalConst.YES | ModalConst.NO}, skinName);
     }
 
     clear(){
@@ -79,7 +84,7 @@ class HelpModal extends React.Component {
             case ModalConst.MODAL_AUTO_CLOSE_SKIN:
                 return <ModalAutoCloseSkin {...modal} />
             default:
-                return <Alert {...modal} />
+                return <ModalMsgAlertSkin {...modal} />
         }
     }
 
