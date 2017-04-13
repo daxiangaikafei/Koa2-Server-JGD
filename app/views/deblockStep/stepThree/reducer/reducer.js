@@ -12,7 +12,7 @@ const initialState = {
 
 export default function update (state = initialState, action){
     switch(action.type){
-        case ActionTypes.SAFE_DATA:
+        case ActionTypes.CHEK_INFO:
             return {
                 ...state,
                 content:""||action.data

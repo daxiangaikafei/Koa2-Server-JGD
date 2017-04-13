@@ -25,6 +25,8 @@ const StepFour = cb => require.ensure([], require => { cb(null, require('../view
 const StepFive= cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepFive').default)}, "stepFive")
 const StepSix= cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepSix').default)}, "stepSix")
 
+const BroadCast= cb => require.ensure([], require => { cb(null, require('../views/broadcastList').default)}, "broadcast")
+
 const TradeRights = cb => require.ensure([], require => { cb(null, require('../views/tradeRights').default)}, "tradeRights")
 const FrozenAccount = cb => require.ensure([], require => { cb(null, require('../views/frozen').default)}, "frozenAccount")
 const PayFine = cb => require.ensure([], require => { cb(null, require('../views/PayFine').default)}, "payFine")
@@ -99,6 +101,10 @@ const Routers = {
 		{
 			path: 'stepSix',
 			getComponent(nextState, cb){ StepSix(cb) }
+		},
+		{
+			path: 'broadcast',
+			getComponent(nextState, cb){ BroadCast(cb) }
 		},
 		{
 			path: 'tradeRights',

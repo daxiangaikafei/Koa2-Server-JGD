@@ -6,14 +6,13 @@ import * as helpAction from '../../../../redux/common/helpAction'
 
 
 const receiveData = data => ({
-    type : ActionTypes.SAFE_DATA,
+    type : ActionTypes.GET_DATA,
     data : data
 })
 //获取首页用户数据
-export const getSafetyGradeData = () => dispatch => {
-    let url = "gradeInfo"
+export const getUserData = () => dispatch => {
+    let url = "userDeblocking/getAnswer"
     dispatch(helpAction.fetchPosts(url, url, {})).then((data)=>{
-        console.log(data)
             dispatch(receiveData(data));
     })
 }

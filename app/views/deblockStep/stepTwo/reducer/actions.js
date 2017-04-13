@@ -5,15 +5,28 @@ import * as ActionTypes from '../../../main/reducer/ActionTypes'
 import * as helpAction from '../../../../redux/common/helpAction'
 
 
-const receiveData = data => ({
-    type : ActionTypes.SAFE_DATA,
+const getMsgData = data => ({
+    type : ActionTypes.GET_MSG,
     data : data
 })
-//获取首页用户数据
-export const getSafetyGradeData = () => dispatch => {
-    let url = "gradeInfo"
+//获取短信
+export const getMssage = () => dispatch => {
+    let url = "userDeblocking/getSmsKey"
     dispatch(helpAction.fetchPosts(url, url, {})).then((data)=>{
         console.log(data)
-            dispatch(receiveData(data));
+            dispatch(getMsgData(data));
+    })
+}
+
+
+const codeData = data => ({
+    type : ActionTypes.COMFIRM_CODE,
+    data : data
+})
+//确认验证码
+export const comfirmCode = (code) => dispatch => {
+    let url = "userDeblocking/smsKeyVerification"
+    dispatch(helpAction.fetchPosts(url, url, {smsKey:code})).then((data)=>{
+            dispatch(codeData(data));
     })
 }

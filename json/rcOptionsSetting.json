@@ -1,0 +1,129 @@
+{
+    "data": {
+        "riskList": [
+            {
+                "code": "detxtx",
+                "createTime": 1479724136000,
+                "defaultVal": "5000",
+                "id": 2,
+                "inputArr": [
+                    {
+                        "defaultVal": "5000",
+                        "name": "detxtx",
+                        "unit": "元",
+                        "value": "1000,2000,5000,10000,20000,50000"
+                    }
+                ],
+                "label": "大额提现提醒",
+                "labelSon": "提醒金额",
+                "lastOperator": "ge",
+                "module": "riskcenter.alert.setting",
+                "sort": 1,
+                "status": 2,
+                "type": "list",
+                "unit": "元",
+                "updateTime": 1484730735000,
+                "value": "1000,2000,5000,10000,20000,50000"
+            },
+            {
+                "code": "dexftx",
+                "createTime": 1479723882000,
+                "defaultVal": "5000",
+                "id": 1,
+                "inputArr": [
+                    {
+                        "defaultVal": "5000",
+                        "name": "dexftx",
+                        "unit": "元",
+                        "value": "1000,2000,5000,10000,20000,50000"
+                    }
+                ],
+                "label": "大额消费提醒",
+                "labelSon": "提醒金额",
+                "lastOperator": "ge",
+                "module": "riskcenter.alert.setting",
+                "sort": 2,
+                "status": 2,
+                "type": "list",
+                "unit": "元",
+                "updateTime": 1484730735000,
+                "value": "1000,2000,5000,10000,20000,50000"
+            },
+            {
+                "code": "dspfxftx",
+                "createTime": 1479724603000,
+                "defaultVal": "30",
+                "id": 3,
+                "inputArr": [
+                    {
+                        "defaultVal": "30",
+                        "name": "dspfxftx",
+                        "unit": "分钟",
+                        "value": "1,2,3,4,5,8,10,15,20,30"
+                    },
+                    {
+                        "defaultVal": "20",
+                        "name": "dspfxftxb",
+                        "unit": "笔",
+                        "value": "3,4,5,6,7,8,10,15,20,30"
+                    }
+                ],
+                "label": "短时频繁消费提醒",
+                "labelSon": "达到时提醒",
+                "lastOperator": "le",
+                "module": "riskcenter.alert.setting",
+                "sort": 3,
+                "status": 2,
+                "type": "list",
+                "unit": "分钟",
+                "updateTime": 1484730736000,
+                "value": "1,2,3,4,5,8,10,15,20,30"
+            },
+            {
+                "code": "dspftxtx",
+                "createTime": 1480403931000,
+                "defaultVal": "30",
+                "id": 8,
+                "inputArr": [
+                    {
+                        "defaultVal": "30",
+                        "name": "dspftxtx",
+                        "unit": "分钟",
+                        "value": "1,2,3,4,5,8,10,15,20,30"
+                    },
+                    {
+                        "defaultVal": "20",
+                        "name": "dspftxtxb",
+                        "unit": "笔",
+                        "value": "3,4,5,6,7,8,10,15,20,30"
+                    }
+                ],
+                "label": "短时频繁提现提醒",
+                "labelSon": "达到时提醒",
+                "lastOperator": "le",
+                "module": "riskcenter.alert.setting",
+                "sort": 5,
+                "status": 2,
+                "type": "list",
+                "unit": "分钟",
+                "updateTime": 1484730737000,
+                "value": "1,2,3,4,5,8,10,15,20,30"
+            },
+            {
+                "code": "fkxsbdltx",
+                "createTime": 1480316655000,
+                "id": 7,
+                "label": "非可信设备登录提醒",
+                "lastOperator": "in",
+                "module": "riskcenter.alert.setting",
+                "sort": 7,
+                "status": 2,
+                "type": "lable",
+                "updateTime": 1480582527000
+            }
+        ],
+        "mobile": "13000180001"
+    },
+    "message": "",
+    "resultCode": "1"
+}

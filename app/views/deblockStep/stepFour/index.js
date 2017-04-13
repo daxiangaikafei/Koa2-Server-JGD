@@ -8,18 +8,19 @@ import { connect } from 'react-redux'
 import Page from '../../../components/page'
 import './index.scss'
 import '../common.scss'
-import { getSafetyGradeData } from './reducer/actions'
+import { getUserData } from './reducer/actions'
 
 class stepFour extends React.Component {
     
     componentDidMount(){
-        this.props.getSafetyGradeData();
+        this.props.getUserData();
     }
 
     onOpenHandler(){
     }
     
     render() {
+        let {securityQuestionStr,securityListDisplay,nextDisabled} =this.props;
         return (
             <Page id="safety-grade-view">
                 <div className="step4-container step-container">
@@ -28,13 +29,13 @@ class stepFour extends React.Component {
                     </div>
                      <div className="step4-main step-main">
                         <div className="security-div" >
-                            <span className="questionSpan"></span>
+                            <span className="questionSpan">{securityQuestionStr}</span>
                             <input className="questionInput" type="text" />
 
                             <button className="btnGetQuestion">重新获取密保问题</button>
                         </div>
                         
-                        <div className="security-list" >
+                        <div className="security-list"  style={{display:securityListDisplay}}>
                             <div className="security-item prepaid">
                                 <div className="security-question f-c">1、您最近一次充值金额为：</div>
                                 <div className="security-answer f-c selected">
@@ -58,7 +59,7 @@ class stepFour extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <button className="deblocking-btnNext">下一步</button>
+                        <button className="deblocking-btnNext" disabled={nextDisabled}>下一步</button>
                     </div>
                     
                 </div>
@@ -67,20 +68,17 @@ class stepFour extends React.Component {
     }
 }
 stepFour.propTypes = {
-    openStatus:PropTypes.number.isRequired,
-    safetyLevel : PropTypes.number.isRequired,
-    safetyTip : PropTypes.string.isRequired
 }
 
 let mapStateToProps = state => ({
-    openStatus:state.userReducer.status,
-    safetyLevel: state.userReducer.securityGrade,
-    safetyTip: state.safetyGrade.safetyTip,
-    content : state.safetyGrade.content,
+    securityQuestionStr:state.stepFourReducer.securityQuestionStr,
+    securitySelectDisplay: state.stepFourReducer.securitySelectDisplay,
+    securityListDisplay: state.stepFourReducer.securityListDisplay,
+    nextDisabled: state.stepFourReducer.nextDisabled,
 })
 
 let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ getSafetyGradeData } , dispatch)
+    return bindActionCreators({ getUserData } , dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(stepFour)

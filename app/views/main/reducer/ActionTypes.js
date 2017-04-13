@@ -30,17 +30,24 @@ export const HIDE_MODAL = "HIDE_MODAL"
 /**成为会员opentip */
 export const INIT_OPENTIP = "INIT_OPENTIP"
 
-// 安全等级
+/**安全等级 */
 export const SAFE_DATA = "SAFE_DATA"
 
-// 自助解纷
-export const DE_STEP_ONE = "DE_STEP_ONE"
-export const DE_STEP_Two = "DE_STEP_Two"
-export const DE_STEP_TWO_GETMSG  = "DE_STEP_TWO_GETMSG "
-export const DE_STEP_TWO_COMFIRM = "DE_STEP_TWO_COMFIRM"
+/**自助解纷 */
+export const USER_INFO = "USER_INFO"
 
-//确认支付
-export const PAY_MONEY = "PAY_MONEY"
+/**确认支付 */
+export const PAY_MON = "PAY_MON"
+
+/**短信验证 */
+export const GET_MSG = "GET_MSG"
+
+/**确认验证码 */
+export const COMFIRM_CODE = "COMFIRM_CODE"
+/**检查四要素信息*/
+export const CHEK_INFO = "CHEK_INFO"
+
+export const GETFIVE_DATA = "GETFIVE_DATA"
 
 /**我的足迹 */
 export const INIT_MYFOOTER = "INIT_MYFOOTER"
@@ -60,5 +67,6 @@ export const BIND_TRUSTED_DEVICE = "BIND_TRUSTED_DEVICE"
 export const UNBIND_TRUSTED_DEVICE = "UNBIND_TRUSTED_DEVICE"
 export const INIT_DEVICE_INFO = "INIT_DEVICE_INFO"
 
+export const BROAD_LIST = "BROAD_LIST"
 /**我的安全中心 */
 export const INIT_MYSHIELD = "INIT_MYSHIELD"

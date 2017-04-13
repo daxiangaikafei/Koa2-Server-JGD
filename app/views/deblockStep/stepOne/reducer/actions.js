@@ -3,17 +3,34 @@
  */
 import * as ActionTypes from '../../../main/reducer/ActionTypes'
 import * as helpAction from '../../../../redux/common/helpAction'
-
+import {Alert} from '../../../../components/modal/alert'
 
 const receiveData = data => ({
-    type : ActionTypes.SAFE_DATA,
+    type : ActionTypes.USER_INFO,
     data : data
 })
-//获取首页用户数据
-export const getSafetyGradeData = () => dispatch => {
-    let url = "gradeInfo"
-    dispatch(helpAction.fetchPosts(url, url, {})).then((data)=>{
-        console.log(data)
+//进入加载数据
+export const getUserBlockInfo = (username) => dispatch => {
+    let url = "userDeblocking/getUserDeblockingInfo"
+    dispatch(helpAction.fetchPosts(url, url, {userName:username})).then((data)=>{
+            // console.log(data,'dddoeoeoeoeooeoeoeoe')
             dispatch(receiveData(data));
     })
 }
+
+
+
+
+
+const payMoneyData = data => ({
+    type : ActionTypes.PAY_MON,
+    data : data
+})
+//确认支付
+export const payMoney = (val) => dispatch => {
+    let url = "userDeblocking/userDepositPay"
+    dispatch(helpAction.fetchPosts(url, url, {pwd:val})).then((data)=>{
+            dispatch(payMoneyData(data));
+    })
+}
+

@@ -19,11 +19,11 @@ export openTipReducer from '../views/openTip/reducer/reducer'
 export safetyGrade from '../views/safetyGrade/reducer/reducer'
 
 //自助解封
-// export deblockStep from '../views/deblockStep/stepOne/reducer/reducer'
-// export deblockStepTwo from '../views/deblockStep/stepTwo/reducer/reducer'
+export userInfoReducer from '../views/deblockStep/stepOne/reducer/reducer'
+export stepTwoReducer from '../views/deblockStep/stepTwo/reducer/reducer'
 // export deblockStepThree from '../views/deblockStep/stepThree/reducer/reducer'
-// export deblockStepFour from '../views/deblockStep/stepFour/reducer/reducer'
-// export deblockStepFive from '../views/deblockStep/stepFive/reducer/reducer'
+export stepFourReducer from '../views/deblockStep/stepFour/reducer/reducer'
+export stepFiveReducer from '../views/deblockStep/stepFive/reducer/reducer'
 // export deblockStepSix from '../views/deblockStep/stepSix/reducer/reducer'
 /**我的足迹 */
 export myFooterReducer from '../views/myFooter/reducer/reducer'
@@ -33,6 +33,10 @@ export safeHeadReducer from '../views/safeHead/reducer/reducer'
 
 /**可信设备列表 */
 export trustedDeviceReducer from '../views/trustedDevice/reducer/reducer'
+ 
+
+/**安全播报*/
+export broadcastList from '../views/broadcastList/reducer/reducer'
 
 /**我的安全中心 */
 export myShieldReducer from '../views/myShield/reducer/reducer'

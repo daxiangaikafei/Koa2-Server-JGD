@@ -8,19 +8,55 @@ import { connect } from 'react-redux'
 import Page from '../../../components/page'
 import './index.scss'
 import '../common.scss'
-import { getSafetyGradeData } from './reducer/actions'
+import { comfirmCode,getMssage } from './reducer/actions'
 
 class stepTwo extends React.Component {
-    
-    componentDidMount(){
-        this.props.getSafetyGradeData();
+    constructor(props) {
+        super(props)
+        this.state={
+            text:"",
+            code:"",
+            sec:60,
+            disable:false,
+            buttonText:"短信验证",
+            value:"",
+            btnDisable:true
+        }
     }
-
-    onOpenHandler(){
+    
+    handleChange(e){
+        this.setState({value: e.target.value})
+        this.state.value&&this.setState({
+            btnDisable:false
+        })
+    }
+    getMes(){
+        this.props.getMssage();
+        this.countDown();
+    }
+    countDown(){
+        let timer=setInterval(()=>{
+            this.setState({
+                buttonText:(--this.state.sec)+"S获取",
+                disable:true
+            })
+            if(this.state.sec==0){
+                this.setState({
+                    buttonText:"短信验证",
+                    sec:60,
+                    disable:false
+                })
+                clearInterval(timer)
+            }
+            console.log(this.state.sec)
+        },1000)
+    }
+    goStepThree(){
+        this.props.comfirmCode(this.state.value)
     }
     
     render() {
-        let {openStatus,content,safetyLevel} = this.props;
+        let {phoneTxt,nextDisabled,disable} = this.props;
         return (
             <Page id="safety-grade-view">
                 <div className="step2-container step-container">
@@ -34,10 +70,10 @@ class stepTwo extends React.Component {
                         </div>
                         <div className="code-div f-c">
                             <div className="code-title">短信验证码：</div>
-                            <input className="code-input" type="text" />
-                            <button className="btnSend">短信验证</button>
+                            <input className="code-input" type="text" value={this.state.value} onChange={(e)=>this.handleChange(e)}/>
+                            <button className="btnSend" onTouchTap={()=>this.getMes()} disabled={this.state.disable}>{this.state.buttonText}</button>
                         </div>
-                        <button className="deblocking-btnNext" >下一步</button>
+                        <button className="deblocking-btnNext" onTouchTap={()=>this.goStepThree()}  disabled={this.state.btnDisable}>下一步</button>
                     </div>
                 </div>
             </Page>
@@ -45,20 +81,14 @@ class stepTwo extends React.Component {
     }
 }
 stepTwo.propTypes = {
-    openStatus:PropTypes.number.isRequired,
-    safetyLevel : PropTypes.number.isRequired,
-    safetyTip : PropTypes.string.isRequired
 }
 
 let mapStateToProps = state => ({
-    openStatus:state.userReducer.status,
-    safetyLevel: state.userReducer.securityGrade,
-    safetyTip: state.safetyGrade.safetyTip,
-    content : state.safetyGrade.content,
+    phoneTxt:state.stepTwoReducer.phoneTxt
 })
 
 let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ getSafetyGradeData } , dispatch)
+    return bindActionCreators({ comfirmCode,getMssage } , dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(stepTwo)
