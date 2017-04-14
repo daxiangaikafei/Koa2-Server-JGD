@@ -1,0 +1,10 @@
+{
+    "data": {
+        "status": 0,
+        "totalTimes": "5",
+        "errorTimes": 1,
+        "message": "我是文字"
+    },
+    "message": "",
+    "resultCode": "1"
+}

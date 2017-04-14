@@ -1,0 +1,40 @@
+{
+    "data": {
+        "punishTypeList": [
+            {
+                "id": 3,
+                "busiId": 1,
+                "createTime": 1486546080000,
+                "busiType": 1,
+                "updateTime": 1486546080000,
+                "breakType": 1,
+                "breakDetail": "禁止支付-宝券汇集",
+                "busiName": "钱柳"
+            },
+            {
+                "id": 4,
+                "busiId": 1,
+                "createTime": 1486546080000,
+                "busiType": 1,
+                "updateTime": 1486546080000,
+                "breakType": 2,
+                "breakDetail": "禁止支付-包庇汇集",
+                "busiName": "钱柳"
+            }
+        ],
+        "punishDetailList": [
+            {
+                "breakType": 1,
+                "bbPunish": 100000,
+                "bqPunish": 222222
+            },
+            {
+                "breakType": 2,
+                "bbPunish": 3333,
+                "bqPunish": 444
+            }
+        ]
+    },
+    "message": "",
+    "resultCode": "1"
+}

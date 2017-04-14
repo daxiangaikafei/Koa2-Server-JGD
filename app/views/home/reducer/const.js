@@ -67,4 +67,4 @@ export const ColorLevel = [
 ]
 
 
-export const HOME_MEMBER_LIST = ["userCenter", "myFooter", "rights/tradeRights"];
+export const HOME_MEMBER_LIST = ["userCenter", "myFooter", "tradeRights"];

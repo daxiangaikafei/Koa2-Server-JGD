@@ -33,10 +33,13 @@ export safeHeadReducer from '../views/safeHead/reducer/reducer'
 
 /**可信设备列表 */
 export trustedDeviceReducer from '../views/trustedDevice/reducer/reducer'
- 
 
 /**安全播报*/
 export broadcastList from '../views/broadcastList/reducer/reducer'
 
 /**我的安全中心 */
 export myShieldReducer from '../views/myShield/reducer/reducer'
+
+export frozenReducer from '../views/frozen/reducer/reducer'
+
+export payFineReducer from '../views/payFine/reducer/reducer'

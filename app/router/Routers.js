@@ -29,6 +29,9 @@ const BroadCast= cb => require.ensure([], require => { cb(null, require('../view
 
 const TradeRights = cb => require.ensure([], require => { cb(null, require('../views/tradeRights').default)}, "tradeRights")
 const FrozenAccount = cb => require.ensure([], require => { cb(null, require('../views/frozen').default)}, "frozenAccount")
+const FrozenWayChoice = cb => require.ensure([], require => { cb(null, require('../views/frozen/frozenWayChoice').default)}, "frozenWayChoice")
+const FrozenAccountType = cb => require.ensure([], require => { cb(null, require('../views/frozen/frozenAccountType').default)}, "frozenAccountType")
+const FrozenResult = cb => require.ensure([], require => { cb(null, require('../views/frozen/frozenResult').default)}, "frozenResult")
 const PayFine = cb => require.ensure([], require => { cb(null, require('../views/PayFine').default)}, "payFine")
 
 const Routers = {
@@ -113,6 +116,18 @@ const Routers = {
 		{
 			path: 'rights/frozenAccount',
 			getComponent(nextState, cb){ FrozenAccount(cb) }
+		},
+		{
+			path: 'frozen/frozenWayChoice',
+			getComponent(nextState, cb){ FrozenWayChoice(cb) }
+		},
+		{
+			path: 'frozen/frozenAccountType/:type',
+			getComponent(nextState, cb){ FrozenAccountType(cb) }
+		},
+		{
+			path: 'frozen/frozenAccountResult/:opt',
+			getComponent(nextState, cb){ FrozenResult(cb) }
 		},
 		{
 			path: 'rights/payFine',

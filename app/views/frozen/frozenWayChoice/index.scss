@@ -1,0 +1,46 @@
+#frozen-way-choice-view{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+
+    .frozen-way-choice-container{
+        width: 100%;
+        height: 100%;
+        border-top: 0.05rem solid #ededed;
+
+        .choice-item{
+            width: 100%;
+            height: 2.25rem;
+            line-height: 2.25rem;
+            padding: 0 0.75rem;
+            border-bottom: 0.05rem solid #ededed;
+            font-size: 0.75rem;
+            color: #35353f;
+
+            .arror-icon{
+                width: 0.6rem;
+                height: 100%;
+                background: url(../../../static/images/common/down-arrow.png) no-repeat center;
+                background-size: 0.6rem 0.35rem;
+                float: right;
+                transform: rotate(-90deg);
+            }
+        }
+
+        .tip{
+            padding: 0.75rem;
+            font-size: 0.7rem;
+            color: #35353f;
+            background-color: #f1f1f6;
+            line-height: 0.9rem;
+
+            a{
+                color: #fd472b;
+                text-decoration: underline;
+            }
+        }
+    }
+}
