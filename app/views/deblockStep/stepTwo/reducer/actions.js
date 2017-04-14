@@ -5,6 +5,19 @@ import * as ActionTypes from '../../../main/reducer/ActionTypes'
 import * as helpAction from '../../../../redux/common/helpAction'
 
 
+const getUserData = data => ({
+    type : ActionTypes.GET_TWO_DATA,
+    data : data
+})
+//获取数据
+export const getData = () => dispatch => {
+    let url = "userDeblocking/getUserStatus"
+    dispatch(helpAction.fetchPosts(url, url, {})).then((data)=>{
+            dispatch(getUserData(data));
+    })
+}
+
+
 const getMsgData = data => ({
     type : ActionTypes.GET_MSG,
     data : data
@@ -13,7 +26,6 @@ const getMsgData = data => ({
 export const getMssage = () => dispatch => {
     let url = "userDeblocking/getSmsKey"
     dispatch(helpAction.fetchPosts(url, url, {})).then((data)=>{
-        console.log(data)
             dispatch(getMsgData(data));
     })
 }

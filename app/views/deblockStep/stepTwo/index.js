@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import Page from '../../../components/page'
 import './index.scss'
 import '../common.scss'
-import { comfirmCode,getMssage } from './reducer/actions'
+import { comfirmCode,getMssage,getData } from './reducer/actions'
 
 class stepTwo extends React.Component {
     constructor(props) {
@@ -48,13 +48,15 @@ class stepTwo extends React.Component {
                 })
                 clearInterval(timer)
             }
-            console.log(this.state.sec)
         },1000)
     }
     goStepThree(){
         this.props.comfirmCode(this.state.value)
     }
     
+    componentDidMount(){
+        this.props.getData();
+    }
     render() {
         let {phoneTxt,nextDisabled,disable} = this.props;
         return (
@@ -88,7 +90,7 @@ let mapStateToProps = state => ({
 })
 
 let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ comfirmCode,getMssage } , dispatch)
+    return bindActionCreators({ comfirmCode,getMssage,getData } , dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(stepTwo)

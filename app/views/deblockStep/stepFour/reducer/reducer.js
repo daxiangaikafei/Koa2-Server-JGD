@@ -28,7 +28,6 @@ let initData = (state, data) => {
 }
 export default function update (state = initialState, action){
     let data=action.data;
-    console.log(action.type)
     switch(action.type){
         case ActionTypes.GET_DATA:
             return initData(state, data )

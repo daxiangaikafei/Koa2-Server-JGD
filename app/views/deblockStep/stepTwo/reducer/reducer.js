@@ -12,6 +12,10 @@ export default function update (state = initialState, action){
     switch(action.type){
         case ActionTypes.GET_MSG:
             return {
+                phoneTxt:action.data.mobile||""
+            }
+        case ActionTypes.GET_MSG:
+            return {
                 ...state
             }
         case ActionTypes.COMFIRM_CODE:

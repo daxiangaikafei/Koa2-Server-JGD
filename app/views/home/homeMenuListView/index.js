@@ -23,7 +23,6 @@ class HomeMenuListView extends React.Component{
                 })
             }else{
                 browserHistory.push(link);
-                alert(link)
             }
         }
     }

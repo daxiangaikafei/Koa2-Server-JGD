@@ -103,7 +103,7 @@ const Routers = {
 			getComponent(nextState, cb){ StepSix(cb) }
 		},
 		{
-			path: 'broadcast',
+			path: 'broadcastList',
 			getComponent(nextState, cb){ BroadCast(cb) }
 		},
 		{

@@ -13,7 +13,6 @@ const receiveData = data => ({
 export const getUserBlockInfo = (username) => dispatch => {
     let url = "userDeblocking/getUserDeblockingInfo"
     dispatch(helpAction.fetchPosts(url, url, {userName:username})).then((data)=>{
-            // console.log(data,'dddoeoeoeoeooeoeoeoe')
             dispatch(receiveData(data));
     })
 }

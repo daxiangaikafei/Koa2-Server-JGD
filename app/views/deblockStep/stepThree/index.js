@@ -9,7 +9,8 @@ import Page from '../../../components/page'
 import './index.scss'
 import '../common.scss'
 import { checkInfo } from './reducer/actions'
-
+import Modal from '../../../components/modal'
+let newState=[];
 class stepThree extends React.Component {
     constructor(props) {
         super(props)
@@ -21,21 +22,48 @@ class stepThree extends React.Component {
             iphone:""
         }
     }
-    handleChange(name,e){
-        newState[name]=e.target.value;
-        this.setState(newState);
+    handleChange(item,e){
+        newState[item]=e.target.value;
+        var regStrs = [
+                ['^0(\\d+)$', '$1'], //禁止录入整数部分两位以上，但首位为0
+                ['[^\\d\\xX]+$', ''], //禁止录入任何非数字和点
+            ];
+        for(var i=0; i<regStrs.length; i++){
+                var reg = new RegExp(regStrs[i][0]);
+                newState.code = newState.code&&newState.code.replace(reg, regStrs[i][1]);
+            }
+        newState.bankcode=newState.bankcode&&newState.bankcode.replace(/\D/g, "")
+
+        this.setState(newState)
+        
+        
+        // this.setState({
+        //     bankcode:this.state.bankcode.replace(/\D/g, "")
+        //    // code:values
+        // })
     }
     componentDidMount(){
     }
 
     goStepFour(){
-        let  obj = {};;
-            obj.name = this.state.name,
-            obj.code = this.state.code,
-            obj.bankcode = this.state.bankcode,
-            obj.iphone = this.state.iphone;
-        this.props.checkInfo(obj)
-
+        let Msg="";
+        let phonereg=/^1\d{10}$/;
+            
+        if(!this.state.name){
+            Msg="姓名不能为空"
+        }else if(!this.state.code){
+            Msg="身份证号码不能为空"
+        }else if(!this.state.bankcode){
+            Msg="银行卡号码不能为空"
+        }else if(!this.state.iphone){
+            Msg="银行卡预留手机号码不能为空"
+        }else if(!phonereg.test(this.state.iphone)){
+            Msg="手机号码必须是11位数字"
+        }else{
+            this.props.checkInfo(newState)
+            console.log(newState)
+        }
+        Msg&&Modal.alert({message: Msg})
     }
     
     render() {
