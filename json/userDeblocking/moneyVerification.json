@@ -1,0 +1,9 @@
+{
+    "data":{
+                "status": 5,
+                "code":1001,
+                "mobile":"15921576682"
+        },
+    "message":"链接超时，请重新验证！",
+    "resultCode":"1"
+}

@@ -4,18 +4,17 @@
 import * as ActionTypes from '../../../main/reducer/ActionTypes'
 
 const initialState = {
-    safetyTip: "",
-    openStatus:"close",
-    content:[]
+    mobile: "",
+    type:""
 }
 
 
 export default function update (state = initialState, action){
     switch(action.type){
-        case ActionTypes.CHEK_INFO:
+        case ActionTypes.FOUR_CHECK:
             return {
-                ...state,
-                content:""||action.data
+                mobile:action.data.mobile,
+                type:"deblocking"
             }
         default:
             return state

@@ -37,7 +37,6 @@ class stepOne extends React.Component {
     };
 
     pay(){
-        console.log(this.state.value)
         if(this.state.value){
             this.props.payMoney(helpAction.encodePassword(this.state.value))
         }

@@ -8,8 +8,9 @@ import { connect } from 'react-redux'
 import Page from '../../../components/page'
 import './index.scss'
 import '../common.scss'
-import { checkInfo } from './reducer/actions'
+import { checkInfo,comfirmCode } from './reducer/actions'
 import Modal from '../../../components/modal'
+import MessageCode  from '../../../components/ui/messageCode/index'
 let newState=[];
 class stepThree extends React.Component {
     constructor(props) {
@@ -19,7 +20,8 @@ class stepThree extends React.Component {
             name:"",
             code:"",
             bankcode:"",
-            iphone:""
+            iphone:"",
+            isShow:""
         }
     }
     handleChange(item,e){
@@ -61,13 +63,21 @@ class stepThree extends React.Component {
             Msg="手机号码必须是11位数字"
         }else{
             this.props.checkInfo(newState)
-            console.log(newState)
+            this.setState({isShow:"1"})
         }
         Msg&&Modal.alert({message: Msg})
     }
-    
+    handlerClick(data){
+        if(data.type==true){
+            this.props.comfirmCode(data.code)
+        }
+        
+        // this.setState({
+        //     isShow:""
+        // })
+    }
     render() {
-        let {openStatus,content,safetyLevel} = this.props;
+        let {mobile,type} = this.props;
         return (
             <Page id="safety-grade-view">
                 <div className="step3-container step-container">
@@ -95,25 +105,24 @@ class stepThree extends React.Component {
                         <button className="deblocking-btnNext" onTouchTap={()=>this.goStepFour()}  >下一步</button>
                     </div>
                 </div>
+                {this.state.isShow? <MessageCode  mobile={mobile} codeType={type} onClickHandler={(data)=>this.handlerClick(data)}  />:""}
+               
             </Page>
         )
     }
 }
 stepThree.propTypes = {
-    openStatus:PropTypes.number.isRequired,
-    safetyLevel : PropTypes.number.isRequired,
-    safetyTip : PropTypes.string.isRequired
+    mobile:PropTypes.string,
+    type : PropTypes.string
 }
 
 let mapStateToProps = state => ({
-    openStatus:state.userReducer.status,
-    safetyLevel: state.userReducer.securityGrade,
-    safetyTip: state.safetyGrade.safetyTip,
-    content : state.safetyGrade.content,
+    mobile: state.stepThreeReducer.mobile,
+    type:state.stepThreeReducer.type
 })
 
 let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ checkInfo } , dispatch)
+    return bindActionCreators({ checkInfo ,comfirmCode} , dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(stepThree)
