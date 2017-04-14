@@ -2,17 +2,13 @@
  * created by zhao at 2017-3-23
  */
 import React , { PropTypes } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-
-import { onCloseHelpHandler } from '../reducer/actions'
 
 import './index.scss'
 
 class HomeHelpView extends React.Component{
 
     render(){
-        let { onCloseHelpHandler } = this.props
+        let { onClickHandler } = this.props
 
         return(
             <div className="home-help-container">
@@ -29,21 +25,13 @@ class HomeHelpView extends React.Component{
                         <p className="tip">以上每一等级包括前等级内容。更多安全保障措施，敬请期待！</p>
                     </div>
                 </div>
-                <button className="home-help-btn-close" onTouchTap={onCloseHelpHandler}></button>
+                <button className="home-help-btn-close" onTouchTap={onClickHandler}></button>
             </div>
         )
     }
 }
 
 HomeHelpView.propTypes = {
-    onCloseHelpHandler: PropTypes.func.isRequired
+    onClickHandler: PropTypes.func
 }
-
-let mapStateToProps = state => ({
-})
-
-let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ onCloseHelpHandler } , dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomeHelpView)
+export default HomeHelpView

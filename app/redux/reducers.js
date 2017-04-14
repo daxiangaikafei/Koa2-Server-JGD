@@ -43,3 +43,6 @@ export myShieldReducer from '../views/myShield/reducer/reducer'
 export frozenReducer from '../views/frozen/reducer/reducer'
 
 export payFineReducer from '../views/payFine/reducer/reducer'
+
+/**用户中心 */
+export userCenterReducer from '../views/userCenter/reducer/reducer'

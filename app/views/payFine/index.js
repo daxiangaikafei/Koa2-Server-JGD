@@ -67,7 +67,6 @@ class PayFine extends React.Component {
         if(punishDetailList.length == 0) return result
 
         let detail = punishDetailList.find((obj, index) => obj.breakType == breakType)
-        console.log(detail)
         if(!detail) return result
         result.isShow = true
         result.bnDisabled = false

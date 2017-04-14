@@ -1,0 +1,49 @@
+.package-item{
+    width: 100%;
+    padding: 0.35rem 0;
+
+    >div{
+        display: table-cell;
+    }
+
+    .package-select-icon{
+        width: 1.5rem;
+        height: 1.5rem;
+        background: url(../../../../static/images/common/option-icon.png) top center no-repeat;
+        background-size: 1rem;
+    }
+
+    .package-select-icon.disabled{
+        background: url(../../../../static/images/common/option-selected-disable-icon.png) top center no-repeat;
+        background-size: 1rem;
+    }
+
+    .package-content{
+        padding: 0 1rem 0 0.75rem;
+        width: calc(100% - 1.5rem);
+
+    .package-name{
+        font-size: 0.75rem;
+        color: #3692fd;
+        //font-weight: bold;
+    }
+
+    .tip{
+        margin-top: 0.25rem;
+        font-size: 0.7rem;
+    }
+
+    .package-desc{
+        margin-top: 0.25rem;
+        font-size: 0.7rem;
+        color: #35353f;
+    }
+    }
+}
+
+.package-item.selected{
+    .package-select-icon{
+    background: url(../../../../static/images/common/option-selected-icon.png) top center no-repeat;
+    background-size: 1rem;
+    }
+}

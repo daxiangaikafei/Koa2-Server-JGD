@@ -6,7 +6,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 
-import { addAnimationGrade,  onOpenHelpHandler } from '../reducer/actions'
+import { addAnimationGrade } from '../reducer/actions'
+
 import * as lev from '../../main/reducer/userConst'
 import navigate  from '../../../router/navigate'
 import classNames from 'classnames'
@@ -37,11 +38,6 @@ class HomeTopView extends React.Component{
         browserHistory.push('/openTip')
     }
 
-    //关闭按钮事件
-    onBnCloseHandler(){
-        console.log("onBnCloseHandler")
-    }
-
     componentDidMount(){
         this.setState({securityGrade: 1})
     }
@@ -52,14 +48,16 @@ class HomeTopView extends React.Component{
 
     render(){
         let { securityGrade } = this.state
-        let { animationGrade, isOpen, bgRadialGradient, fontColor, bnColor, addAnimationGrade, onOpenHelpHandler} = this.props
+        let { animationGrade, isOpen, addAnimationGrade } = this.props
+        let colorObj = HomeConst.ColorLevel[securityGrade-1], isMaxLevel = securityGrade >= lev.MaxLevel
+        
         let marks, index, list=[];
         for(index=1; index<=7; index++){
             list.push(index);
         }
         marks = list.map((value, index)=>{
             let classes = "s"+value + " " + (animationGrade == value ? 'selected' : '')
-            return (<span className={classes} key={value} onTouchTap={onOpenHelpHandler}>{'S' + value}</span>)
+            return (<span className={classes} key={value} onTouchTap={this.props.onBnHelpHandler}>{'S' + value}</span>)
         })
 
         //没有达到当前等级执行动画
@@ -69,7 +67,7 @@ class HomeTopView extends React.Component{
         }
 
         return(
-            <div className="home-top-div" style={{background: "radial-gradient("+bgRadialGradient+")"}}>
+            <div className="home-top-div" style={{background: "radial-gradient("+colorObj.bgColor+")"}}>
                 <div className="home-security-circle-div">
                     <div className={'home-security-circle ' + 'circle-s'+securityGrade}></div>
                     <div className="home-security-circle-bg"></div>
@@ -79,17 +77,19 @@ class HomeTopView extends React.Component{
                     { marks }
                     <div className="home-security-title">当前安全等级</div>
                     <div className="home-security-txt">S{ animationGrade }</div>
-                    <button className={securityGrade >= HomeConst.MaxLevel ? "max-level btn-upgrade" : "btn-upgrade"} style={{color : fontColor}} onTouchTap={()=>this.onBnUpgradeHandler()}>
-                        {securityGrade >= HomeConst.MaxLevel ? "最高等级" : "提高等级"}
+                    <button className={isMaxLevel ? "max-level btn-upgrade" : "btn-upgrade"} 
+                            style={{color : colorObj.fontColor}} 
+                            onTouchTap={()=>this.onBnUpgradeHandler()}>
+                        { isMaxLevel ? "最高等级" : "提高等级"}
                     </button>
                     <div className="upgrade-tip">尊敬的金戈盾会员，安全等级为S7时，<br />账户发生风险，钱宝优先追偿哦！</div>
                 </div>
                 { 
                     //未开启
                     isOpen == 1 ? 
-                    <button className="btnOpen" style={{"backgroundColor" : bnColor}} onTouchTap={this.onBnOpenHandler}>开通会员</button>
+                    <button className="btnOpen" style={{"backgroundColor" : colorObj.bnColor}} onTouchTap={this.onBnOpenHandler}>开通会员</button>
                     :
-                    <button className="btnClose" onTouchTap={this.onBnCloseHandler}>关闭</button>
+                    <button className="btnClose" onTouchTap={this.props.onCloseHandler}>关闭</button>
                 }
             </div>
         ) 
@@ -100,25 +100,20 @@ HomeTopView.propTypes = {
     securityGrade: PropTypes.number.isRequired,
     animationGrade: PropTypes.number.isRequired,
     isOpen: PropTypes.number.isRequired,
-    bgRadialGradient: PropTypes.string.isRequired,
-    fontColor: PropTypes.string.isRequired,
-    bnColor: PropTypes.string.isRequired,
     
-    addAnimationGrade: PropTypes.func.isRequired,
-    onOpenHelpHandler : PropTypes.func.isRequired
+    onBnCloseHandler: PropTypes.func,
+    onBnHelpHandler: PropTypes.func,
+    addAnimationGrade: PropTypes.func.isRequired
 }
 
 let mapStateToProps = state => ({
     securityGrade: state.userReducer.securityGrade,
     isOpen: state.userReducer.status,
     animationGrade: state.homeReducer.animationGrade,
-    bgRadialGradient: state.homeReducer.bgRadialGradient,
-    fontColor: state.homeReducer.fontColor,
-    bnColor: state.homeReducer.bnColor,
 }) 
 
 let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ addAnimationGrade, onOpenHelpHandler } , dispatch)
+    return bindActionCreators({ addAnimationGrade } , dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeTopView)

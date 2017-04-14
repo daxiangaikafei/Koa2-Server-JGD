@@ -114,6 +114,7 @@ export function posts(key, url, param, type = "GET",headers={}, repType="json") 
             url = "api/"+url;
         }else{
             url = "/json/"+url+".json";
+            // url = "shield/api/"+url;
         }
         if(type.toLocaleUpperCase()==="GET"&&size(param)>0){
            url +="?"+toExcString(param)
