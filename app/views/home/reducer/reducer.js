@@ -8,10 +8,6 @@ import * as HomeConst from './actions'
 const initialState = {
     animationGrade : 1,
     lbs : "",
-    helpIsShow: false,
-    bgRadialGradient: "#ff5959, #ff3a3c",
-    fontColor: "#ff000c",
-    bnColor: "#dd000a"
 }
 
 let initHomeDate = (state, data) => {
@@ -19,9 +15,6 @@ let initHomeDate = (state, data) => {
     return {
         ...state,
         lbs : data.currentLbs || "",
-        bgRadialGradient: data.bgColor,
-        fontColor: data.fontColor,
-        bnColor: data.bnColor,
         animationGrade : 1,
     }
 }
@@ -39,10 +32,6 @@ export default function update (state = initialState, action){
             return initHomeDate(state, action.data)
         case ActionTypes.UPDATE_ANIMATION_GRADE:
             return update_animation(state)
-        case ActionTypes.OPEN_HELP_VIEW:
-            return { ...state, helpIsShow: true}
-        case ActionTypes.CLOSE_HELP_VIEW:
-            return { ...state, helpIsShow: false}
         default:
             return state
     }

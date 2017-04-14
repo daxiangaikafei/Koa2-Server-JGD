@@ -5,7 +5,7 @@ import WinMark from "./winMark.js";
 
 //modal skin
 // import Alert from "./alert.js";
-import { ModalSuccessAlertSkin, ModalAutoCloseSkin, ModalMsgAlertSkin } from '../modalSkin'
+import { ModalSuccessAlertSkin, ModalAutoCloseSkin, ModalMsgAlertSkin, ModalMemberAlertSkin } from '../modalSkin'
 import * as ModalConst from './modalConst'
 
 class HelpModal extends React.Component {
@@ -85,6 +85,8 @@ class HelpModal extends React.Component {
                 return <ModalAutoCloseSkin {...modal} />
             case ModalConst.MODAL_ALERT_SKIN:
                 return <ModalAlertSkin {...modal} />
+            case ModalConst.MODAL_ALERT_MEMBER_SKIN:
+                return <ModalMemberAlertSkin {...modal} />
             default:
                 return <ModalMsgAlertSkin {...modal} />
         }

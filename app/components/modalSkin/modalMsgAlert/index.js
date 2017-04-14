@@ -32,9 +32,9 @@ class ModalMsgAlertSkin extends React.Component {
     }
 
     render() {
-        let { title, message, buttonType} = this.props
+        let { title, message, buttonType, style} = this.props
         return (
-            <div className="jgd-msg-box">
+            <div className="jgd-msg-box" style={style}>
                 <div className="jgd-msg-box-bg">
                     <div className="jgd-msg-box-title">{title}</div>
                     <div className="jgd-msg-box-content">{message}</div>
@@ -60,6 +60,7 @@ ModalMsgAlertSkin.defaultProps = {
     message: "",
     buttonType: "",
     callBack: null,
+    style: {},
 }
 
 module.exports = ModalMsgAlertSkin;

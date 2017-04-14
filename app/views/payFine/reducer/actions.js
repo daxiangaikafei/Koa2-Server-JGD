@@ -4,10 +4,6 @@
 import * as ActionTypes from '../../main/reducer/ActionTypes'
 import * as helpAction from '../../../redux/common/helpAction'
 
-let formatData = data => {
-    data.ma
-}
-
 const receiveData = data => ({
     type : ActionTypes.INIT_PAY_FINE,
     data : {

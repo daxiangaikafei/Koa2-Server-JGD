@@ -5,6 +5,8 @@
 import React, { PropTypes } from 'react'
 import { Router, Route, IndexRoute } from 'react-router'
 
+import { RouterConst } from '../static/const'
+
 const App = cb => require.ensure([], require => { cb(null, require('../views/main').default)}, "App")
 const Home = cb => require.ensure([], require => { cb(null, require('../views/home').default)}, "Home")
 const MyFooter = cb => require.ensure([], require => { cb(null, require('../views/myFooter').default)}, "myFooter")
@@ -16,7 +18,10 @@ const SafeHead = cb => require.ensure([], require => { cb(null, require('../view
 const TrustedDevice = cb => require.ensure([], require => { cb(null, require('../views/trustedDevice').default)}, "trustedDevice")
 const AddTrustedDevice = cb => require.ensure([], require => { cb(null, require('../views/addTrustedDevice').default)}, "addTrustedDevice")
 const TrustedDeciveInfo = cb => require.ensure([], require => { cb(null, require('../views/trustedDeciveInfo').default)}, "trustedDeciveInfo")
+
+const UserCenter = cb => require.ensure([], require => { cb(null, require('../views/userCenter').default)}, "userCenter")
 const MyShield = cb => require.ensure([], require => { cb(null, require('../views/myShield').default)}, "myShield")
+const ChangePackage = cb => require.ensure([], require => { cb(null, require('../views/userCenter/changePackage').default)}, "changePackage")
 
 const StepOne = cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepOne').default)}, "stepOne")
 const StepTwo = cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepTwo').default)}, "stepTwo")
@@ -35,26 +40,26 @@ const FrozenResult = cb => require.ensure([], require => { cb(null, require('../
 const PayFine = cb => require.ensure([], require => { cb(null, require('../views/PayFine').default)}, "payFine")
 
 const Routers = {
-	path: '/',
+	path: RouterConst.ROUTER_HOME,
 	getComponent(nextState, cb){ App(cb) },
 	indexRoute: {
 		getComponent(nextState, cb){ Home(cb) }
 	},
 	childRoutes: [
 		{
-			path: 'myFooter',
+			path: RouterConst.ROUTER_MYFOOTER,
 			getComponent(nextState, cb){ MyFooter(cb) }
 		},
 		{
-			path: 'myFooterDetail',
+			path: RouterConst.ROUTER_MYFOOTER_DETAIL,
 			getComponent(nextState, cb){ MyFooterDetail(cb) }
 		},
 		{
-			path: 'safeHead',
+			path: RouterConst.ROUTER_ROUTER_SAFETY_HEAD,
 			getComponent(nextState, cb){ SafeHead(cb) }
 		},
 		{
-			path: 'openTip',
+			path: RouterConst.ROUTER_OPEN_TIP,
 			getComponent(nextState, cb){ OpenTip(cb) }
 		},
 		{
@@ -76,6 +81,14 @@ const Routers = {
 		{
 			path: 'trustedDeciveInfo/:devId',
 			getComponent(nextState, cb){ TrustedDeciveInfo(cb) }
+		},
+		{
+			path: 'userCenter',
+			getComponent(nextState, cb){ UserCenter(cb) }
+		},
+		{
+			path: 'changePackage',
+			getComponent(nextState, cb){ ChangePackage(cb) }
 		},
 		{
 			path: 'myShield',

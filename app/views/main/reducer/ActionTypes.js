@@ -68,8 +68,13 @@ export const UNBIND_TRUSTED_DEVICE = "UNBIND_TRUSTED_DEVICE"
 export const INIT_DEVICE_INFO = "INIT_DEVICE_INFO"
 
 export const BROAD_LIST = "BROAD_LIST"
+
+/**用户中心 */
+export const INIT_USER_CENTER = "INIT_USER_CENTER"
 /**我的安全中心 */
 export const INIT_MYSHIELD = "INIT_MYSHIELD"
+/**改变选中的套餐 */
+export const CHANGE_PACKAGE_ID = "CHANGE_PACKAGE_ID"
 
 /**交易维权 */
 export const INIT_FROZEN_MOBILE = "INIT_FROZEN_MOBILE"
