@@ -10,7 +10,7 @@ import './index.scss'
 class MyFooterRecordItem extends React.Component {
 
     render(){
-        let { data } = this.props
+        let { data, onClickHandler } = this.props
 
         return(
             <div className="my-footer-item" onTouchTap={onClickHandler}>

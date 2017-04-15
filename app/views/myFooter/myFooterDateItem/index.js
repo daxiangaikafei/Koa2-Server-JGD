@@ -13,7 +13,7 @@ import './index.scss'
 class MyFooterDateItem extends React.Component {
 
     render(){
-        let { data, onClickHandler, key } = this.props
+        let { data, onClickHandler } = this.props
         let recordItems = data.map((obj, index)=><MyFooterRecordItem key={index} data={obj} onClickHandler={()=>onClickHandler(obj)} />)
 
         return(

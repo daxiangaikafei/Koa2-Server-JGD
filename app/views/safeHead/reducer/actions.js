@@ -114,8 +114,8 @@ let formatOsArray = (arr, key, value) => {
 
     for(let p in resObj){
         let obj = {};
-        obj[key] = p;
-        obj[value] = resObj[p];
+        obj["name"] = p;
+        obj["value"] = resObj[p];
         res.push(obj);
     }
 
@@ -124,7 +124,7 @@ let formatOsArray = (arr, key, value) => {
 
 let formatDeviceData = (type, data) =>{
     let n, c
-    if(type == SafeHeadConst.RECEIVE_DEVICE_LBS){
+    if(type == SafeHeadConst.SAFE_HEAD_DEVICE_LBS){
         n = "region"
         c = "count"
     }else{
@@ -133,9 +133,8 @@ let formatDeviceData = (type, data) =>{
     }
     data = formatOsArray(data, n, c);
     data.sort(function(a,b){
-        return parseInt(b.count) - parseInt(a.count);
+        return parseInt(b.value) - parseInt(a.value);
     })
-
     return data
 }
 

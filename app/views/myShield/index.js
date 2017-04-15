@@ -10,6 +10,7 @@ import ShieldRenew from './shieldRenewComponent'
 import ShieldQuestion from './shieldQuestionComponent'
 import ShieldIndemnify from './shieldIndemnifyComponent'
 import ShieldFeedback from './feedbackComponent'
+import UserClause from '../../components/ui/userClause'
 
 import * as MyShieldConst from './reducer/const'
 import './index.scss'
@@ -34,6 +35,10 @@ class MyShield extends React.Component {
         this.setState({useClasuseIsShow: true})
     }
 
+    onHideUserClause(){
+        this.setState({useClasuseIsShow: false})
+    }
+
     onTabHandler(type){
         this.setState({ selectTab: type })
     }
@@ -53,7 +58,7 @@ class MyShield extends React.Component {
     }
 
     render() {
-        let { selectTab } = this.state
+        let { selectTab, useClasuseIsShow } = this.state
 
         return (
             <Page id="my-shield-view">
@@ -65,6 +70,7 @@ class MyShield extends React.Component {
                     <div className={"shield-tab-item " + (selectTab == MyShieldConst.TAB_FEEDBACK ? "selected" : "")} onTouchTap={()=>this.onTabHandler(MyShieldConst.TAB_FEEDBACK)}><span>意见反馈</span></div>
                 </div>
                 {this.getTabComponent(selectTab)}
+                {useClasuseIsShow ? <UserClause onCloseHandler={()=>this.onHideUserClause()} /> : ""}
             </Page>
         )
     }

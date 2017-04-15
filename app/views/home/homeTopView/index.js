@@ -4,7 +4,6 @@
 import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { browserHistory } from 'react-router'
 
 import { addAnimationGrade } from '../reducer/actions'
 
@@ -12,6 +11,7 @@ import * as lev from '../../main/reducer/userConst'
 import navigate  from '../../../router/navigate'
 import classNames from 'classnames'
 import * as HomeConst from '../reducer/const'
+import { RouterConst } from '../../../static/const'
 
 
 //导入css
@@ -29,13 +29,13 @@ class HomeTopView extends React.Component{
     onBnUpgradeHandler(){
         let {securityGrade} = this.props
         if(securityGrade <lev.MaxLevel){
-            navigate.push('/safetyGrade')
+            navigate.push(RouterConst.ROUTER_SAFETY_GRADE)
         }
     }
 
     //开启按钮事件
     onBnOpenHandler(){
-        browserHistory.push('/openTip')
+        navigate.push(RouterConst.ROUTER_OPEN_TIP)
     }
 
     componentDidMount(){
@@ -89,7 +89,7 @@ class HomeTopView extends React.Component{
                     isOpen == 1 ? 
                     <button className="btnOpen" style={{"backgroundColor" : colorObj.bnColor}} onTouchTap={this.onBnOpenHandler}>开通会员</button>
                     :
-                    <button className="btnClose" onTouchTap={this.props.onCloseHandler}>关闭</button>
+                    <button className="btnClose" onTouchTap={this.props.onBnCloseHandler}>关闭</button>
                 }
             </div>
         ) 

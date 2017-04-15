@@ -1,0 +1,143 @@
+.alert-safe-class-skin{
+  width: 100%;
+  height: 100%;
+
+  .alert-safe-class-container{
+    width: 16.25rem;;
+    height: 18.75rem;
+    position: absolute;
+    left: calc(50% - 8.125rem);
+    top: 18%;
+    background: url(../../../static/images/common/alert-safe-class-bg.png) no-repeat center;
+    background-size: 100%;
+    
+    .content-div{
+        padding: 0 1rem;
+        padding-top: 7.5rem;
+        
+        .left-icon{
+          width: 6rem;
+          height: 6rem;
+          border-radius:0.25rem;
+          border: 1px solid #e3f5eb;
+          float: left;
+          position: relative;
+
+          .icon{
+            width: 6rem;
+            height: 6rem;
+          }
+        }
+
+        .right-div{
+          width: calc(100% - 6rem - 0.75rem);
+          height: 6rem;
+          float: right;
+          position: relative;
+
+          .title-txt{
+            font-size: 0.9rem;
+            color: #35353f;
+            text-align: left;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+          }
+
+          .date-txt{
+            font-size: 0.75rem;
+            color: #90909b;
+            text-align: right;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+          }
+        }
+      }
+
+      .button-div{
+        margin-top: 1.5rem;
+        width: 100%;
+        height: 1.75rem;
+        text-align: center;
+        padding: 0 1rem;
+
+        .btn-close{
+          float: left;
+          background-color: #4cd964;
+          color: #ffffff;
+        }
+
+        .btn-read{
+          float: right;
+          color: #ffffff;
+          background-color: #4cd964;
+        }
+
+        button{
+          width: 45%;
+          height: 100%;
+          border-radius: 1.75rem;
+          font-size: 0.8rem;
+        }
+      }
+  }
+
+  .alert-safe-class-container.notice{
+    width: 15.7rem;
+    height: 14.9rem;
+    background: url(../../../static/images/common/alert-notice-bg.png) no-repeat center;
+    background-size: 100%;
+    left: calc(50% - 7.85rem);
+
+    .content-div{
+        padding-top: 3.5rem;
+    }
+
+    .button-div{
+      .btn-close{
+        background-color: #3692fd;
+      }
+
+      .btn-read{
+        background-color: #3692fd;
+      }
+    }
+  }
+
+
+  @media screen and (max-width: 320px) {
+      .alert-safe-class-container{
+          width: 15rem;
+          height: 17.3rem;
+          left: calc(50% - 7.5rem);
+
+          .content-div{
+            padding-top: 7rem;
+
+            .left-icon{
+              width: 5.5rem;
+              height: 5.5rem;
+            }
+
+            .right-div{
+              width: calc(100% - 5.5rem - 0.75rem);
+              height: 5.5rem;
+            }
+          }
+      }
+
+      .alert-safe-class-container.notice{
+        width: 14.13rem;
+        height: 13.41rem;
+        left: calc(50% - 7.065rem);
+
+        .content-div{
+            padding-top: 3rem;
+        }
+      }
+  }
+}

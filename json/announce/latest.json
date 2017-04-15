@@ -1,1 +1,11 @@
-{"message":"","resultCode":"1"}
+{
+    "data": {
+        "type": 1,
+        "id": 1,
+        "title":"公式法蒂好看",
+        "modifyTime": "2017-4-4 10:22:33",
+        "imgUrl": ""
+    },
+    "message": "",
+    "resultCode": "1"
+}

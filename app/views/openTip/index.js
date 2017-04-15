@@ -13,6 +13,7 @@ import ChargePackage from '../../components/ui/chargePackage'
 import Modal from '../../components/modal'
 import * as ModalConst from '../../components/modal/modalConst'
 import navigate from '../../router/navigate'
+import { RouterConst } from '../../static/const'
 
 
 import { getPackages, payChargePackage } from './reducer/actions'
@@ -68,29 +69,20 @@ class OpenTip extends React.Component {
 
     //显示支付套餐界面
     onOpenHandler(){
-        this.setState({
-            isShowChargePackage: true
-        })
+        this.setState({isShowChargePackage: true})
     }
 
     onChargePackageHandler(data){
         if(data.type){
             let { payChargePackage } = this.props
             payChargePackage(data.data).then(data=>{
-                if(data){
-                    this.setState({
-                        isShowChargePackage: false
-                    })
-
-                    Modal.alert({tip:"支付成功！恭喜您成为会员！"}, ModalConst.MODAL_SUCCESS_ALERT_SKIN).then(data=>{
-                        navigate.goBack()
-                    })
-                }
+                Modal.alert({tip:"支付成功！恭喜您成为会员！"}, ModalConst.MODAL_SUCCESS_ALERT_SKIN).then(data=>{
+                    navigate.push(RouterConst.ROUTER_HOME)
+                })
+                this.setState({isShowChargePackage: false})
             })
         }else{
-            this.setState({
-                isShowChargePackage: false
-            })
+            this.setState({isShowChargePackage: false})
         }
     }
     

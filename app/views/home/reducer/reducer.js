@@ -8,6 +8,8 @@ import * as HomeConst from './actions'
 const initialState = {
     animationGrade : 1,
     lbs : "",
+    showNewest: false,
+    newest: null
 }
 
 let initHomeDate = (state, data) => {
@@ -32,6 +34,17 @@ export default function update (state = initialState, action){
             return initHomeDate(state, action.data)
         case ActionTypes.UPDATE_ANIMATION_GRADE:
             return update_animation(state)
+        case ActionTypes.SHOW_NEWEST_BRAODCAST:
+            return {
+                ...state,
+                newest: action.data,
+                showNewest: action.data ? true : false
+            }
+        case ActionTypes.HIDE_NEWEST_BROADCAST:
+            return {
+                ...state,
+                showNewest: false
+            }
         default:
             return state
     }

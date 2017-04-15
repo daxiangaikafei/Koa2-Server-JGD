@@ -28,13 +28,21 @@ class TabSelectContainer extends React.Component {
         if(isShow){
             this.setState({containerStyle:{height: "100%"}})
         }else{
-            setTimeout(()=>this.setState({containerStyle:{height: 0}}))
+            setTimeout(()=>this.setState({containerStyle:{height: 0}}), 500)
         }
     }
 
-    onItemClickHandler(type){
+    onItemClickHandler(e, type){
+        e.stopPropagation();
+        e.preventDefault();
+
         let {onClickHandler} = this.props
         onClickHandler && onClickHandler(type)
+    }
+
+    onContainerHandler(){
+        let {onClickHandler} = this.props
+        onClickHandler && onClickHandler()
     }
 
     render(){
@@ -43,13 +51,13 @@ class TabSelectContainer extends React.Component {
         let {containerStyle} = this.state
 
         return(
-            <div className="tab-select-container" style={containerStyle}>
+            <div className="tab-select-container" style={containerStyle} onTouchTap={()=>this.onContainerHandler()}>
                 <div className="tab-select-list" style={listStyle}>
                     {
                         Object.keys(SafeHeadConst.SAFE_HEAD_SELECT_TAB_LIST).map((type, index)=>{
                             let val = SafeHeadConst.SAFE_HEAD_SELECT_TAB_LIST[type]
                             return (
-                                <div key={index} className={"tab-select-item " + (selectType==type ? "selected" : "")} onTouchTap={()=>this.onItemClickHandler(type)}>
+                                <div key={index} className={"tab-select-item " + (selectType==type ? "selected" : "")} onTouchTap={(e)=>this.onItemClickHandler(e, type)}>
                                     <div className="title">{val}</div><div className="icon"></div>
                                 </div>
                             )

@@ -24,7 +24,7 @@ class HomeMenuListView extends React.Component{
             }
             if(isAlert){
                 Modal.alert({}, ModalConst.MODAL_ALERT_MEMBER_SKIN).then(function(data){
-                    navigate.push(RouterConst.ROUTER_OPEN_TIP);
+                    if(data == ModalConst.YES) navigate.push(RouterConst.ROUTER_OPEN_TIP);
                 })
             }else{
                 navigate.push(link);

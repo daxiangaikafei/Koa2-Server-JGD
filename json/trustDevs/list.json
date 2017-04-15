@@ -1,0 +1,21 @@
+{
+    "data": {
+        "devs": [
+            {"device": "23123", "bind": true, "isself": true, "env_id":"1111111111111111111111"},
+            {"device": "23123", "bind": true, "isself": false, "env_id":"222222222222222222"},
+            {"device": "23123", "bind": true, "isself": false, "env_id":"33333333333333"},
+            {"device": "23123", "bind": false, "isself": false, "env_id":"4444444444444444444"},
+            {"device": "23123", "bind": false, "isself": true, "env_id":"55555555555555555555"},
+            {"device": "23123", "bind": true, "isself": false, "env_id":"66666666666666666666"},
+            {"device": "23123", "bind": false, "isself": false, "env_id":"77777777777777777"},
+            {"device": "23123", "bind": true, "isself": false, "env_id":"888888888888888888"},
+            {"device": "23123", "bind": false, "isself": true, "env_id":"9999999999999999"},
+            {"device": "23123", "bind": true, "isself": false, "env_id":"123123"},
+            {"device": "23123", "bind": true, "isself": false, "env_id":"44444444444444412"},
+            {"device": "23123", "bind": true, "isself": false, "env_id":"5523412411111111111111"}
+        ],
+        "mobile": "130****0001"
+    },
+    "message": "",
+    "resultCode": "1"
+}

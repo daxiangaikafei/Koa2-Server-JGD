@@ -12,6 +12,7 @@ import MyFooterDateItem from './MyFooterDateItem'
 import BottomCloseAlert from '../../components/ui/bottomCloseAlert'
 import { getMyFooterData, onSaveItemData } from './reducer/actions'
 import * as MyFooterConst from './reducer/const'
+import {RouterConst} from '../../static/const'
 
 import navigate from '../../router/navigate'
 
@@ -33,7 +34,7 @@ class MyFooter extends React.Component {
 
     onItemHandler(obj){
         this.props.onSaveItemData(obj)
-        navigate.push('/myFooterDetail')
+        navigate.push(RouterConst.ROUTER_MYFOOTER_DETAIL)
     }
 
     onHelpHandler(){
@@ -41,7 +42,7 @@ class MyFooter extends React.Component {
     }
 
     onSafeHeadHandler(){
-        navigate.push('/safeHead')
+        navigate.push(RouterConst.ROUTER_SAFETY_HEAD)
     }
 
     onAlertCloseHandler(){

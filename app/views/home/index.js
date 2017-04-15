@@ -6,7 +6,7 @@ import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { getHomeData, closeSecurity } from './reducer/actions'
+import { getHomeData, closeSecurity, onCloseBroadCast } from './reducer/actions'
 
 import Page from '../../components/page'
 
@@ -15,6 +15,10 @@ import CloseComponent from './closeComponent'
 import HomeTopView from './homeTopView'
 import HomeMenuListView from './homeMenuListView'
 import HomeHelpView from './homeHelpView'
+import NewestBroadCast from '../../components/ui/newestBroadCast'
+
+import navigate from '../../router/navigate'
+import { RouterConst } from '../../static/const'
 
 import './index.scss'
 
@@ -24,7 +28,7 @@ class Home extends React.Component {
         super(props);
         this.state = {
             showHelp: false,
-            showClose: false
+            showClose: false,
         }
     }
     
@@ -32,7 +36,7 @@ class Home extends React.Component {
         this.props.getHomeData()
         this.setState({
             showHelp: false,
-            showClose: false
+            showClose: false,
         })
     }
 
@@ -54,10 +58,18 @@ class Home extends React.Component {
         if(type) this.props.closeSecurity()
         this.setState({showClose: false})
     }
+
+    onBroadCastHandler(id){
+        this.props.onCloseBroadCast()
+        if(id){
+            console.log(id)
+            // navigate.push(RouterConst.)
+        }
+    }
     
     render() {
         let { showClose, showHelp } = this.state
-        let { lbs, isOpen } = this.props
+        let { lbs, isOpen, showNewest, newest } = this.props
         let MenuListData = {
             lbs: lbs,
             isOpen: isOpen
@@ -72,6 +84,7 @@ class Home extends React.Component {
                 </div>
                 { showHelp ? (<HomeHelpView onClickHandler={()=>this.onHideHelpComponent()} />) : ""}
                 { showClose ? <CloseComponent onClickHandler={(type)=>this.onHideCloseComponent(type)} /> : ""}
+                { showNewest ? <NewestBroadCast data={newest} onClickHandler={()=>console.log(11111)} /> : ""}
             </Page>
         )
     }
@@ -80,20 +93,31 @@ class Home extends React.Component {
 Home.propTypes = {
     lbs : PropTypes.string.isRequired,
     isOpen : PropTypes.number.isRequired,
+    showNewest: PropTypes.bool.isRequired,
+    newest: PropTypes.shape({
+        type: PropTypes.number.isRequired,
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        format_date: PropTypes.string.isRequired,
+        imgUrl: PropTypes.string.isRequired
+    }),
 
     getHomeData : PropTypes.func.isRequired,
     closeSecurity: PropTypes.func.isRequired,
+    onCloseBroadCast: PropTypes.func.isRequired,
 }
 
 let mapStateToProps = state => ({
     lbs: state.homeReducer.lbs,
     helpIsShow: state.homeReducer.helpIsShow,
+    showNewest: state.homeReducer.showNewest,
+    newest: state.homeReducer.newest,
 
     isOpen: state.userReducer.status,
 })
 
 let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ getHomeData, closeSecurity } , dispatch)
+    return bindActionCreators({ getHomeData, closeSecurity, onCloseBroadCast } , dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

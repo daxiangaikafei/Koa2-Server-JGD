@@ -8,6 +8,7 @@ import Page from '../../../components/page'
 import TabItemArrow from '../../../components/ui/tabItemArrow'
 
 import navigate from '../../../router/navigate'
+import {RouterConst} from '../../../static/const'
 
 import './index.scss'
 
@@ -20,7 +21,7 @@ class FrozenWayChoice extends React.Component {
     }
 
     onClickHandler(type){
-        navigate.push("/frozen/frozenAccountType/"+type)
+        navigate.push(RouterConst.ROUTER_FROZEN_ACCOUNT_TYPE + type)
     }
 
     render() {

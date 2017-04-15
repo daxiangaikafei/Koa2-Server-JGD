@@ -28,7 +28,7 @@ class TruestedDeviceInfo extends React.Component {
                 let temp = obj[key] || [], items
                 items = temp.map((t, j) => {
                     return (
-                        <div className="device-place-item">
+                        <div className="device-place-item" key={j}>
                             <div className="device-place-title">登录位置：{t.city}</div>
                             <div className="device-place-date">{t.time}</div>
                         </div>

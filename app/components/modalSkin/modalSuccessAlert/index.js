@@ -29,7 +29,7 @@ class ModalSuccessAlertSkin extends React.Component {
         let {show, tip} = this.props;
         return (
             <Velocity show={show} >
-                <div className="alert-success-skin popup-container">
+                <div className="alert-success-skin">
                     <div className="alert-success-container ">
                         <div className="alert-success-icon"></div>
                         <div className="alert-success-tip">{ tip }</div>

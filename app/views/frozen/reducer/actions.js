@@ -1,6 +1,7 @@
 import * as helpAction from '../../../redux/common/helpAction'
 import * as ActionTypes from '../../main/reducer/ActionTypes'
 import navigate from '../../../router/navigate'
+import {RouterConst} from '../../../static/const'
 
 /**
  * 检测账号是否可以冻结
@@ -10,7 +11,7 @@ export const checkFrozenAccount = (accountName) => dispatch => {
     let url = "userFrozen/verificationUser", opt = {};
     opt.name = accountName;
     dispatch(helpAction.fetchPosts(url, url, opt)).then(data=>{
-        data.status == 1 ? navigate.push("/frozen/frozenWayChoice") : gotoFrozenResult(data, "check")
+        data.status == 1 ? navigate.push(RouterConst.ROUTER_FROZEN_CHOICE_WAY) : gotoFrozenResult(data, "check")
     })
 }
 
@@ -55,7 +56,7 @@ export const gotoFrozenResult = (data, fromType) => {
     if(fromType){
         params.fromType = fromType;
     }
-    navigate.push("/frozen/frozenAccountResult/"+encodeURIComponent(encodeURIComponent(JSON.stringify(params))));
+    navigate.push(RouterConst.ROUTER_FROZEN_ACCOUNT_RESULT+encodeURIComponent(encodeURIComponent(JSON.stringify(params))));
 }
 
 

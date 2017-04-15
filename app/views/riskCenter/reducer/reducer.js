@@ -61,6 +61,7 @@ export default function update (state = initialState, action){
 
         case ActionTypes.RISK_SELECT_CHANGE:
             return riskMessageSelectChange(state, action.data)
+
         default:
             return state
     }

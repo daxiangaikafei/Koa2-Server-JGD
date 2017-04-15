@@ -1,47 +1,49 @@
 /**
  * created by zhao at 2017-3-17
  */
+import {RouterConst} from '../../../static/const'
+
 export const HOME_FOOT = "foot-icon"
 
 export const MenuList = [
     {
         id: "risk-icon",
-        link: "riskCenter",
+        link: RouterConst.ROUTER_RISK_CENTER,
         name: "风险中心",
         desc: "风险提示，一秒即达",
         isOpen: true,
     },
     {
         id: "foot-icon",
-        link: "myFooter",
+        link: RouterConst.ROUTER_MYFOOTER,
         name: "我的足迹",
         desc: "当前登录位置：&$&",
         isOpen: true,
     },
     {
         id: "credible-icon",
-        link: "trustedDevice",
+        link: RouterConst.ROUTER_TRUSTED_DEVICE,
         name: "可信验证",
         desc: "设置可信设备，保障账户安全",
         isOpen: true,
     },
     {
         id: "trade-icon",
-        link: "tradeRights",
+        link: RouterConst.ROUTER_TRADE_RIGHTS,
         name: "交易维权",
         desc: "一键举报、申诉、查看进度",
         isOpen: true,
     },
     {
         id: "user-icon",
-        link: "userCenter",
+        link: RouterConst.ROUTER_USER_CENTER,
         name: "我的安全中心",
         desc: "从这里更了解您的权益",
         isOpen: true,
     },
     {
         id: "broadcast-icon",
-        link: "broadcastList",
+        link: RouterConst.ROUTER_BROADCAST,
         name: "安全播报",
         desc: "点击掌握更多安全小知识",
         isOpen: true,
@@ -67,4 +69,9 @@ export const ColorLevel = [
 ]
 
 
-export const HOME_MEMBER_LIST = ["userCenter", "myFooter", "tradeRights"];
+/**必须是会员才可进入 */
+export const HOME_MEMBER_LIST = [
+    RouterConst.ROUTER_USER_CENTER,
+    RouterConst.ROUTER_MYFOOTER, 
+    RouterConst.ROUTER_TRADE_RIGHTS
+]

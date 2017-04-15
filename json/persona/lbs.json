@@ -1,0 +1,22 @@
+{
+    "data": [
+        {
+            "count": 3,
+            "region": "甲方1"
+        },
+        {
+            "count": 1,
+            "region": "甲方2"
+        },
+        {
+            "count": 2,
+            "region": "甲方3"
+        },
+        {
+            "count": 4,
+            "region": "甲方4"
+        }
+    ],
+    "message": "",
+    "resultCode": "1"
+}

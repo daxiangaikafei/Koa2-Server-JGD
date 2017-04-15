@@ -84,10 +84,8 @@ export function fetchPosts(key, url, param, type = "GET",headers={}, repType="js
     return (dispatch, getState) => {
         return new Promise(function(resolve, reject){
             dispatch(posts(key, url, param, type = "GET",headers={}, repType="json")).then(result=>{
-                console.log(result)
                 if(result.resultCode > 0){
-                    console.log("1111111111111", result)
-                    resolve&&resolve(result.data)
+                    resolve&&resolve(result.data || null)
                 }else{
                     if(result.resultCode == -1001){
                         appLogin()

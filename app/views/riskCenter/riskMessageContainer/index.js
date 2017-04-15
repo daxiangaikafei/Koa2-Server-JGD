@@ -7,9 +7,6 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import RiskMessageItem from '../riskMessageItem'
-import MessageCode from "../../../components/ui/messageCode"
-import Modal from '../../../components/modal'
-import * as ModalConst from '../../../components/modal/modalConst'
 
 import * as RiskCenterConst from '../reducer/const'
 
@@ -20,17 +17,9 @@ import './index.scss'
 class RiskMessageContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            bnDisabled: true,
-            isShowMessageCode: false
-        }
     }
 
     componentDidMount(){
-        this.setState({
-            bnDisabled: true,
-            isShowMessageCode: false
-        })
     }
 
     componentDidUpdate(){
@@ -44,47 +33,18 @@ class RiskMessageContainer extends React.Component {
 
     //风险条例开关按钮事件
     onSwitchHandler(code, checked){
-        let { switchRiskItem } = this.props
-        switchRiskItem(code, checked)
-        this.setState({
-            bnDisabled: false
-        })
+        this.props.switchRiskItem(code, checked)
+        this.props.onChangeBtnStatus(false)
     }
 
     //风险条例值改变事件
     onSelectChangeHandler(name, value){
-        let { riskItemDataChange } = this.props
-        riskItemDataChange(name, value)
-
-        this.setState({
-            bnDisabled: false
-        })
-    }
-
-    //确定按钮事件
-    onConfirmHandler(){
-        this.setState({
-            isShowMessageCode: true
-        })
-    }
-
-    onMessageCodeHandler(data){
-        if(data.type){
-            let { onSaveData, risks } = this.props
-            onSaveData(risks, data.code)
-            .then(result => {
-                this.setState({ isShowMessageCode: false, bnDisabled: true })
-                Modal.alert({tip:"保存成功！"}, ModalConst.MODAL_AUTO_CLOSE_SKIN)
-            })
-        }else{
-            this.setState({ isShowMessageCode: false })
-        }
+        this.props.riskItemDataChange(name, value)
+        this.props.onChangeBtnStatus(false);
     }
 
     render(){
-        let { bnDisabled, isShowMessageCode } = this.state
-
-        let riskItems, { risks, isOpen, mobile } = this.props
+        let riskItems, { risks, isOpen, mobile, bnDisabled } = this.props
         riskItems = risks.map((data, index) =>
             <RiskMessageItem key={index} data={data} onSwitchHandler={this.onSwitchHandler.bind(this)} onSelectChangeHandler={this.onSelectChangeHandler.bind(this)} />
         )
@@ -95,9 +55,8 @@ class RiskMessageContainer extends React.Component {
                     {riskItems}
                 </div>
                 <div className="btn-div">
-                    <button className="btn-confirm" disabled={bnDisabled} onTouchTap={()=>this.onConfirmHandler()}>确认</button>
+                    <button className="btn-confirm" disabled={bnDisabled} onTouchTap={this.props.onConfirmHandler}>确认</button>
                 </div>
-                { isShowMessageCode ? <MessageCode mobile={mobile} codeType="riskCenter" onClickHandler={(data)=>this.onMessageCodeHandler(data)} /> : "" }
             </div>
         )
     }
@@ -120,23 +79,23 @@ RiskMessageContainer.propTypes = {
             )
         })
     ).isRequired,
-    mobile: PropTypes.string.isRequired,
+    
     isOpen: PropTypes.number.isRequired,
     isShow: PropTypes.bool.isRequired,
+    bnDisabled: PropTypes.bool.isRequired,
+    onChangeBtnStatus: PropTypes.func.isRequired,
+    onConfirmHandler: PropTypes.func,
 
-    onSaveData: PropTypes.func.isRequired,
     switchRiskItem: PropTypes.func.isRequired,
     riskItemDataChange: PropTypes.func.isRequired,
 }
 
 let mapStateToProps = state => ({
-    risks: state.riskCenterReducer.riskList,
-    mobile: state.riskCenterReducer.mobile,
     isOpen: state.userReducer.status
 })
 
 let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ onSaveData, switchRiskItem, riskItemDataChange } , dispatch)
+    return bindActionCreators({ switchRiskItem, riskItemDataChange } , dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RiskMessageContainer)

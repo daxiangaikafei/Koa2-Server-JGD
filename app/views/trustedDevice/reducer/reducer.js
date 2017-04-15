@@ -10,9 +10,9 @@ const initialState = {
     deviceInfoName: ""
 }
 
-let changeStateByDevId = (state, devId, status) => {
+let changeStateByDevIds = (state, devIds, status) => {
     return state.devs.map(obj => {
-        return obj.env_id == devId ? {...obj, bind: status} : obj
+        return devIds.findIndex((val)=>val == obj.env_id) >= 0 ? {...obj, bind: status} : obj
     })
 }
 
@@ -27,14 +27,14 @@ export default function update (state = initialState, action){
         case ActionTypes.BIND_TRUSTED_DEVICE:
             return {
                 ...state,
-                devs: changeStateByDevId(state, action.data, true)
+                devs: changeStateByDevIds(state, action.data, true)
             }
         case ActionTypes.UNBIND_TRUSTED_DEVICE:
             return {
                 ...state,
-                devs: changeStateByDevId(state, action.data, false)
+                devs: changeStateByDevIds(state, [action.data], false)
             }
-        case ActionTypes.RECEIVE_DEVICE_INFO:
+        case ActionTypes.INIT_TRUSTED_DEVICE_INFO:
             return {
                 ...state,
                 devInfoList: action.data.list,

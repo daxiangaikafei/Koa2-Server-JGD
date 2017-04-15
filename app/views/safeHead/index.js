@@ -38,10 +38,9 @@ class SafeHead extends React.Component {
 
 
     onTabSelectChangeHandler(type){
-        this.setState({
-            tabSelectIsShow: false,
-            showType: type
-        })
+        let state = {tabSelectIsShow: false}
+        if(type) state.showType = type
+        this.setState(state)
     }
 
     getComponentByType(type){

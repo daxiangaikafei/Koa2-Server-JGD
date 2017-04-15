@@ -55,7 +55,7 @@ const Routers = {
 			getComponent(nextState, cb){ MyFooterDetail(cb) }
 		},
 		{
-			path: RouterConst.ROUTER_ROUTER_SAFETY_HEAD,
+			path: RouterConst.ROUTER_SAFETY_HEAD,
 			getComponent(nextState, cb){ SafeHead(cb) }
 		},
 		{
@@ -63,87 +63,87 @@ const Routers = {
 			getComponent(nextState, cb){ OpenTip(cb) }
 		},
 		{
-			path: 'riskCenter',
+			path: RouterConst.ROUTER_RISK_CENTER,
 			getComponent(nextState, cb){ RiskCenter(cb) }
 		},
 		{
-			path: 'safetyGrade',
+			path: RouterConst.ROUTER_SAFETY_GRADE,
 			getComponent(nextState, cb){ SafetyGrade(cb) }
 		},
 		{
-			path: 'trustedDevice',
+			path: RouterConst.ROUTER_TRUSTED_DEVICE,
 			getComponent(nextState, cb){ TrustedDevice(cb) }
 		},
 		{
-			path: 'addTrustedDevice',
+			path: RouterConst.ROUTER_ADD_TRUSTED_DEVICE,
 			getComponent(nextState, cb){ AddTrustedDevice(cb) }
 		},
 		{
-			path: 'trustedDeciveInfo/:devId',
+			path: RouterConst.ROUTER_TRUSTED_DEVICE_INFO +':devId',
 			getComponent(nextState, cb){ TrustedDeciveInfo(cb) }
 		},
 		{
-			path: 'userCenter',
+			path: RouterConst.ROUTER_USER_CENTER,
 			getComponent(nextState, cb){ UserCenter(cb) }
 		},
 		{
-			path: 'changePackage',
+			path: RouterConst.ROUTER_CHANGE_PACKAGE,
 			getComponent(nextState, cb){ ChangePackage(cb) }
 		},
 		{
-			path: 'myShield',
+			path: RouterConst.ROUTER_MY_SHIELD,
 			getComponent(nextState, cb){ MyShield(cb) }
 		},
 		{
-			path: 'stepOne',
+			path: RouterConst.ROUTER_STEP_ONE,
 			getComponent(nextState, cb){ StepOne(cb) }
 		},
 		{
-			path: 'stepTwo',
+			path: RouterConst.ROUTER_STEP_TWO,
 			getComponent(nextState, cb){ StepTwo(cb) }
 		},
 		{
-			path: 'stepThree',
+			path: RouterConst.ROUTER_STEP_THREE,
 			getComponent(nextState, cb){ StepThree(cb) }
 		},
 		{
-			path: 'stepFour',
+			path: RouterConst.ROUTER_STEP_FOUR,
 			getComponent(nextState, cb){ StepFour(cb) }
 		},
 		{
-			path: 'stepFive',
+			path: RouterConst.ROUTER_STEP_FIVE,
 			getComponent(nextState, cb){ StepFive(cb) }
 		},
 		{
-			path: 'stepSix',
+			path: RouterConst.ROUTER_STEP_SIX,
 			getComponent(nextState, cb){ StepSix(cb) }
 		},
 		{
-			path: 'broadcast',
+			path: RouterConst.ROUTER_BROADCAST,
 			getComponent(nextState, cb){ BroadCast(cb) }
 		},
 		{
-			path: 'tradeRights',
+			path: RouterConst.ROUTER_TRADE_RIGHTS,
 			getComponent(nextState, cb){ TradeRights(cb) }
 		},
 		{
-			path: 'rights/frozenAccount',
+			path: RouterConst.ROUTER_FROZEN_ACCOUNT,
 			getComponent(nextState, cb){ FrozenAccount(cb) }
 		},
 		{
-			path: 'frozen/frozenWayChoice',
+			path: RouterConst.ROUTER_FROZEN_CHOICE_WAY,
 			getComponent(nextState, cb){ FrozenWayChoice(cb) }
 		},
 		{
-			path: 'frozen/frozenAccountType/:type',
+			path: RouterConst.ROUTER_FROZEN_ACCOUNT_TYPE + ':type',
 			getComponent(nextState, cb){ FrozenAccountType(cb) }
 		},
 		{
-			path: 'frozen/frozenAccountResult/:opt',
+			path: RouterConst.ROUTER_FROZEN_ACCOUNT_RESULT+ ':opt',
 			getComponent(nextState, cb){ FrozenResult(cb) }
 		},
 		{
-			path: 'rights/payFine',
+			path: RouterConst.ROUTER_PAY_FINE,
 			getComponent(nextState, cb){ PayFine(cb) }
 		},
 	]

@@ -53,7 +53,7 @@ let getSaveData = data => (
         return result
     })
 )
-    
+
 export const onSaveData = (dataList, smsCode) => {
     var param = {};
     param.data = JSON.stringify(getSaveData(dataList));

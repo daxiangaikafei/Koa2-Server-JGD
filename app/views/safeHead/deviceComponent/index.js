@@ -63,6 +63,7 @@ class DeviceComponent extends React.Component {
 
     getEChartsOption(list){
         let allCnt = 0, data = this.formatEchartData(list)
+        console.log("getEChartsOption", data);
         data.map(obj => allCnt+= obj.value)
         let option = {
             backgroundColor: '#fff',
@@ -178,8 +179,8 @@ DeviceComponent.propTypes = {
     showType: PropTypes.string.isRequired,
     deviceData: PropTypes.arrayOf(
         PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            value: PropTypes.number.isRequired
+            name: PropTypes.string,
+            value: PropTypes.number
         })
     ).isRequired,
 

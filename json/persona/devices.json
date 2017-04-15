@@ -1,0 +1,22 @@
+{
+    "data": [
+        {
+            "count": 3,
+            "os": "ios 7"
+        },
+        {
+            "count": 1,
+            "os": "三星"
+        },
+        {
+            "count": 2,
+            "os": "ios"
+        },
+        {
+            "count": 4,
+            "os": "ios"
+        }
+    ],
+    "message": "",
+    "resultCode": "1"
+}

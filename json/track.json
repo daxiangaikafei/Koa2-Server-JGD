@@ -1,0 +1,11 @@
+{
+    "data": [
+        [{"trueIp": "127.0.0.1", "date":"tody", "realDate": "2017-4-15" ,"os":"Iphone", "location": "上海", "time": "10:40"},{"trueIp": "127.0.0.1", "date":"tody", "realDate": "2017-4-15", "os":"Iphone", "location": "上海", "time": "10:40"},{"trueIp": "127.0.0.1", "date":"tody", "realDate": "2017-4-15", "os":"Iphone", "location": "上海", "time": "10:40"}],
+        [{"trueIp": "127.0.0.1", "date":"2017-4-3", "realDate": "2017-4-3",  "os":"Iphone", "location": "上海", "time": "10:40"},{"trueIp": "127.0.0.1", "date":"2017-4-3", "realDate": "2017-4-3",  "os":"Iphone", "location": "上海", "time": "10:40"},{"trueIp": "127.0.0.1", "date":"2017-4-3", "realDate": "2017-4-3", "os":"Iphone", "location": "上海", "time": "10:40"}],
+        [{"trueIp": "127.0.0.1", "date":"2017-4-2", "realDate": "2017-4-2",  "os":"Iphone", "location": "上海", "time": "10:40"},{"trueIp": "127.0.0.1", "date":"2017-4-2", "realDate": "2017-4-2",  "os":"Iphone", "location": "上海", "time": "10:40"},{"trueIp": "127.0.0.1", "date":"2017-4-2", "realDate": "2017-4-2", "os":"Iphone", "location": "上海", "time": "10:40"}],
+        [{"trueIp": "127.0.0.1", "date":"2017-4-1", "realDate": "2017-4-1",  "os":"Iphone", "location": "上海", "time": "10:40"},{"trueIp": "127.0.0.1", "date":"2017-4-1", "realDate": "2017-4-1",  "os":"Iphone", "location": "上海", "time": "10:40"},{"trueIp": "127.0.0.1", "date":"2017-4-1", "realDate": "2017-4-1", "os":"Iphone", "location": "上海", "time": "10:40"}]
+        
+    ],
+    "message": "",
+    "resultCode": "1"
+}

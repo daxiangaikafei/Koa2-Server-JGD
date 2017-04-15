@@ -11,6 +11,7 @@ import MessageCode from '../../components/ui/messageCode'
 import Modal from '../../components/modal'
 import * as ModalConst from '../../components/modal/modalConst'
 import navigate from '../../router/navigate'
+import {RouterConst} from '../../static/const'
 
 import './index.scss'
 import { getTrustedDeviceList, unbindDevice } from './reducer/actions'
@@ -25,6 +26,7 @@ class TruestedDevice extends React.Component {
     }
     
     componentDidMount(){
+        this.props.getTrustedDeviceList()
         this.setState({isShowMessageCode: false, select_id: ""})
     }
 
@@ -33,7 +35,7 @@ class TruestedDevice extends React.Component {
     }
 
     onAddHandler(){
-        navigate.push('/addTrustedDevice')
+        navigate.push(RouterConst.ROUTER_ADD_TRUSTED_DEVICE)
     }
 
     onMessageCodeHandler(data){
@@ -52,20 +54,18 @@ class TruestedDevice extends React.Component {
 
     getDeviceItem(obj, index){
         return (
-            obj.bind ?
             <div className="trusted-device-item" key={index}>
-                <div className="name-txt">{obj.device}{obj.isself ? <span className='red' style='margin-left:0.5rem'>(当前设备)</span> : ""}{obj.has_same ? " " + obj.env_id : ""}</div>
+                <div className="name-txt">{obj.device}{obj.isself ? <span className='red' style={{marginleft: "0.5rem"}}>(当前设备)</span> : ""}{obj.has_same ? " " + obj.env_id : ""}</div>
                 <div className="btn-remove" onTouchTap={()=>this.onRemoveHandler(obj.env_id)}>解除可信设备</div>
             </div>
-            :
-            ""
         )
     }
 
     getShowComponent(){
         let { deviceList } = this.props
-        return deviceList.length ? 
-            <div className="trusted-device-list">{deviceList.map(this.getDeviceItem)}</div>
+        let list = deviceList.filter((obj)=>{return obj.bind == true})
+        return list.length ? 
+            <div className="trusted-device-list">{list.map((obj, index)=>this.getDeviceItem(obj, index))}</div>
             : 
             <div className="trusted-device-no-list">暂无可信设备</div>
     }

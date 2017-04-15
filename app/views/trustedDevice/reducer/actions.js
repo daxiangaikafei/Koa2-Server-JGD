@@ -47,16 +47,16 @@ export const getTrustedDeviceList = () => dispatch => {
     dispatch(helpAction.fetchPosts(url, url, {})).then(data=>dispatch(receiveData(data)))
 }
 
-export const bindDevice = (env_id, code) => {
+export const bindDevice = (env_ids, code) => {
         let opt = {
-        envIds: env_id,
+        envIds: env_ids,
         verifyCode: code,
         bind: 1
     }
     
     let url = "trustDevs/bind"
     return (dispatch, getState) => {
-        return dispatch(helpAction.fetchPosts(url, url, opt)).then(data=>dispatch(receiveBindDevice(env_id)))
+        return dispatch(helpAction.fetchPosts(url, url, opt)).then(data=>dispatch(receiveBindDevice(env_ids)))
     }
 }
 
@@ -74,7 +74,7 @@ export const unbindDevice = (env_id, code) => {
 }
 
 let receiveDeviceInfo = data => ({
-    type : ActionTypes.INIT_DEVICE_INFO,
+    type : ActionTypes.INIT_TRUSTED_DEVICE_INFO,
     data : {
         list: data,
         devName: getDeviceName(data)

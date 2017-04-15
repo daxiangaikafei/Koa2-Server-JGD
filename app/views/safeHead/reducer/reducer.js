@@ -5,17 +5,26 @@ import * as ActionTypes from '../../main/reducer/ActionTypes'
 
 const initialState = {
     mobile: "",
-    deviceData: [{value: 3, name: "甲方1"},{value: 1, name: "甲方2"},{value: 2, name: "甲方3"},{value: 4, name: "甲方4"}],
+    deviceData: [],
     devicePass: {
-        protect: {total: 1, data: [{operator_date:"yyyy年MM月dd日 HH:mm"},{operator_date:"yyyy年MM月dd日 HH:mm"},{operator_date:"yyyy年MM月dd日 HH:mm"}]},
-        login: {total: 2, data: [{operator_date:"yyyy年MM月dd日 HH:mm"},{operator_date:"yyyy年MM月dd日 HH:mm"},{operator_date:"yyyy年MM月dd日 HH:mm"}]},
-        trade: {total: 3, data: [{operator_date:"yyyy年MM月dd日 HH:mm"},{operator_date:"yyyy年MM月dd日 HH:mm"},{operator_date:"yyyy年MM月dd日 HH:mm"}]}
+        protect: {
+            total: 0,
+            data: []
+        },
+        login: {
+            total: 0,
+            data: []
+        },
+        trade: {
+            total: 0,
+            data: []
+        }
     },
     deviceBankTotal: 0,
     deviceBankList: [],
     deviceMobileTotal: 0,
     deviceMobileList: [],
-    devicePlace: [{addr:"上海", count:10},{addr:"上海", count:10},{addr:"上海", count:10},{addr:"上海", count:10},{addr:"上海", count:10},{addr:"上海", count:10},{addr:"上海", count:10},{addr:"上海", count:10},{addr:"上海", count:10},{addr:"上海", count:10},{addr:"上海", count:10},{addr:"上海", count:10}],
+    devicePlace: [],
 }
 
 export default function update (state = initialState, action){
