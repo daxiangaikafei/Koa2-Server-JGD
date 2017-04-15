@@ -11,7 +11,9 @@ const initialState = {
 }
 
 let initData = (state, data) => {
-     var _securitySelectDisplay = "none", _securityListDisplay = "none", _securityQuestionStr="";
+     var _securitySelectDisplay = "none", 
+     _securityListDisplay = "none",
+     _securityQuestionStr="";
     if(data.isBindMibao == 1){
           _securityQuestionStr = "密保问题：" + data.question;
           _securitySelectDisplay = "block";
@@ -19,7 +21,6 @@ let initData = (state, data) => {
           _securityListDisplay = "block";
     }
     return {
-        ...state,
         securitySelectDisplay : _securitySelectDisplay,
         securityListDisplay : _securityListDisplay,
         nextDisabled : "",
@@ -28,7 +29,6 @@ let initData = (state, data) => {
 }
 export default function update (state = initialState, action){
     let data=action.data;
-    console.log(action.type)
     switch(action.type){
         case ActionTypes.GET_DATA:
             return initData(state, data )

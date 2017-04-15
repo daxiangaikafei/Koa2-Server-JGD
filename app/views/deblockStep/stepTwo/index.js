@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import Page from '../../../components/page'
 import './index.scss'
 import '../common.scss'
-import { comfirmCode,getMssage } from './reducer/actions'
+import { comfirmCode,getMssage,getData } from './reducer/actions'
 
 class stepTwo extends React.Component {
     constructor(props) {
@@ -20,41 +20,42 @@ class stepTwo extends React.Component {
             disable:false,
             buttonText:"短信验证",
             value:"",
-            btnDisable:true
+            btnDisable:"disabled"
         }
     }
     
     handleChange(e){
         this.setState({value: e.target.value})
-        this.state.value&&this.setState({
-            btnDisable:false
-        })
     }
     getMes(){
         this.props.getMssage();
         this.countDown();
     }
     countDown(){
-        let timer=setInterval(()=>{
-            this.setState({
-                buttonText:(--this.state.sec)+"S获取",
-                disable:true
-            })
-            if(this.state.sec==0){
-                this.setState({
-                    buttonText:"短信验证",
-                    sec:60,
-                    disable:false
-                })
-                clearInterval(timer)
-            }
-            console.log(this.state.sec)
-        },1000)
+         let timer=setInterval(()=>{
+                        this.setState({
+                            buttonText:(--this.state.sec)+"S获取",
+                            disable:true
+                        })
+                        if(this.state.sec==0){
+                            this.setState({
+                                buttonText:"短信验证",
+                                sec:60,
+                                disable:false
+                            })
+                            clearInterval(timer)
+                        }
+                    },1000)
+        // }
+        
     }
     goStepThree(){
-        this.props.comfirmCode(this.state.value)
+        this.state.value&&this.props.comfirmCode(this.state.value)
     }
     
+    componentDidMount(){
+        this.props.getData();
+    }
     render() {
         let {phoneTxt,nextDisabled,disable} = this.props;
         return (
@@ -66,14 +67,14 @@ class stepTwo extends React.Component {
                     <div className="step2-main step-main">
                         <div className="phone-div">
                             <div className="phone-title  f-c">您的手机号码：</div>
-                            <div className="phone-txt f-t"></div>
+                            <div className="phone-txt f-t">{phoneTxt}</div>
                         </div>
                         <div className="code-div f-c">
                             <div className="code-title">短信验证码：</div>
                             <input className="code-input" type="text" value={this.state.value} onChange={(e)=>this.handleChange(e)}/>
                             <button className="btnSend" onTouchTap={()=>this.getMes()} disabled={this.state.disable}>{this.state.buttonText}</button>
                         </div>
-                        <button className="deblocking-btnNext" onTouchTap={()=>this.goStepThree()}  disabled={this.state.btnDisable}>下一步</button>
+                        <button className="deblocking-btnNext" onTouchTap={()=>this.goStepThree()}  disabled={nextDisabled}>下一步</button>
                     </div>
                 </div>
             </Page>
@@ -84,11 +85,12 @@ stepTwo.propTypes = {
 }
 
 let mapStateToProps = state => ({
-    phoneTxt:state.stepTwoReducer.phoneTxt
+    phoneTxt:state.stepTwoReducer.phoneTxt,
+    nextDisabled:state.stepTwoReducer.nextDisabled
 })
 
 let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ comfirmCode,getMssage } , dispatch)
+    return bindActionCreators({ comfirmCode,getMssage,getData } , dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(stepTwo)

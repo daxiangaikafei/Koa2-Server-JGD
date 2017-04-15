@@ -21,7 +21,7 @@ export safetyGrade from '../views/safetyGrade/reducer/reducer'
 //自助解封
 export userInfoReducer from '../views/deblockStep/stepOne/reducer/reducer'
 export stepTwoReducer from '../views/deblockStep/stepTwo/reducer/reducer'
-// export deblockStepThree from '../views/deblockStep/stepThree/reducer/reducer'
+export stepThreeReducer from '../views/deblockStep/stepThree/reducer/reducer'
 export stepFourReducer from '../views/deblockStep/stepFour/reducer/reducer'
 export stepFiveReducer from '../views/deblockStep/stepFive/reducer/reducer'
 // export deblockStepSix from '../views/deblockStep/stepSix/reducer/reducer'

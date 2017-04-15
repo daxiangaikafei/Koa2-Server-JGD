@@ -11,11 +11,11 @@ const receiveData = data => ({
 })
 //进入加载数据
 export const getUserBlockInfo = (username) => dispatch => {
+    
     let url = "userDeblocking/getUserDeblockingInfo"
     dispatch(helpAction.fetchPosts(url, url, {userName:username})).then((data)=>{
-            // console.log(data,'dddoeoeoeoeooeoeoeoe')
-            dispatch(receiveData(data));
-    })
+                    dispatch(receiveData(data));
+            })
 }
 
 

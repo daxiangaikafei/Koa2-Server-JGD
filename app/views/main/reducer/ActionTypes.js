@@ -46,6 +46,13 @@ export const PAY_MON = "PAY_MON"
 /**短信验证 */
 export const GET_MSG = "GET_MSG"
 
+export const GET_TWO_DATA = "GET_TWO_DATA"
+
+export const FOUR_CHECK = "FOUR_CHECK"
+
+export const GET_DATA = "GET_DATA"
+
+
 /**确认验证码 */
 export const COMFIRM_CODE = "COMFIRM_CODE"
 /**检查四要素信息*/

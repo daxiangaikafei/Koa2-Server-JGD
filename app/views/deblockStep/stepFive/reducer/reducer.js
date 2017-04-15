@@ -12,7 +12,7 @@ export default function update (state = initialState, action){
     switch(action.type){
         case ActionTypes.GETFIVE_DATA:
             return {
-                cont:action.data
+                content:action.data
             }
         default:
             return state

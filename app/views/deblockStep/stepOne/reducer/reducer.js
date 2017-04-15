@@ -2,6 +2,7 @@
  * created by zhao at 2017-3-20
  */
 import * as ActionTypes from '../../../main/reducer/ActionTypes'
+import * as helpAction from '../../../../redux/common/helpAction'
 
 const initialState = {
     nextDisplay: "block",
@@ -12,11 +13,10 @@ const initialState = {
     amount:50
 }
 const PAYOKSTRING = "解封押金已支付成功<br />请点击下一步继续";
-    const NOTDEBLOCKSTRING = "由于您的账号不支持在线自助解封<br />请您<span class='red'><a href='tel:4001558899'>拨打客服电话400-155-8899</a></span>进行申诉。<br />谢谢！";
+const NOTDEBLOCKSTRING = "由于您的账号不支持在线自助解封<br />请您<span class='red'><a href='tel:4001558899'>拨打客服电话400-155-8899</a></span>进行申诉。<br />谢谢！";
 
 export default function update (state = initialState, action){
-    console.log(action.type)
-    if(action.type==ActionTypes.USER_INFO){
+    if(action.type==ActionTypes.USER_INFO&&action.data){
         if(action.data.status==0){
             return {
                 ...state,
@@ -35,7 +35,8 @@ export default function update (state = initialState, action){
                 ...state,
                 payResultStr:PAYOKSTRING,
                 payResultDisplay:"block",
-                nextDisabled:""
+                nextDisabled:"",
+                payDisplay:"none"
             }
         }
     }
@@ -51,4 +52,6 @@ export default function update (state = initialState, action){
     else{
         return state
     }
+
+    return state
 }

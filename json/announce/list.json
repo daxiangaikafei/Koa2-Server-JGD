@@ -1,0 +1,80 @@
+{
+    "data": {
+        "announceData": [
+            {
+                "createTime": "2015-04-20 17:30:30",
+                "crt": 1429522230000,
+                "id": 100006,
+                "imgUrl": "",
+                "modifyTime": "2015-04-20 17:30:33",
+                "title": "fdsfdsds就的方式来金额为了",
+                "top": 1,
+                "type": 1
+            },
+            {
+                "createTime": "2014-06-24 13:44:25",
+                "crt": 1403588665000,
+                "id": 100003,
+                "imgUrl": "",
+                "modifyTime": "2014-06-24 13:45:26",
+                "title": "24号雷假条中奖名单",
+                "top": 1,
+                "type": 1
+            },
+            {
+                "createTime": "2014-05-16 15:27:16",
+                "crt": 1400225236000,
+                "id": 100000,
+                "imgUrl": "",
+                "modifyTime": "2014-05-16 15:27:18",
+                "title": "21212121",
+                "top": 1,
+                "type": 1
+            },
+            {
+                "createTime": "2016-12-19 15:04:03",
+                "crt": 1482131043000,
+                "id": 100010,
+                "imgUrl": "",
+                "modifyTime": "2016-12-19 15:04:03",
+                "title": "444用户登录",
+                "top": 0,
+                "type": 1
+            },
+            {
+                "createTime": "2016-04-20 17:59:05",
+                "crt": 1461146345000,
+                "id": 100008,
+                "imgUrl": "",
+                "modifyTime": "2016-04-20 17:59:05",
+                "title": "阿斯顿发生地方",
+                "top": 0,
+                "type": 1
+            },
+            {
+                "createTime": "2015-04-20 17:30:06",
+                "crt": 1429522206000,
+                "id": 100005,
+                "imgUrl": "",
+                "modifyTime": "2015-04-20 17:30:06",
+                "title": "dfssddsfds",
+                "top": 0,
+                "type": 1
+            },
+            {
+                "createTime": "2015-03-21 16:09:09",
+                "crt": 1426925349000,
+                "id": 100004,
+                "imgUrl": "http://www.qbcdn.com/announce/loadImage.html?id=Announce_20150321160732&type=channelFaq",
+                "modifyTime": "2015-03-21 16:09:09",
+                "title": "dsdsd d ",
+                "top": 0,
+                "type": 1
+            }
+        ],
+        "lastPage": 1,
+        "pageNum": 1
+    },
+    "message": "",
+    "resultCode": "1"
+}

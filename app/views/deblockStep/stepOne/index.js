@@ -37,7 +37,6 @@ class stepOne extends React.Component {
     };
 
     pay(){
-        console.log(this.state.value)
         if(this.state.value){
             this.props.payMoney(helpAction.encodePassword(this.state.value))
         }
@@ -71,7 +70,7 @@ class stepOne extends React.Component {
                             </div>
                         </div>
                         <div className="pay-result-div"  style={{display:payResultDisplay}}>
-                            <div className="desc">{payResultStr}</div>
+                            <div className="desc" dangerouslySetInnerHTML={{__html:payResultStr}}></div>
                         </div>
                         
                         <button className="deblocking-btnNext" 

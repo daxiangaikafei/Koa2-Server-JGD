@@ -6,7 +6,7 @@ import * as helpAction from '../../../redux/common/helpAction'
 
 const receiveData = data => ({
     type : ActionTypes.BROAD_LIST,
-    data : data
+    data :  data
 })
 
 export const getBroadcastList = (pagenum) => dispatch => {

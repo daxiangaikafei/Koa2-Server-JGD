@@ -31,7 +31,6 @@ class BroadcastList extends React.Component {
 
     componentDidMount(){
         this.props.getBroadcastList(this.state.pagenum)
-        
     }
     
 
@@ -40,30 +39,8 @@ class BroadcastList extends React.Component {
             <Page id="open-tip-view">
                 <div id="broadcast-list-view">
                    <div className="broadcast-list-container" >
-                     <div className="broadcast-list">
-                         <ItemsComponent packages={this.props.packages}/>
-                    {/*{
-                        announceData.map(function(e,index){
-                            return (
-                                    
-                                            <div className="broadcast-item" data-bid="100006" key={index}>
-                                                <div className="left-icon-div" style="background:url({icon}) no-repeat center;background-size:100%">
-                                                    <div >
-                                                    </div>
-                                                </div>
-                                                <div className="right-div">
-                                                    <div className="title red">{e.title}</div>
-                                                    <div className="bottom-div">
-                                                        <span className="date-txt">{e.createTime}</span>
-                                                        <button className="btn-read">阅读全文</button>
-                                                    </div>
-                                                </div>
-                                                <div className="right-top-icon safe"></div>
-                                            </div>
-                                    )
-                            })
-                    }*/}
-                     </div>
+                     
+                         <ItemsComponent announceData={this.props.announceData}/>
                     </div>
                 </div>
             </Page>
@@ -75,7 +52,9 @@ BroadcastList.propTypes = {
 }
 
 let mapStateToProps = state => ({
-    packages: state.broadcastList.packages
+    lastPage: state.broadcastList.lastPage,
+    pageNum: state.broadcastList.pageNum,
+    announceData: state.broadcastList.announceData
 })
 
 let mapDispatchToProps = (dispatch) => {
