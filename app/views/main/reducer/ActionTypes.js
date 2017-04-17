@@ -52,6 +52,8 @@ export const FOUR_CHECK = "FOUR_CHECK"
 
 export const GET_DATA = "GET_DATA"
 
+export const PAY_MONEY = "PAY_MONEY"
+
 
 /**确认验证码 */
 export const COMFIRM_CODE = "COMFIRM_CODE"

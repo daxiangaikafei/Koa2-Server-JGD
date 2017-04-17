@@ -300,3 +300,14 @@ export const fenToYuan = (fen) => {
     let ret = intSum + dot;
     return ret;
 }
+export const goLogin = () =>{
+        if(isIOS()){
+            if(window.rootBack){
+                window.rootBack();
+            }
+        }else{
+            if(window.QBaoJSBridge){
+                window.QBaoJSBridge.goBackAndroidActivity("com.qianwang.qianbao.im.ui.login.LoginActivity", 0);
+            }
+        }
+    };

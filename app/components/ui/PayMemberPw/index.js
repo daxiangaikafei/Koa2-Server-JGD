@@ -1,9 +1,5 @@
 'use strict'
 import React, { PropTypes } from 'react';
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-
-import {  } from './reducer/actions'
 
 import './index.scss'
 import '../../../static/scss/common.scss'
@@ -17,6 +13,10 @@ class PayMemberPw extends React.Component {
 
     componentDidMount(){
         this.setState({pw: ""})
+    }
+
+    onChangeHandler(e){
+        this.setState({pw:e.target.value})
     }
 
     handOk(){
@@ -34,15 +34,14 @@ class PayMemberPw extends React.Component {
 
     render() {
         let { pw } = this.state
-        let { package } = this.props
-
+        let { data } = this.props
         return (
             <div className="password-alert">
                 <div className="alert-password-container">
                     <div className="alert-title">支付会员费</div>
                     <div className="alert-content">
-                        <div className="alert-password-title">本次支付<span className="paymount">{package.amount}</span>元，到期日期：<span className="paydate">{package.endDate}</span>，后续将自动扣费，无须再次输入密码。<span className="red">请保持账户始终有余额。</span>如需停止服务，请主动关闭金戈盾。</div>
-                        <div className="alert-input-div"><div>交易密码：</div><input value={pw} className="password-input" type="password" placeholder="请输入交易密码" /></div>
+                        <div className="alert-password-title">本次支付<span className="paymount">{data.amount}</span>元，到期日期：<span className="paydate">{data.endDate}</span>，后续将自动扣费，无须再次输入密码。<span className="red">请保持账户始终有余额。</span>如需停止服务，请主动关闭金戈盾。</div>
+                        <div className="alert-input-div"><div>交易密码：</div><input value={pw} onChange={(e)=>this.onChangeHandler(e)} className="password-input" type="password" placeholder="请输入交易密码" /></div>
                         <div className="errorMsg"></div>
                         <div className="alert-button-div">
                             <button className="alert-button-no" onTouchTap={()=>this.handCancel()}>取消</button>
@@ -57,7 +56,7 @@ class PayMemberPw extends React.Component {
 };
 
 PayMemberPw.propTypes = {
-    package: PropTypes.shape({
+    data: PropTypes.shape({
         pkgId: PropTypes.number.isRequired,
         amount: PropTypes.string.isRequired,
         endDate: PropTypes.string.isRequired
