@@ -14,7 +14,7 @@ const Page = React.createClass({
     render(){
         return (
             <div className='ui-view-transitioning lt-ui-page' id={this.props.id}>
-                <DocumentTitle title={this.props.title} />
+                <DocumentTitle title={this.props.title || "金戈盾"} />
                 {this.props.children}
             </div>
         );
