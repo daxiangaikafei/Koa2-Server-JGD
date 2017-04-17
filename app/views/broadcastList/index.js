@@ -69,7 +69,7 @@ class BroadcastList extends React.Component {
 
     render() {
         return (
-            <Page id="broadcast-list-view">
+            <Page id="broadcast-list-view" title="安全播报">
                 <div className="broadcast-list-container" onScroll={(e)=>this.onScrollHandler(e)}>
                     <ItemsComponent announceData={this.props.announceData}/>
 

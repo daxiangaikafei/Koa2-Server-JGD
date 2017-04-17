@@ -9,7 +9,7 @@ import Page from '../../../components/page'
 import './index.scss'
 import '../common.scss'
 import { comfirmCode,getMssage,getData } from './reducer/actions'
-
+let timer;
 class stepTwo extends React.Component {
     constructor(props) {
         super(props)
@@ -32,7 +32,7 @@ class stepTwo extends React.Component {
         this.countDown();
     }
     countDown(){
-         let timer=setInterval(()=>{
+          timer=setInterval(()=>{
                         this.setState({
                             buttonText:(--this.state.sec)+"S获取",
                             disable:true
@@ -46,8 +46,10 @@ class stepTwo extends React.Component {
                             clearInterval(timer)
                         }
                     },1000)
-        // }
         
+    }
+    componentWillUnmount(){
+         clearInterval(timer)
     }
     goStepThree(){
         this.state.value&&this.props.comfirmCode(this.state.value)
@@ -59,7 +61,7 @@ class stepTwo extends React.Component {
     render() {
         let {phoneTxt,nextDisabled,disable} = this.props;
         return (
-            <Page id="safety-grade-view">
+            <Page id="safety-grade-view" title="自主解封-Step2">
                 <div className="step2-container step-container">
                    <div className="step-region">
                            <div className="step-container steptwo-bg"></div>

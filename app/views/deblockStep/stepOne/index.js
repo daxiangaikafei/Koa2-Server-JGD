@@ -11,6 +11,7 @@ import '../common.scss'
 import navigate  from '../../../router/navigate'
 import { getUserBlockInfo ,payMoney} from './reducer/actions'
 import * as helpAction from '../../../redux/common/helpAction'
+import * as routerConst from '../../../static/const/routerConst.js'
 
 class stepOne extends React.Component {
     constructor(props) {
@@ -33,7 +34,7 @@ class stepOne extends React.Component {
     };
 
     goStepTwo(){
-        navigate.push('/stepTwo')
+        navigate.push(routerConst.ROUTER_STEP_TWO)
     };
 
     pay(){
@@ -45,7 +46,7 @@ class stepOne extends React.Component {
     render() {
         let {nextDisplay,nextDisabled,payDisplay,payResultDisplay,payResultStr,amount} = this.props;
         return (
-            <Page id="safety-grade-view">
+            <Page id="safety-grade-view" title="自主解封-Step1">
                 <div className="step1-container step-container">
                    <div className="step-region">
                            <div className="step-container stepone-bg"></div>

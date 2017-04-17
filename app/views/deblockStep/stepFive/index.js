@@ -46,7 +46,7 @@ class stepFive extends React.Component {
 
         let {selectPkgId,showPW} = this.state;
         return (
-            <Page id="safety-grade-view">
+            <Page id="safety-grade-view" title="自主解封-Step5">
                 <div className="step5-container step-container">
                    <div className="step-region">
                            <div className="step-container stepfive-bg"></div>

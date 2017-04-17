@@ -18,9 +18,9 @@ class stepThree extends React.Component {
         
         this.state={
             name:"",
-            code:"",
-            bankcode:"",
-            iphone:"",
+            identity:"",
+            cardNo:"",
+            mobile:"",
             isShow:""
         }
     }
@@ -32,17 +32,10 @@ class stepThree extends React.Component {
             ];
         for(var i=0; i<regStrs.length; i++){
                 var reg = new RegExp(regStrs[i][0]);
-                newState.code = newState.code&&newState.code.replace(reg, regStrs[i][1]);
+                newState.identity = newState.identity&&newState.identity.replace(reg, regStrs[i][1]);
             }
-        newState.bankcode=newState.bankcode&&newState.bankcode.replace(/\D/g, "")
-
+        newState.cardNo=newState.cardNo&&newState.cardNo.replace(/\D/g, "")
         this.setState(newState)
-        
-        
-        // this.setState({
-        //     bankcode:this.state.bankcode.replace(/\D/g, "")
-        //    // code:values
-        // })
     }
     componentDidMount(){
     }
@@ -53,13 +46,13 @@ class stepThree extends React.Component {
             
         if(!this.state.name){
             Msg="姓名不能为空"
-        }else if(!this.state.code){
+        }else if(!this.state.identity){
             Msg="身份证号码不能为空"
-        }else if(!this.state.bankcode){
+        }else if(!this.state.cardNo){
             Msg="银行卡号码不能为空"
-        }else if(!this.state.iphone){
+        }else if(!this.state.mobile){
             Msg="银行卡预留手机号码不能为空"
-        }else if(!phonereg.test(this.state.iphone)){
+        }else if(!phonereg.test(this.state.mobile)){
             Msg="手机号码必须是11位数字"
         }else{
             this.props.checkInfo(newState)
@@ -71,15 +64,17 @@ class stepThree extends React.Component {
         if(data.type==true){
             this.props.comfirmCode(data.code)
         }
+        else{
+            this.setState({
+                isShow:""
+            })
+        }
         
-        // this.setState({
-        //     isShow:""
-        // })
     }
     render() {
         let {mobile,type} = this.props;
         return (
-            <Page id="safety-grade-view">
+            <Page id="safety-grade-view" title="自主解封-Step3">
                 <div className="step3-container step-container">
                    <div className="step-region">
                            <div className="step-container stepthree-bg"></div>
@@ -92,15 +87,15 @@ class stepThree extends React.Component {
                         </div>
                         <div className="idCard-div">
                             <span  className="title f-c">身份证号码：</span>
-                            <input className="code" type="text" value={this.state.code} onChange={this.handleChange.bind(this,'code')}/>
+                            <input className="code identity" type="text" value={this.state.identity} onChange={this.handleChange.bind(this,'identity')}/>
                         </div>
                         <div className="blank-div">
                             <span  className="title f-c">银行卡号码：</span>
-                            <input className="bankcode" type="text" value={this.state.bankcode} onChange={this.handleChange.bind(this,'bankcode')}/>
+                            <input className=" bankcode cardNo" type="text" value={this.state.cardNo} onChange={this.handleChange.bind(this,'cardNo')}/>
                         </div>
                         <div className="blank-phone-div">
                             <span  className="title f-c">银行卡预留手机号码：</span>
-                            <input className="iphone" type="text"   value={this.state.iphone} onChange={this.handleChange.bind(this,'iphone')}/>
+                            <input className="iphone mobile" type="text"   value={this.state.mobile} onChange={this.handleChange.bind(this,'mobile')}/>
                         </div>
                         <button className="deblocking-btnNext" onTouchTap={()=>this.goStepFour()}  >下一步</button>
                     </div>

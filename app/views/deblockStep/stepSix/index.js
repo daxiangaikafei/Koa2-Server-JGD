@@ -22,7 +22,7 @@ class stepSix extends React.Component {
     
     render() {
         return (
-            <Page id="safety-grade-view">
+            <Page id="safety-grade-view" title="自主解封-Step6">
                 <div className="step6-container step-container">
                    <div className="step-region">
                            <div className="step-container stepsix-bg"></div>

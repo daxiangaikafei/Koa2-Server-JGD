@@ -21,9 +21,6 @@ export default function update (state = initialState, action){
                 ...state,
                 nextDisabled:action.data.nextDisabled
             }
-        case ActionTypes.COMFIRM_CODE:
-            let  step=setNum(action.data.status)||'stepThree'
-            navigate.push(step)
         default:
             return state
     }

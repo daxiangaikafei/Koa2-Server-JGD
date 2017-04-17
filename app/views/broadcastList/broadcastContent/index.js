@@ -27,7 +27,7 @@ class BroadcastContent extends React.Component {
         let { broadcastData } = this.props
 
         return (
-            <Page id="broadcast-content-view">
+            <Page id="broadcast-content-view"  title="安全播报">>
                 <div className="broadcast-content-container">
                     <div className="broadcast-title">{broadcastData.title}</div>
                     <div className="broadcast-date">{broadcastData ? "发布日期："+broadcastData.modifyTime : "" }</div>

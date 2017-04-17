@@ -60,6 +60,7 @@ class stepFour extends React.Component {
                 ops.withdrawalsMoney=this.state.value2;
             }
             this.props.moneyVerification(ops);
+            console.log(ops)
         }
         else{
             this.state.mibao&&this.props.securityVerification(this.state.mibao);
@@ -70,7 +71,7 @@ class stepFour extends React.Component {
         let {select1, select2,value1,value2,mibao}=this.state
         let {securityQuestionStr,securityListDisplay,nextDisabled,securitySelectDisplay} =this.props;
         return (
-            <Page id="safety-grade-view">
+            <Page id="safety-grade-view" title="自主解封-Step4">
                 <div className="step4-container step-container">
                    <div className="step-region">
                            <div className="step-container stepfour-bg"></div>

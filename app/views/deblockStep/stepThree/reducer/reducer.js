@@ -12,10 +12,12 @@ const initialState = {
 export default function update (state = initialState, action){
     switch(action.type){
         case ActionTypes.FOUR_CHECK:
-            return {
-                mobile:action.data.mobile,
-                type:"deblocking"
-            }
+         if(action.data.code == "1001"){
+                       return {
+                        mobile:action.data.mobile,
+                        type:"deblocking"
+                    }
+                }
         default:
             return state
     }
