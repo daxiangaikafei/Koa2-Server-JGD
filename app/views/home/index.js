@@ -84,7 +84,7 @@ class Home extends React.Component {
                 </div>
                 { showHelp ? (<HomeHelpView onClickHandler={()=>this.onHideHelpComponent()} />) : ""}
                 { showClose ? <CloseComponent onClickHandler={(type)=>this.onHideCloseComponent(type)} /> : ""}
-                { showNewest ? <NewestBroadCast data={newest} onClickHandler={()=>console.log(11111)} /> : ""}
+                { showNewest ? <NewestBroadCast data={newest} onClickHandler={(id)=>this.onBroadCastHandler(id)} /> : ""}
             </Page>
         )
     }
