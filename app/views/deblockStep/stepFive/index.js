@@ -8,30 +8,43 @@ import { connect } from 'react-redux'
 import Page from '../../../components/page'
 import './index.scss'
 import '../common.scss'
-import { getFiveData } from './reducer/actions'
+import { getFiveData ,payMoney} from './reducer/actions'
+import  PayMemberPw  from '../../../components/ui/PayMemberPw'
+import * as helpAction from '../../../redux/common/helpAction'
 
 class stepFive extends React.Component {
     constructor(){
         super();
         this.state = {
-            selectIndex:0
+            selectPkgId:0,
+            showPW:false
         }
         this.handlerChange = this.handlerChange.bind(this);
     }
     componentDidMount(){
         this.props.getFiveData();
     }
-    handlerChange(index){   
+    handlerChange(index){ 
+        let {content} = this.props;
+        
         this.setState({
-            selectIndex:index
+            selectPkgId:index,
+            showPW: true
         })
     }
-
     
+    passwordChange(e){
+        this.setState({
+            showPW:false
+        })
+        if(e.type==true){
+            this.props.payMoney(helpAction.encodePassword(e.value));
+        }
+    }
     render() {
         let {content} = this.props;
 
-        let {selectIndex} = this.state;
+        let {selectPkgId,showPW} = this.state;
         return (
             <Page id="safety-grade-view">
                 <div className="step5-container step-container">
@@ -46,7 +59,8 @@ class stepFive extends React.Component {
                                 {
                                     content&&content.map( (item, index)=> {
                                         return (
-                                        <div className={"package-item "+(selectIndex===index?"selected ":"")}  key={index} onClick={()=>this.handlerChange(index)}  id={'list_'+index}>
+                                        <div className={"package-item "+(selectPkgId ===item.pkgId?"selected ":"")}  
+                                                key={item.pkgId} onClick={()=>this.handlerChange(item.pkgId)}  >
                                                <div className="icon"></div>
                                                  <div className="txt-div">
                                                     <div className="title">{item.name}</div>
@@ -61,6 +75,7 @@ class stepFive extends React.Component {
                         </div>
                     
                 </div>
+                {showPW ? <PayMemberPw data={content.find((obj)=>obj.pkgId == selectPkgId)} onClickHandler={(e)=>this.passwordChange(e)} /> : ""}
             </Page>
         )
     }
@@ -73,7 +88,7 @@ let mapStateToProps = state => ({
 })
 
 let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ getFiveData } , dispatch)
+    return bindActionCreators({ getFiveData ,payMoney} , dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(stepFive)

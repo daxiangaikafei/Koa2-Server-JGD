@@ -17,7 +17,6 @@ export default function update (state = initialState, action){
                 phoneTxt:action.data.mobile,
             }
         case ActionTypes.GET_MSG:
-        alert(action.data.nextDisabled)
             return {
                 ...state,
                 nextDisabled:action.data.nextDisabled

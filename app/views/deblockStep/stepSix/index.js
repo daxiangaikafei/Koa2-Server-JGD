@@ -9,6 +9,7 @@ import Page from '../../../components/page'
 import './index.scss'
 import '../common.scss'
 import { getSafetyGradeData } from './reducer/actions'
+import * as helpAction from '../../../redux/common/helpAction'
 
 class stepSix extends React.Component {
     
@@ -33,7 +34,7 @@ class stepSix extends React.Component {
                             <div className="blue">恭喜您！ </div>
                         </div>
                         <div className="desc">您的账户已解封<br />请前往登录</div>
-                        <button className="deblocking-btnNext">前往登录</button>
+                        <button className="deblocking-btnNext" onTouchTap={()=>helpAction.goLogin()}>前往登录</button>
                     </div>
                  </div>
             </Page>

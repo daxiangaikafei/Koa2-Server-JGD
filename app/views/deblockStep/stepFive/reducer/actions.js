@@ -3,6 +3,7 @@
  */
 import * as ActionTypes from '../../../main/reducer/ActionTypes'
 import * as helpAction from '../../../../redux/common/helpAction'
+import navigate  from '../../../../router/navigate'
 
 
 const receiveData = data => ({
@@ -15,5 +16,16 @@ export const getFiveData = () => dispatch => {
     dispatch(helpAction.fetchPosts(url, url, {})).then((data)=>{
         console.log(data)
             dispatch(receiveData(data));
+    })
+}
+
+const payData = data => ({
+    type : ActionTypes.PAY_MONEY,
+    data : data
+})
+export const payMoney = (id) => dispatch => {
+    let url = "userDeblocking/pay"
+    dispatch(helpAction.fetchPosts(url, url, {pkgId:id})).then((data)=>{
+        navigate.push("stepSix")
     })
 }
