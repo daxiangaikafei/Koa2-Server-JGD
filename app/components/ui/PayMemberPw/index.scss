@@ -1,0 +1,90 @@
+.password-alert{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: rgba(0,0,0,0.5);
+
+  .alert-password-container{
+    width: 90%;
+    top: 12%;
+    left: 5%;
+    position: fixed;
+    border-radius: 0.25rem;
+    background-color: #ffffff;
+    font-size: 0.7rem;
+    color: #35353f;
+  }
+
+  .alert-title{
+    width: 100%;
+    height: 2.25rem;
+    line-height: 2.25rem;
+    font-size: 0.85rem;
+    border-bottom: 0.05rem solid #efefef;
+    text-align: center;
+  }
+
+  .alert-content{
+    padding: 1rem;
+
+    .alert-password-title{
+      line-height: 1rem;
+    }
+  }
+
+  .alert-input-div{
+    height: 1.5rem;
+    margin-top: 1rem;
+
+    >div{
+      float: left;
+      height: 100%;
+      line-height: 1.5rem;
+    }
+
+    .password-input{
+      width: calc(100% - 4rem);
+      height: 100%;
+      vertical-align: middle;
+      outline: none;
+      border-radius: 0.25rem;
+      background-color: #ededed;
+      border: 0;
+    }
+  }
+
+  .alert-button-div{
+      padding: 0;
+
+      .alert-button-no{
+        float: left;
+        color: #3692fd;
+        background-color: #ffffff;
+      }
+
+      .alert-button-yes{
+        float: right;
+        color: #ffffff;
+        background-color: #3692fd;
+      }
+
+      button{
+        width: 48%;
+        height: 1.75rem;
+        line-height: 1.75rem;
+        border-radius: 1.75rem;
+      }
+    }
+
+  .errorMsg{
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.6rem;
+    color: #ff0000;
+    text-align: center;
+  }
+}
