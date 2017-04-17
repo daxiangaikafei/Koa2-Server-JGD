@@ -12,7 +12,6 @@ const Page = React.createClass({
     render(){
         return (
             <div className='ui-view-transitioning lt-ui-page' id={this.props.id}>
-            {/*<div id={this.props.id}>*/}
                 {this.props.children}
             </div>
         );

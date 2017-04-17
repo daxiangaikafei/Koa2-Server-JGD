@@ -16,19 +16,20 @@ const PageCSSTransition = React.createClass({
 
     _wrapChild(child){
         return (
-            <PageCSSTransitionChild
-                transitionName={this.props.transitionName}
-                transitionEnterTimeout={this.props.transitionEnterTimeout}
-                transitionLeaveTimeout={this.props.transitionLeaveTimeout}>
-                {child}
-            </PageCSSTransitionChild>
-        );
+            <div>{child}</div>
+            // {/*<PageCSSTransitionChild
+            //     transitionName={this.props.transitionName}
+            //     transitionEnterTimeout={this.props.transitionEnterTimeout}
+            //     transitionLeaveTimeout={this.props.transitionLeaveTimeout}>
+            //     {child}
+            // </PageCSSTransitionChild>*/}
+        )
     },
 
     render(){
         return (
             <ReactTransitionGroup {...this.props} childFactory={this._wrapChild} />
-        );
+        )
     }
 });
 

@@ -62,8 +62,7 @@ class Home extends React.Component {
     onBroadCastHandler(id){
         this.props.onCloseBroadCast()
         if(id){
-            console.log(id)
-            // navigate.push(RouterConst.)
+            navigate.push(RouterConst.ROUTER_BROADCAST_INFO + id)
         }
     }
     

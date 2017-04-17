@@ -31,6 +31,8 @@ const StepFive= cb => require.ensure([], require => { cb(null, require('../views
 const StepSix= cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepSix').default)}, "stepSix")
 
 const BroadCast= cb => require.ensure([], require => { cb(null, require('../views/broadcastList').default)}, "broadcast")
+/**安全播报详情 */
+const BroadCastInfo = cb => require.ensure([], require => { cb(null, require('../views/broadcastList/broadcastContent').default)}, "broadcastContent")
 
 const TradeRights = cb => require.ensure([], require => { cb(null, require('../views/tradeRights').default)}, "tradeRights")
 const FrozenAccount = cb => require.ensure([], require => { cb(null, require('../views/frozen').default)}, "frozenAccount")
@@ -121,6 +123,10 @@ const Routers = {
 		{
 			path: RouterConst.ROUTER_BROADCAST,
 			getComponent(nextState, cb){ BroadCast(cb) }
+		},
+		{
+			path: RouterConst.ROUTER_BROADCAST_INFO + ':bid',
+			getComponent(nextState, cb){ BroadCastInfo(cb) }
 		},
 		{
 			path: RouterConst.ROUTER_TRADE_RIGHTS,

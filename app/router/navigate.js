@@ -12,7 +12,7 @@ let navigate = {
     history: null,
     install(history){
         this.history = history;
-        history.listen(listenerFn);
+        // history.listen(listenerFn);
     },
 
     /**
@@ -29,15 +29,16 @@ let navigate = {
         this.history.replace({pathname:path, state:obj});
     },
 
-    goBack(){
+    goBack(index){
         Modal.clear()
-        histories.pop();
-        let location = histories.pop();
-        if(location){
-            let type = 'back',
-                path = location.pathname;
-            this.push(path, {type:type});
-        }
+        this.history.go(index || -1)
+        // histories.pop();
+        // let location = histories.pop();
+        // if(location){
+        //     let type = 'back',
+        //         path = location.pathname;
+        //     this.push(path, {type:type});
+        // }
     }
 };
 

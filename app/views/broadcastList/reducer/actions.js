@@ -14,3 +14,20 @@ export const getBroadcastList = (pagenum) => dispatch => {
     dispatch(helpAction.fetchPosts(url, url, {pageNum:pagenum})).then((data)=>dispatch(receiveData(data)))
 }
 
+export const resetLastPage = () => dispatch => {
+    dispatch({
+        type : ActionTypes.RESET_BROADCAST_LAST_PAGE,
+    })
+}
+
+
+let receiveInfoDate = data => ({
+    type : ActionTypes.BROAD_INFO,
+    data : data
+})
+
+/**获取安全播报详细内容 */
+export const getBroadcastInfo = (bid) => dispatch => {
+    let url = "announce/detail"
+    dispatch(helpAction.fetchPosts(url, url, {announceId:bid})).then((data)=>dispatch(receiveInfoDate(data)))
+}

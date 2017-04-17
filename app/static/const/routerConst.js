@@ -38,6 +38,10 @@ export const ROUTER_STEP_FIVE = '/stepFive'
 export const ROUTER_STEP_SIX = '/stepSix'
 /**安全播报 */
 export const ROUTER_BROADCAST = '/broadcast'
+
+/**安全播报详情 */
+export const ROUTER_BROADCAST_INFO = "/broadcastContent/"
+
 /**交易维权 */
 export const ROUTER_TRADE_RIGHTS = '/tradeRights'
 /**冻结账号填写 */

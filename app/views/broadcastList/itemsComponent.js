@@ -3,12 +3,20 @@
  */
 
 import React, { PropTypes } from 'react'
-import classNames from 'classnames'
+
+import navigate from '../../router/navigate'
+import {RouterConst} from '../../static/const'
 
 import './index.scss'
 
 class ItemsComponent extends React.Component {
     
+    onItemClickHandler(id){
+        // navigate.push(RouterConst.ROUTER_BROADCAST_INFO+id)
+        var href = window.location.href.substring(0, window.location.href.lastIndexOf("/"))
+        window.open("newtab:" + href + RouterConst.ROUTER_BROADCAST_INFO + id, "_blank");
+    }
+
     render() {
         let announceData = this.props.announceData;
         return (
@@ -16,7 +24,7 @@ class ItemsComponent extends React.Component {
                 <div className="broadcast-list">
                     {
                         //style="background:url({icon}) no-repeat center;background-size:100%"   
-                        announceData&&announceData.map(function (e, index) {
+                        announceData&&announceData.map((e, index) => {
                             return (
 
                                 <div className="broadcast-item" data-bid="100006" key={index}>
@@ -28,7 +36,7 @@ class ItemsComponent extends React.Component {
                                         <div className={"title " + (e.isTop) }>{e.title}</div>
                                         <div className="bottom-div">
                                             <span className="date-txt">{e.date}</span>
-                                            <button className="btn-read">阅读全文</button>
+                                            <button className="btn-read" onTouchTap={()=>this.onItemClickHandler(e.id)}>阅读全文</button>
                                         </div>
                                     </div>
                                     <div className={"right-top-icon " + (e.broadcastClass)}></div>
@@ -37,7 +45,6 @@ class ItemsComponent extends React.Component {
                         })
                     }
                 </div>
-                <div className="loading-tip-more">加载更多...</div>
             </div>
 
         )

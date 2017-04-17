@@ -7,8 +7,14 @@ import * as helpAction from '../../../redux/common/helpAction'
 
 const initialState = {
     lastPage: 0,
-    pageNum: 0,
     announceData: [],
+
+    //安全播报详情
+    broadcastData: {
+        title: "",
+        modifyTime: "",
+        content: ""
+    },
 }
 
 let initPackage = (state, data) => {
@@ -16,7 +22,7 @@ let initPackage = (state, data) => {
         ...state,
         lastPage: data.lastPage,
         pageNum: data.pageNum,
-        announceData: formatData(data.announceData || [])
+        announceData: state.announceData.concat(formatData(data.announceData || []))
     }
 }
 let formatData = (data) => {
@@ -37,6 +43,17 @@ export default function update (state = initialState, action){
     switch(action.type){
         case ActionTypes.BROAD_LIST:
             return initPackage(state, action.data)
+        case ActionTypes.RESET_BROADCAST_LAST_PAGE:
+            return {
+                ...state,
+                lastPage: 0,
+                announceData: [],
+            }
+        case ActionTypes.BROAD_INFO:
+            return {
+                ...state,
+                broadcastData: action.data
+            }
         default:
             return state
     }
