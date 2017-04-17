@@ -74,7 +74,7 @@ class Home extends React.Component {
             isOpen: isOpen
         }
         return (
-            <Page id="home-page">
+            <Page id="home-page" title="首页">
                 <div className="home-container">
                     <HomeTopView 
                         onBnCloseHandler={()=>this.onShowCloseComponent()}

@@ -79,7 +79,7 @@ class PayFine extends React.Component {
     render() {
         let {isShow, bnDisabled, bbAmt, bqAmt, moneyDesc} = this.getPayData()
         return (
-            <Page id="pay-fine-view">
+            <Page id="pay-fine-view" title="违规罚金">
                 {
                     isShow ? 
                         <div className="pay-fine-container">

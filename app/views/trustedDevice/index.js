@@ -74,7 +74,7 @@ class TruestedDevice extends React.Component {
         let { isShowMessageCode } = this.state
         let { mobile } = this.props
         return (
-            <Page id="trusted-device-view">
+            <Page id="trusted-device-view" title="可信设备">
                 <div className="trusted-device-container">
                     <div className="title-txt f-t">可信设备列表</div>
                     {this.getShowComponent()}

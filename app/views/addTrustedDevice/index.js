@@ -76,7 +76,7 @@ class AddTrustedDevice extends React.Component {
         let { mobile, deviceList } = this.props
         let list = deviceList.filter((obj)=>obj.bind==false)
         return (
-            <Page id="trusted-device-view">
+            <Page id="trusted-device-view" title="添加可信设备">
                 <div className="add-trusted-device-container">
                     <div className="add-title-txt f-t">请选择下列常用设备为可信设备：</div>
                     {

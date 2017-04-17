@@ -26,7 +26,7 @@ class FrozenWayChoice extends React.Component {
 
     render() {
         return (
-            <Page id="frozen-way-choice-view">
+            <Page id="frozen-way-choice-view" title="冻结账号">
                 <div className="frozen-way-choice-container">
                     <TabItemArrow title="通过绑定的手机号冻结" onClickHandler={() => this.onClickHandler("phone")} />
                     <TabItemArrow title="通过绑定的银行卡冻结" onClickHandler={() => this.onClickHandler("bank")} />

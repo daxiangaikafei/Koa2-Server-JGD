@@ -6,12 +6,15 @@
 
 import React from 'react'
 
+import DocumentTitle  from 'react-document-title'
+
 import './index.scss'
 
 const Page = React.createClass({
     render(){
         return (
             <div className='ui-view-transitioning lt-ui-page' id={this.props.id}>
+                <DocumentTitle title={this.props.title} />
                 {this.props.children}
             </div>
         );

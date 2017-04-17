@@ -72,7 +72,7 @@ class RiskCenter extends React.Component {
         let { mobile, risks } = this.props
 
         return (
-            <Page id="user-center-view">
+            <Page id="user-center-view" title="风险中心">
                 <div className="risk-scroll-div">
                     <div className="risk-view-container">
                         <TabItemArrow title="风险短信提醒" direction={isShow ? CommonConst.ARROW_DIRECTION_UP : CommonConst.ARROW_DIRECTION_DOWN} onClickHandler={() => this.onRiskTabHandler()} />

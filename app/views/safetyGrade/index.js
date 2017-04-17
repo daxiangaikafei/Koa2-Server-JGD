@@ -22,7 +22,7 @@ class SafeGrade extends React.Component {
     render() {
         let {openStatus,content,safetyLevel} = this.props;
         return (
-            <Page id="safety-grade-view">
+            <Page id="safety-grade-view" title="安全等级">
                 <div className="safetyGrade-container ">
                     <div className={"safetyGrade-top-div "  +(openStatus==1? "close" : " open")}>
                         <div className="safetyGrade-bg"></div>

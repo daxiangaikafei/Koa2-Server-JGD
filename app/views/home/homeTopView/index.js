@@ -5,8 +5,6 @@ import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { addAnimationGrade } from '../reducer/actions'
-
 import * as lev from '../../main/reducer/userConst'
 import navigate  from '../../../router/navigate'
 import classNames from 'classnames'
@@ -21,14 +19,14 @@ class HomeTopView extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            securityGrade: 1
+            animationGrade: 1
         }
     }
 
     //提高等级按钮事件
     onBnUpgradeHandler(){
         let {securityGrade} = this.props
-        if(securityGrade <lev.MaxLevel){
+        if(securityGrade < lev.MaxLevel){
             navigate.push(RouterConst.ROUTER_SAFETY_GRADE)
         }
     }
@@ -39,16 +37,16 @@ class HomeTopView extends React.Component{
     }
 
     componentDidMount(){
-        this.setState({securityGrade: 1})
+        this.setState({animationGrade: 1})
     }
 
-    componentWillReceiveProps(nextProps){
-        this.setState({securityGrade: nextProps.securityGrade})
+    addAnimationGrade(val){
+        this.setState({animationGrade: val})
     }
 
     render(){
-        let { securityGrade } = this.state
-        let { animationGrade, isOpen, addAnimationGrade } = this.props
+        let { animationGrade } = this.state
+        let { securityGrade, isOpen } = this.props
         let colorObj = HomeConst.ColorLevel[securityGrade-1], isMaxLevel = securityGrade >= lev.MaxLevel
         
         let marks, index, list=[];
@@ -63,7 +61,7 @@ class HomeTopView extends React.Component{
         //没有达到当前等级执行动画
         if(animationGrade < securityGrade){
             let animationTime = securityGrade > 1 ? 1000 / securityGrade : 0
-            setTimeout(()=>addAnimationGrade(), animationTime)
+            setTimeout(()=>this.addAnimationGrade(animationGrade+1), animationTime)
         }
 
         return(
@@ -98,22 +96,19 @@ class HomeTopView extends React.Component{
 
 HomeTopView.propTypes = {
     securityGrade: PropTypes.number.isRequired,
-    animationGrade: PropTypes.number.isRequired,
     isOpen: PropTypes.number.isRequired,
     
     onBnCloseHandler: PropTypes.func,
     onBnHelpHandler: PropTypes.func,
-    addAnimationGrade: PropTypes.func.isRequired
 }
 
 let mapStateToProps = state => ({
     securityGrade: state.userReducer.securityGrade,
     isOpen: state.userReducer.status,
-    animationGrade: state.homeReducer.animationGrade,
 }) 
 
 let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ addAnimationGrade } , dispatch)
+    return bindActionCreators({ } , dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeTopView)

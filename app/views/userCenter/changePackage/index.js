@@ -67,7 +67,7 @@ class ChangePackage extends React.Component {
     render() {
         let { myPackage } = this.props
         return (
-            <Page id="change-package-view">
+            <Page id="change-package-view" title="修改套餐">
                 <div className="charge-package-container">
                     <div className="charge-package-title-div">您当前的套餐为</div>
                     <div className="charge-current-package-div">

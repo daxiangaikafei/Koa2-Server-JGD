@@ -33,7 +33,7 @@ class TradeRights extends React.Component {
         let { list } = this.state
 
         return(
-            <Page id="trade-rights-view">
+            <Page id="trade-rights-view" title="交易维权">
                 <div className="trade-rights-container">
                     <div className="trade-rights-list">
                         {

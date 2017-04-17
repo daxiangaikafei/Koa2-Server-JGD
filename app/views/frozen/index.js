@@ -50,7 +50,7 @@ class FrozenAccount extends React.Component {
     render() {
         let { accountName, bnDisabled} = this.state
         return (
-            <Page id="frozen-account-view">
+            <Page id="frozen-account-view" title="冻结账号">
                <div className="frozenAccount-container">
                     <div className="frozen-icon"></div>
                     <div className="frozen-tip">发现账号被盗，您可以立即冻结钱宝账号，以防不法分子窃取您账号资产或者损害您其他利益。</div>

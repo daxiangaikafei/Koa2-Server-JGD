@@ -61,7 +61,7 @@ class MyShield extends React.Component {
         let { selectTab, useClasuseIsShow } = this.state
 
         return (
-            <Page id="my-shield-view">
+            <Page id="my-shield-view" title="我的金戈盾">
                 <ShieldHeader onBtnViewClasuseHander={()=>this.onBtnViewClasuseHander()} />
                 <div className="shield-tab-div">
                     <div className={"shield-tab-item " + (selectTab == MyShieldConst.TAB_RENEW ? "selected" : "")} onTouchTap={()=>this.onTabHandler(MyShieldConst.TAB_RENEW)}><span>续签服务</span></div>

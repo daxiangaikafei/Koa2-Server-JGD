@@ -33,7 +33,7 @@ class UserCenter extends React.Component {
         let { myPackage } = this.props
 
         return (
-            <Page id="user-center-view">
+            <Page id="user-center-view" title="我的安全中心">
                 <div className="user-center-content">
                     <div className="user-center-item" onTouchTap={()=>this.onItemHandler(RouterConst.ROUTER_CHANGE_PACKAGE)}>
                         <div className="title">当前套餐为({ myPackage.name })</div>

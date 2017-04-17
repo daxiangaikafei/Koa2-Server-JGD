@@ -55,7 +55,7 @@ class MyFooter extends React.Component {
         let items = listData.map((obj, index)=><MyFooterDateItem key={index} data={obj} onClickHandler={(val)=>this.onItemHandler(val)} />)
 
         return(
-            <Page id="my-footer-view">
+            <Page id="my-footer-view" title="我的足迹">
                 <div className="my-footer-container">
                     <TabItemArrow title='安全画像' onClickHandler={()=>this.onSafeHeadHandler()} />
 

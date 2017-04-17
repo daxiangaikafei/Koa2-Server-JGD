@@ -38,7 +38,7 @@ class TruestedDeviceInfo extends React.Component {
                 infoItems.push(
                     <div className="device-info-item" key={index}>
                         <div className="device-info-date-div">
-                            <div className="date-icon"></div><span className="date-title">{key}</span>
+                            <div className="date-icon"></div><span className="date-title">{key=="tody" ? "今天" : key}</span>
                         </div>
                         <div className="device-place-list">{items}</div>
                     </div>
@@ -53,7 +53,7 @@ class TruestedDeviceInfo extends React.Component {
     render() {
         let {deviceInfoName} = this.props;
         return (
-            <Page id="trusted-device-info-view">
+            <Page id="trusted-device-info-view" title="查看登录记录">
                 <div className="trusted-device-info-container">
                     <div className="title-txt f-t">设备：<span className="device-name">{deviceInfoName}</span></div>
                     <div className="device-info-list">

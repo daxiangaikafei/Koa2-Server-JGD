@@ -32,7 +32,7 @@ class FrozenAccountType extends React.Component {
             component = <FrozenAccountBank />
         }
         return (
-            <Page id="frozen-account-type-view">
+            <Page id="frozen-account-type-view" title="冻结账号">
                 {component}
             </Page>
         )

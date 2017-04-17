@@ -76,7 +76,7 @@ class FrozenResult extends React.Component {
         let { frozenResultCss, frozenResultStr, frozenResultTip, btnName} = this.state
 
         return (
-            <Page id="frozen-account-result-view">
+            <Page id="frozen-account-result-view" title="冻结账号">
                 <div className={"frozen-result-container " + frozenResultCss}>
                     <div className="frozen-result-icon"></div>
                     <div className="frozen-result-div">

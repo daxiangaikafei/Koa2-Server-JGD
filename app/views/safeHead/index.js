@@ -62,7 +62,7 @@ class SafeHead extends React.Component {
         let component = this.getComponentByType(showType)
 
         return(
-            <Page id="safetyHead-view">
+            <Page id="safetyHead-view" title="安全画像">
                 <div className="safetyHead-container">
                     <div className="safetyHead-tab-div" onTouchTap={()=>this.onShowTabSelect()}>
                         <div className="tab-select-title">{SafeHeadConst.SAFE_HEAD_SELECT_TAB_LIST[showType]}</div><div className="tab-select-arror-icon"></div>
