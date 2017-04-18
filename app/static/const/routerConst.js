@@ -29,7 +29,7 @@ export const ROUTER_CHANGE_PACKAGE = ROUTER_ROOT + "/changePackage"
 /**我的金戈盾 */
 export const ROUTER_MY_SHIELD = ROUTER_ROOT + "/myShield"
 /**自助解封第一步 */
-export const ROUTER_STEP_ONE = ROUTER_ROOT + "/deblockStep1.html"
+export const ROUTER_STEP_ONE = ROUTER_ROOT + "/stepOne"
 /**自助解封第二步 */
 export const ROUTER_STEP_TWO = ROUTER_ROOT + "/stepTwo"
 /**自助解封第三步 */
