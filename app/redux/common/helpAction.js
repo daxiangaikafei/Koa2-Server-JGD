@@ -109,7 +109,7 @@ export function fetchPosts(key, url, param, type = "GET",headers={}, repType="js
 export function posts(key, url, param, type = "GET",headers={}, repType="json") {
     return (dispatch, getState) => {
         if(process.env.NODE_ENV == "production"){
-            url = "api/"+url;
+            url = window.location.origin + "/api/"+url;
         }else{
             url = "/json/"+url+".json";
             // url = "shield/api/"+url;

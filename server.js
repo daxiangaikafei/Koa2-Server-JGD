@@ -12,9 +12,7 @@ var deploy = args.indexOf('--deploy') > -1;
 var localPublicPath = 'http://' + HOST + ':' + PORT + '/';
 config.output.publicPath = localPublicPath;
 
-
-config.entry.app.unshift('webpack-dev-server/client?' + localPublicPath);
-
+config.entry.index.unshift('webpack-dev-server/client?' + localPublicPath);
 
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
