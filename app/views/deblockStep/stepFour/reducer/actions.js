@@ -30,7 +30,7 @@ export const getUserData = () => dispatch => {
 }
 export const securityVerification = (obj) => dispatch => {
     let url = "userDeblocking/securityVerification"
-    dispatch(helpAction.fetchPosts(url, url, obj)).then((data)=>{
+    dispatch(helpAction.fetchPosts(url, url, {answer:obj})).then((data)=>{
         var step =setNum(data.status) 
         navigate.push(step)
     })

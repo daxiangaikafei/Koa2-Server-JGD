@@ -37,13 +37,13 @@ class stepThree extends React.Component {
         newState.cardNo=newState.cardNo&&newState.cardNo.replace(/\D/g, "")
         this.setState(newState)
     }
-    componentDidMount(){
-    }
 
     goStepFour(){
         let Msg="";
         let phonereg=/^1\d{10}$/;
             
+        let {isShowAlert} = this.props;
+        console.log(isShowAlert,'22993939393')
         if(!this.state.name){
             Msg="姓名不能为空"
         }else if(!this.state.identity){
@@ -61,18 +61,19 @@ class stepThree extends React.Component {
         Msg&&Modal.alert({message: Msg})
     }
     handlerClick(data){
-        if(data.type==true){
-            this.props.comfirmCode(data.code)
-        }
-        else{
-            this.setState({
-                isShow:""
-            })
-        }
+        
+        // if(data.type==true&&this.props.type=="deblocking"){
+        //      this.props.comfirmCode(data.code)
+        // }
+        // else{
+        //     this.setState({
+        //         isShow:""
+        //     })
+        // }
         
     }
     render() {
-        let {mobile,type} = this.props;
+        let {mobile,type,isShowAlert} = this.props;
         return (
             <Page id="safety-grade-view" title="自主解封-Step3">
                 <div className="step3-container step-container">
@@ -100,7 +101,7 @@ class stepThree extends React.Component {
                         <button className="deblocking-btnNext" onTouchTap={()=>this.goStepFour()}  >下一步</button>
                     </div>
                 </div>
-                {this.state.isShow? <MessageCode  mobile={mobile} codeType={type} onClickHandler={(data)=>this.handlerClick(data)}  />:""}
+                {isShowAlert&&this.state.isShow? <MessageCode  mobile={mobile} codeType={type} onClickHandler={(data)=>this.handlerClick(data)}  />:""}
                
             </Page>
         )
@@ -108,12 +109,14 @@ class stepThree extends React.Component {
 }
 stepThree.propTypes = {
     mobile:PropTypes.string,
-    type : PropTypes.string
+    type : PropTypes.string,
+    isShowAlert : PropTypes.string
 }
 
 let mapStateToProps = state => ({
     mobile: state.stepThreeReducer.mobile,
-    type:state.stepThreeReducer.type
+    type:state.stepThreeReducer.type,
+    isShowAlert:state.stepThreeReducer.type
 })
 
 let mapDispatchToProps = (dispatch) => {
