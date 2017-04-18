@@ -23,7 +23,7 @@ let setNum=(obj)=>{
     return step;
 }
 //检查四要素信息
-export const checkInfo = (obj) => dispatch => {
+export const checkInfo = (obj,isShow) => dispatch => {
     let url = "userDeblocking/fourElementsVerification";
     dispatch(helpAction.fetchPosts(url, url, {
         name:obj.name,
@@ -31,7 +31,12 @@ export const checkInfo = (obj) => dispatch => {
         mobile:obj.mobile,
         cardNo:obj.cardNo
     })).then((data)=>{
+        if(data.code=="1001"){
             dispatch(receiveData(data));
+        }
+        else{
+            navigate.push(setNum(data.status ))
+        }
     })
 }
 
