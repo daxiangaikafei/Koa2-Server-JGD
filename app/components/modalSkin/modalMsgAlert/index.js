@@ -34,10 +34,10 @@ class ModalMsgAlertSkin extends React.Component {
     render() {
         let { title, message, buttonType, style} = this.props
         return (
-            <div className="jgd-msg-box" style={style}>
+            <div className="jgd-msg-box">
                 <div className="jgd-msg-box-bg">
                     <div className="jgd-msg-box-title">{title}</div>
-                    <div className="jgd-msg-box-content">{message}</div>
+                    <div className="jgd-msg-box-content" style={style}>{message}</div>
                     {
                         buttonType == ModalConst.OK ?
                             <div className="jgd-msg-box-button-container">
