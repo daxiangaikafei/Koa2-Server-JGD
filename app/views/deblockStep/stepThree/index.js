@@ -43,7 +43,6 @@ class stepThree extends React.Component {
         let phonereg=/^1\d{10}$/;
             
         let {isShowAlert} = this.props;
-        console.log(isShowAlert,'22993939393')
         if(!this.state.name){
             Msg="姓名不能为空"
         }else if(!this.state.identity){
@@ -62,14 +61,14 @@ class stepThree extends React.Component {
     }
     handlerClick(data){
         
-        // if(data.type==true&&this.props.type=="deblocking"){
-        //      this.props.comfirmCode(data.code)
-        // }
-        // else{
-        //     this.setState({
-        //         isShow:""
-        //     })
-        // }
+        if(data.type==true&&this.props.type=="deblocking"){
+             this.props.comfirmCode(data.code)
+        }
+        else{
+            this.setState({
+                isShow:""
+            })
+        }
         
     }
     render() {

@@ -8,17 +8,9 @@ import { connect } from 'react-redux'
 import Page from '../../../components/page'
 import './index.scss'
 import '../common.scss'
-import { getSafetyGradeData } from './reducer/actions'
 import * as helpAction from '../../../redux/common/helpAction'
 
 class stepSix extends React.Component {
-    
-    componentDidMount(){
-        this.props.getSafetyGradeData();
-    }
-
-    onOpenHandler(){
-    }
     
     render() {
         return (
@@ -41,22 +33,4 @@ class stepSix extends React.Component {
         )
     }
 }
-stepSix.propTypes = {
-    openStatus:PropTypes.number.isRequired,
-    safetyLevel : PropTypes.number.isRequired,
-    safetyTip : PropTypes.string.isRequired
-}
-
-let mapStateToProps = state => ({
-    openStatus:state.userReducer.status,
-    safetyLevel: state.userReducer.securityGrade,
-    safetyTip: state.safetyGrade.safetyTip,
-    content : state.safetyGrade.content,
-})
-
-let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ getSafetyGradeData } , dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(stepSix)
-// export default SafeGrade
+export default stepSix;

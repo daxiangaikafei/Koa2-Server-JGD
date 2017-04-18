@@ -24,7 +24,6 @@ export stepTwoReducer from '../views/deblockStep/stepTwo/reducer/reducer'
 export stepThreeReducer from '../views/deblockStep/stepThree/reducer/reducer'
 export stepFourReducer from '../views/deblockStep/stepFour/reducer/reducer'
 export stepFiveReducer from '../views/deblockStep/stepFive/reducer/reducer'
-// export deblockStepSix from '../views/deblockStep/stepSix/reducer/reducer'
 /**我的足迹 */
 export myFooterReducer from '../views/myFooter/reducer/reducer'
 
