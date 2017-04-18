@@ -63,7 +63,6 @@ class stepFour extends React.Component {
             console.log(ops)
         }
         else{
-            console.log(this.state.mibao,1111111111111111111111111)
             this.state.mibao&&this.props.securityVerification(this.state.mibao);
         }
     }

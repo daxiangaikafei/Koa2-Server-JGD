@@ -1,6 +1,6 @@
 {
     "data":{
-                "status": 2
+                "status": 1
         },
     "resultCode": 1,
     "message":"有效的用户"
