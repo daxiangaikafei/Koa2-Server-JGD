@@ -31,14 +31,13 @@ export const getUserData = () => dispatch => {
 export const securityVerification = (obj) => dispatch => {
     let url = "userDeblocking/securityVerification"
     dispatch(helpAction.fetchPosts(url, url, {answer:obj})).then((data)=>{
-        var step =setNum(data.status) 
-        navigate.push(step)
+       
+        navigate.push(setNum(data.status ))
     })
 }
 export const moneyVerification = (obj) => dispatch => {
     let url = "userDeblocking/moneyVerification"
     dispatch(helpAction.fetchPosts(url, url, obj)).then((data)=>{
-        var step =setNum(data.status) || 'stepFive';
-        navigate.push(step)
+        navigate.push(setNum(data.status ))
     })
 }

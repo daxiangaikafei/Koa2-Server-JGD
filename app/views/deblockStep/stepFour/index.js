@@ -47,6 +47,8 @@ class stepFour extends React.Component {
     }
 
     goFive(){
+        let {securityQuestionStr,securityListDisplay,nextDisabled,securitySelectDisplay} =this.props;
+        console.log(securitySelectDisplay,111111111111)
         if(this.props.securitySelectDisplay=="none"){
             let ops={}
             if(this.state.select1==2){
