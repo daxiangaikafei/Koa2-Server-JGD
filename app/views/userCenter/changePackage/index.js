@@ -23,6 +23,11 @@ class ChangePackage extends React.Component {
         super(props);
     }
 
+    componentDidMount(){
+        this.props.getMyPackage()
+    }
+    
+
     onBnChangeHandler(){
         let { nextPackage, selectPkgId, myPackage, pkgs, sendChangePackage, getMyPackage } = this.props
         let toPackage = pkgs.find((obj)=>obj.pkgId == selectPkgId)

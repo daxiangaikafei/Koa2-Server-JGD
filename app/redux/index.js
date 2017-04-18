@@ -3,7 +3,7 @@
  */
 'use strict'
 import { combineReducers, createStore, applyMiddleware , compose } from 'redux';
-import { browserHistory } from 'react-router'
+import { hashHistory } from 'react-router'
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux'
 
 import thunk from 'redux-thunk';
@@ -17,7 +17,7 @@ const reducer = combineReducers({
 
 
 // 创建一个中间件集合
-const routingMiddleware = routerMiddleware(browserHistory);
+const routingMiddleware = routerMiddleware(hashHistory);
 
 // 利用compose增强store，这个 store 与 applyMiddleware 和 redux-devtools 一起使用
 let store, middleware, enhancer;
@@ -45,6 +45,6 @@ if(process.env.NODE_ENV != "production"){
     store = createStore(reducer, enhancer);
 }
 
-const history = syncHistoryWithStore(browserHistory, store);
+const history = syncHistoryWithStore(hashHistory, store);
 
 export {store, history}

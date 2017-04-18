@@ -31,7 +31,8 @@ export const getUserData = () => dispatch => {
 export const securityVerification = (obj) => dispatch => {
     let url = "userDeblocking/securityVerification"
     dispatch(helpAction.fetchPosts(url, url, {answer:obj})).then((data)=>{
-            navigate.push(setNum(data.status ))
+       
+        navigate.push(setNum(data.status ))
     })
 }
 export const moneyVerification = (obj) => dispatch => {

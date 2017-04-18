@@ -18,7 +18,10 @@ var __DEV__ = process.env.NODE_ENV !== 'npm install -g babel';
 var CACHE_PATH = ROOT_PATH + '/cache';
 var entry = {
   index: [
-      './index.js'
+      './jgd_index.js'
+  ],
+  deblockStep1:[
+    './deblock_index.js'
   ],
   vendor: ["react", "react-dom", 'react-redux', "redux", 'react-router', 'react-router-redux']
 }

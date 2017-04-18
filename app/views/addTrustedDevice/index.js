@@ -41,7 +41,7 @@ class AddTrustedDevice extends React.Component {
     }
 
     onBtnViewHandler(env_id){
-        navigate.push(RouterConst.ROUTER_TRUSTED_DEVICE_INFO+"devId=" + env_id);
+        navigate.push(RouterConst.ROUTER_TRUSTED_DEVICE_INFO + env_id);
     }
 
     onMessageCodeHandler(data){

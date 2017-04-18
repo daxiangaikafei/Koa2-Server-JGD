@@ -34,15 +34,6 @@ const FrozenAccountType = cb => require.ensure([], require => { cb(null, require
 const FrozenResult = cb => require.ensure([], require => { cb(null, require('../views/frozen/frozenResult').default)}, "frozenResult")
 const PayFine = cb => require.ensure([], require => { cb(null, require('../views/PayFine').default)}, "payFine")
 
-const StepOne = cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepOne').default)}, "stepOne")
-const StepTwo = cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepTwo').default)}, "stepTwo")
-const StepThree = cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepThree').default)}, "stepThree")
-const StepFour = cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepFour').default)}, "stepFour")
-const StepFive= cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepFive').default)}, "stepFive")
-const StepSix= cb => require.ensure([], require => { cb(null, require('../views/deblockStep/stepSix').default)}, "stepSix")
-
-
-
 const Routers = {
 	path: RouterConst.ROUTER_HOME,
 	getComponent(nextState, cb){ App(cb) },
@@ -50,10 +41,6 @@ const Routers = {
 		getComponent(nextState, cb){ Home(cb) }
 	},
 	childRoutes: [
-		{
-			path: RouterConst.ROUTER_HOME_HTML,
-			getComponent(nextState, cb){ Home(cb) }
-		},
 		{	
 			path: RouterConst.ROUTER_MYFOOTER,
 			getComponent(nextState, cb){ MyFooter(cb) }
@@ -133,32 +120,6 @@ const Routers = {
 		{
 			path: RouterConst.ROUTER_PAY_FINE,
 			getComponent(nextState, cb){ PayFine(cb) }
-		},
-
-		//自助解封
-		{
-			path: RouterConst.ROUTER_STEP_ONE,
-			getComponent(nextState, cb){ StepOne(cb) }
-		},
-		{
-			path: RouterConst.ROUTER_STEP_TWO,
-			getComponent(nextState, cb){ StepTwo(cb) }
-		},
-		{
-			path: RouterConst.ROUTER_STEP_THREE,
-			getComponent(nextState, cb){ StepThree(cb) }
-		},
-		{
-			path: RouterConst.ROUTER_STEP_FOUR,
-			getComponent(nextState, cb){ StepFour(cb) }
-		},
-		{
-			path: RouterConst.ROUTER_STEP_FIVE,
-			getComponent(nextState, cb){ StepFive(cb) }
-		},
-		{
-			path: RouterConst.ROUTER_STEP_SIX,
-			getComponent(nextState, cb){ StepSix(cb) }
 		},
 	]
 }

@@ -11,7 +11,7 @@ import { Router } from 'react-router'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 
 import { history, store} from './redux'
-import Routers from './router/Routers'
+import Routers from './router/deblock_Routers'
 import Navigate from './router/navigate'
 
 //app点击事件初始化
