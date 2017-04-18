@@ -9,12 +9,10 @@ var hot = args.indexOf('--hot') > -1;
 var deploy = args.indexOf('--deploy') > -1;
 
 // 本地环境静态资源路径
-var localPublicPath = 'http://' + HOST + ':' + PORT + '/';
+var localPublicPath = 'http://' + HOST + ':' + PORT + '/shield/';
 config.output.publicPath = localPublicPath;
 
-
-config.entry.app.unshift('webpack-dev-server/client?' + localPublicPath);
-
+config.entry.index.unshift('webpack-dev-server/client?' + localPublicPath);
 
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,

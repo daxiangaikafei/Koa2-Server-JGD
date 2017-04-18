@@ -10,15 +10,15 @@ var ROOT_PATH = path.resolve(__dirname, './');
 // 项目源码路径
 var SRC_PATH = ROOT_PATH + '/app';
 // 产出路径
-var DIST_PATH = ROOT_PATH + '/build';
+var DIST_PATH = ROOT_PATH + '/shield';
 // 是否是开发环境
 var __DEV__ = process.env.NODE_ENV !== 'npm install -g babel';
 
 //使用缓存
 var CACHE_PATH = ROOT_PATH + '/cache';
 var entry = {
-  app: [
-      './index.js' 
+  index: [
+      './index.js'
   ],
   vendor: ["react", "react-dom", 'react-redux', "redux", 'react-router', 'react-router-redux']
 }
@@ -54,18 +54,24 @@ plugins.push(
 )
 // html 页面
 var HtmlwebpackPlugin = require('html-webpack-plugin');
-plugins.push(
-  new HtmlwebpackPlugin({
-    hash:true,
-    filename: 'index.html',
-    chunks: ['app','vendor'],
-    template: SRC_PATH + '/index.html'
-  })
-);
+
+Object.keys(entry).forEach(function(name){
+  if(name != "vendor"){
+    plugins.push(
+      new HtmlwebpackPlugin({
+        hash:true,
+        filename: name + '.html',
+        // 自动将引用插入html
+        inject: 'html',
+        chunks: [name, 'vendor'],
+        template: SRC_PATH + '/index.html'
+      })
+    )
+  }
+})
 
 //css单独打包
 // plugins.push(new ExtractTextPlugin("./css/[name].min.css"))
-
 plugins.push(new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }));
 
 var config = {
@@ -74,7 +80,7 @@ var config = {
   entry: entry,
   output: {
     path: DIST_PATH,
-    filename: 'bundle.js',
+    filename: '[name].js',
     // 添加 chunkFilename
     chunkFilename: '[name].[chunkhash].chunk.js',
   },
@@ -85,7 +91,7 @@ var config = {
   devServer: {
       stats:{colors:true},
       hot: true,
-      contentBase: "build/",
+      contentBase: "shield/",
   },
   //其它解决方案配置
   resolve: {
@@ -105,11 +111,11 @@ if(process.env.NODE_ENV == 'production'){
       dry: false
     })
   )
-  config.plugins.push(new webpack.optimize.UglifyJsPlugin({
-    compressor: {
-      warnings: false
-    }
-  }))
+  // config.plugins.push(new webpack.optimize.UglifyJsPlugin({
+  //   compressor: {
+  //     warnings: false
+  //   }
+  // }))
 }else{
   
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
