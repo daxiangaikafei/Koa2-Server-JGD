@@ -1,9 +1,8 @@
-let ROUTER_ROOT = "/shield"
+let ROUTER_ROOT = ""
 
 
 /**首页 */
-export const ROUTER_HOME = ROUTER_ROOT
-export const ROUTER_HOME_HTML = ROUTER_ROOT + "/index.html"
+export const ROUTER_HOME = ROUTER_ROOT + "/"
 /**我的足迹 */
 export const ROUTER_MYFOOTER = ROUTER_ROOT + "/myFooter"
 /**我的足迹详情 */
@@ -29,7 +28,7 @@ export const ROUTER_CHANGE_PACKAGE = ROUTER_ROOT + "/changePackage"
 /**我的金戈盾 */
 export const ROUTER_MY_SHIELD = ROUTER_ROOT + "/myShield"
 /**自助解封第一步 */
-export const ROUTER_STEP_ONE = ROUTER_ROOT + "/deblockStep1.html"
+export const ROUTER_STEP_ONE = ROUTER_ROOT + "/"
 /**自助解封第二步 */
 export const ROUTER_STEP_TWO = ROUTER_ROOT + "/stepTwo"
 /**自助解封第三步 */
