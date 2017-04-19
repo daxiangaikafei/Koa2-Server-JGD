@@ -55,6 +55,16 @@ plugins.push(
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV || 'dev')
     })
 )
+
+
+//css单独打包
+// plugins.push(new ExtractTextPlugin("./css/[name].min.css"))
+plugins.push(new webpack.optimize.CommonsChunkPlugin({
+  name: 'vendor',
+  filename: 'vendor.bundle.js',
+  minChunks: 3
+}));
+
 // html 页面
 var HtmlwebpackPlugin = require('html-webpack-plugin');
 
@@ -66,16 +76,12 @@ Object.keys(entry).forEach(function(name){
         filename: name + '.html',
         // 自动将引用插入html
         inject: 'html',
-        chunks: [name, 'vendor'],
+        chunks: [name, "vendor"],
         template: SRC_PATH + '/index.html'
       })
     )
   }
 })
-
-//css单独打包
-// plugins.push(new ExtractTextPlugin("./css/[name].min.css"))
-plugins.push(new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }));
 
 var config = {
   devtool: 'source-map',
@@ -102,7 +108,7 @@ var config = {
     }
   }
 };
-
+console.log(process.env.NODE_ENV)
 if(process.env.NODE_ENV == 'production'){
   delete config.devServer
   delete config.devtool
@@ -114,11 +120,11 @@ if(process.env.NODE_ENV == 'production'){
       dry: false
     })
   )
-  // config.plugins.push(new webpack.optimize.UglifyJsPlugin({
-  //   compressor: {
-  //     warnings: false
-  //   }
-  // }))
+  config.plugins.push(new webpack.optimize.UglifyJsPlugin({
+    compressor: {
+      warnings: false
+    }
+  }))
 }else{
   
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
