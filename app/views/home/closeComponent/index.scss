@@ -6,7 +6,6 @@
   left: 0;
   z-index: 999;
   background-color: rgba(0,0,0,0.8);
-  padding-top: 40%;
 
   .alert-close-container{
     width: 84%;
@@ -14,6 +13,10 @@
     border-radius: 0.5rem;
     background-color: #ffffff;
     padding: 1rem;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     .error-icon{
       margin: 0 auto;
