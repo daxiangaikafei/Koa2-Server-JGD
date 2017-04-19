@@ -32,7 +32,7 @@ class RiskMessageItem extends React.Component {
             <div className="rick-item">
                 <div className="rick-item-title-div">
                     <span>{ title }</span>
-                    <ButtonSwitchIOS checked={status == 1 ? true : false} onChangeHandler={(e)=>{onSwitchHandler(code, e.target.checked)}} />
+                    <ButtonSwitchIOS checked={status == 1 ? true : false} onChangeHandler={(checked)=>{onSwitchHandler(code, checked)}} />
                 </div>
                 { selectList }
             </div>
