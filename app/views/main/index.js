@@ -4,8 +4,9 @@
  */
 
 import React from 'react'
-import PageCSSTransition from '../../components/animate/PageCSSTransition'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
+import './animate.scss'
 import './index.scss'
 
 class App extends React.Component {
@@ -17,9 +18,21 @@ class App extends React.Component {
     
     render(){
         return (
-            <PageCSSTransition transitionName="cover">
-                { React.cloneElement(this.props.children, { key: this.props.location.pathname }) }
-            </PageCSSTransition>
+            <div>
+                <ReactCSSTransitionGroup component='div'
+                transitionName={{
+                    enter: 'default-enter',
+                    enterActive: this.props.location.action == 'PUSH'?'fadeInRight':'enterIn',
+                    leave: 'default-leave',
+                    leaveActive: this.props.location.action == 'PUSH'?'':'fadeOutRight'
+                }}
+                style={{overflowY: 'scroll', height: '100%', position: 'absolute',top: 0,width:'100%' }}
+                transitionEnterTimeout={500}
+                transitionLeaveTimeout={500}
+                >
+                    { React.cloneElement(this.props.children, { key: this.props.location.pathname }) }
+                </ReactCSSTransitionGroup>
+            </div>
         );
     }
 }
